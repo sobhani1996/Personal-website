@@ -20,6 +20,7 @@ export default function About() {
     "Ad Creative (Canva & CapCut)",
     "Landing Page Optimisation",
     "Google Search Console",
+    "Microsoft Ads (Bing)",
     "LinkedIn Ads",
     "Campaign Reporting & Analytics"
   ];
@@ -58,7 +59,7 @@ export default function About() {
                   I'm a <strong>paid media specialist</strong> based in Portsmouth. I plan, build and manage <strong>Google Ads</strong> and <strong>Meta Ads</strong> (Facebook and Instagram) campaigns for small businesses, with one goal: turning ad budget into profitable customers.
                 </p>
                 <p>
-                  I've run Google Ads, Meta Ads and LinkedIn Ads campaigns for an online fashion shop and a B2B tech start-up, and I hold an MSc in Digital Marketing. My background in SEO, analytics and content means I also look at the things around your ads, like landing pages and tracking, that decide whether a click becomes a sale.
+                  Since February 2026 I've been Paid Media Specialist at <strong>Mud Pies</strong>, a UK online shop, where I've doubled sales from paid channels across Google Ads, Meta Ads and Microsoft Ads (Bing). Before that I ran Google Ads, Meta Ads and LinkedIn Ads campaigns for an online fashion shop and a B2B tech start-up, and I hold an MSc in Digital Marketing. My background in SEO, analytics and content means I also look at the things around your ads, like landing pages and tracking, that decide whether a click becomes a sale.
                 </p>
                 <p>
                   I work differently from most agencies: <strong>I set up your campaigns for free</strong>, and after launch my only fee is <strong>{COMMISSION_RANGE} of the conversion value</strong> the ads bring you. If your ads don't convert, I don't earn, so we always want the same thing.

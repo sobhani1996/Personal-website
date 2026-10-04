@@ -35,7 +35,7 @@ const included = [
 const reasons = [
   {
     title: "Proven in e-commerce",
-    text: "Google Ads, SEO and Instagram work that grew an online fashion shop's conversions by 500% and traffic by 300%.",
+    text: "Doubled paid-channel sales at Mud Pies, a UK online shop, with Google Ads, Meta Ads and Microsoft Ads. Earlier, grew an online fashion shop's conversions by 500%.",
   },
   {
     title: "Meta Ads that sell",

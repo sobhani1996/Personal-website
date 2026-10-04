@@ -124,13 +124,14 @@ export const PRICING_FAQ: FaqItem[] = [
 
 export const PROOF = [
   {
+    value: "2x",
+    label:
+      "Paid-channel sales at Mud Pies, a UK online shop, with Google, Meta and Microsoft Ads",
+  },
+  {
     value: "+500%",
     label:
       "Conversion growth for an online fashion shop, using Google Ads, SEO and Instagram",
-  },
-  {
-    value: "+300%",
-    label: "Website traffic increase for the same shop",
   },
   {
     value: "+15%",
@@ -138,7 +139,8 @@ export const PROOF = [
   },
   {
     value: "3+",
-    label: "Years running paid campaigns on Google, Meta and LinkedIn",
+    label:
+      "Years running paid campaigns on Google, Meta, Microsoft and LinkedIn",
   },
 ];
 

@@ -14,19 +14,27 @@ export default function Portfolio() {
     const tools = [
     { 
       name: "Google Ads",
-      company: "Aftabgardoon Shop", 
+      company: "Mud Pies & Aftabgardoon Shop", 
       icon: <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads" className="w-full h-full object-contain p-1.5" />,
       whatIDid: "Ran search campaigns targeting high-intent product keywords, researched terms, wrote ad copy, and set bids.",
-      impact: "Contributed to a 300% traffic increase and 500% growth in conversions by aligning ad messages with landing pages.",
+      impact: "Part of doubling paid-channel sales at Mud Pies. At Aftabgardoon, contributed to a 300% traffic increase and 500% growth in conversions by aligning ad messages with landing pages.",
       toolsUsed: "Search Campaigns, Keyword Targeting"
     },
     { 
       name: "Meta Ads",
-      company: "Aftabgardoon Shop", 
+      company: "Mud Pies & Aftabgardoon Shop", 
       icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128" alt="Meta" className="w-full h-full object-contain p-1" />,
       whatIDid: "Set up campaign targeting, wrote ad copy, and monitored performance for a winter seasonal push on Instagram.",
-      impact: "Resulted in a 15% sales increase compared to the previous year.",
+      impact: "Part of doubling paid-channel sales at Mud Pies. At Aftabgardoon, a winter campaign lifted sales 15% compared to the previous year.",
       toolsUsed: "Ads Manager, Pixel Setup"
+    },
+    { 
+      name: "Microsoft Ads",
+      company: "Mud Pies", 
+      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ads.microsoft.com&size=128" alt="Microsoft Advertising" className="w-full h-full object-contain p-1" />,
+      whatIDid: "Run Bing search campaigns alongside Google Ads to reach extra shoppers.",
+      impact: "Part of doubling sales from paid channels at Mud Pies.",
+      toolsUsed: "Microsoft Advertising (Bing Ads)"
     },
     { 
       name: "Google Analytics",
@@ -117,12 +125,12 @@ export default function Portfolio() {
           <div className="container max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
               <div className="p-8 text-center md:text-left">
-                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">500<span className="text-2xl">%</span></div>
-                <div className="text-sm text-muted-foreground font-medium">Conversion growth achieved (Aftabgardoon)</div>
+                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">2<span className="text-2xl">x</span></div>
+                <div className="text-sm text-muted-foreground font-medium">Paid-channel sales at Mud Pies (Google, Meta & Bing)</div>
               </div>
               <div className="p-8 text-center md:text-left">
-                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">300<span className="text-2xl">%</span></div>
-                <div className="text-sm text-muted-foreground font-medium">Website traffic increase via SEO & Ads</div>
+                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">500<span className="text-2xl">%</span></div>
+                <div className="text-sm text-muted-foreground font-medium">Conversion growth achieved (Aftabgardoon)</div>
               </div>
               <div className="p-8 text-center md:text-left">
                 <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">+15<span className="text-2xl">%</span></div>
@@ -193,6 +201,63 @@ export default function Portfolio() {
                   <span className="text-xs text-muted-foreground">Managed Jan-Aug 2025</span>
                 </div>
               </a>
+            </div>
+          </div>
+
+          {/* CASE STUDY: MUD PIES */}
+          <div className="bg-white rounded-[2rem] overflow-hidden soft-shadow border border-gray-100">
+            <div className="p-8 md:p-12 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start gap-6">
+              <div>
+                <div className="inline-block px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider mb-4">
+                  Google Ads · Meta Ads · Microsoft Ads (Bing)
+                </div>
+                <h3 className="text-3xl font-extrabold text-secondary mb-2">Mud Pies</h3>
+                <p className="text-muted-foreground">Paid Media Specialist · UK online shop</p>
+              </div>
+              <div className="px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-muted-foreground whitespace-nowrap">
+                Feb 2026 – Present
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 border-y border-gray-100 divide-x divide-gray-100">
+              <div className="p-6 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-1">2x</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Paid-Channel Sales</div>
+              </div>
+              <div className="p-6 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-1">3</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Ad Platforms</div>
+              </div>
+              <div className="p-6 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-1">8+</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Months</div>
+              </div>
+            </div>
+
+            <div className="p-8 md:p-12 grid md:grid-cols-2 gap-12">
+              <div>
+                <h4 className="text-sm font-bold text-primary uppercase tracking-wider mb-4 pb-2 border-b border-gray-100">The Role</h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Mud Pies is a UK online shop. Since February 2026 I've been their Paid Media Specialist, responsible for the paid channels that drive online sales.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-primary uppercase tracking-wider mb-4 pb-2 border-b border-gray-100">What I Do</h4>
+                <ul className="space-y-4 text-muted-foreground leading-relaxed">
+                  <li><strong className="text-secondary">Google Ads:</strong> Plan, run and optimise campaigns that reach shoppers searching on Google.</li>
+                  <li><strong className="text-secondary">Meta Ads:</strong> Manage Facebook and Instagram campaigns that bring new and returning customers to the shop.</li>
+                  <li><strong className="text-secondary">Microsoft Ads (Bing):</strong> Run search campaigns on Bing to reach extra buyers that Google alone misses.</li>
+                </ul>
+              </div>
+              <div className="md:col-span-2">
+                <h4 className="text-sm font-bold text-primary uppercase tracking-wider mb-4 pb-2 border-b border-gray-100">The Results</h4>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Sales from paid channels have doubled since I started, across Google Ads, Meta Ads and Microsoft Ads.
+                </p>
+                <a href="https://mudpies.co.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-bold text-primary hover:text-secondary transition-colors">
+                  Visit mudpies.co.uk <ArrowRight className="ml-1 w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 

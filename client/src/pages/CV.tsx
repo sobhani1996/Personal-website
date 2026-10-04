@@ -8,6 +8,20 @@ import { Link } from "wouter";
 export default function CV() {
   const experiences = [
     {
+      role: "Paid Media Specialist",
+      company: "Mud Pies (mudpies.co.uk)",
+      location: "UK",
+      period: "Feb 2026 - Present",
+      description: "Running the paid channels for a UK online shop across Google Ads, Meta Ads and Microsoft Ads (Bing).",
+      achievements: [
+        "Doubled sales from paid channels.",
+        "Plan, launch and optimise Google Ads campaigns for online sales.",
+        "Manage Meta Ads (Facebook and Instagram) campaigns for new and returning customers.",
+        "Run Microsoft Ads (Bing) search campaigns alongside Google Ads."
+      ],
+      tags: ["Google Ads", "Meta Ads", "Microsoft Ads", "E-commerce"]
+    },
+    {
       role: "Paid Media Specialist, Google Ads & Meta Ads (Self-Employed)",
       company: "Freelance",
       location: "Portsmouth & Remote",

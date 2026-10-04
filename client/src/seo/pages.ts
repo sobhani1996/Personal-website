@@ -93,7 +93,7 @@ export const PAGES: PageSeo[] = [
     path: "/portfolio",
     title: "Paid Media Case Studies & Portfolio | Mori Sobhani",
     description:
-      "Google Ads, Meta Ads and LinkedIn Ads case studies: +500% conversions and +300% traffic for an online fashion shop, and a +15% sales lift from Meta Ads.",
+      "Paid media case studies: 2x paid-channel sales at Mud Pies with Google, Meta and Microsoft Ads, and +500% conversions for an online fashion shop.",
     crumb: "Portfolio",
     pageType: "CollectionPage",
     sitemap: { priority: "0.8", changefreq: "monthly" },

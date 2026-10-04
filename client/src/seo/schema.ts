@@ -11,6 +11,7 @@ const knowsAbout = [
   "Meta Ads",
   "Facebook Ads",
   "Instagram Ads",
+  "Microsoft Advertising",
   "Pay-per-click advertising",
   "Paid social advertising",
   "Conversion tracking",

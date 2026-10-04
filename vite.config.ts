@@ -1,39 +1,19 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
-import { defineConfig, type Plugin } from "vite";
+import { defineConfig } from "vite";
 
-// Output directory for the built site.
-const outDir = path.resolve(import.meta.dirname, "dist/public");
-
-/**
- * Makes the build output ready for GitHub Pages:
- *  - Copies index.html -> 404.html so client-side routes (e.g. /about, /cv)
- *    work on direct visits and page refreshes (GitHub Pages has no SPA fallback).
- *  - Writes an empty .nojekyll file so GitHub serves all assets as-is.
- */
-function githubPagesPlugin(): Plugin {
-  return {
-    name: "github-pages-spa",
-    apply: "build",
-    closeBundle() {
-      const indexHtml = path.join(outDir, "index.html");
-      if (fs.existsSync(indexHtml)) {
-        fs.copyFileSync(indexHtml, path.join(outDir, "404.html"));
-      }
-      fs.writeFileSync(path.join(outDir, ".nojekyll"), "");
-    },
-  };
-}
-
-export default defineConfig({
+// The client build goes to dist/public (what GitHub Pages serves). The SSR
+// build in dist/server is only used at build time by scripts/prerender.mjs,
+// which writes a static HTML file for every route, plus 404.html, sitemap.xml
+// and .nojekyll.
+export default defineConfig(({ isSsrBuild }) => ({
   // base "/" is correct for a custom domain (mrsobhani.uk) or a
   // <username>.github.io user site.
   // If instead you deploy to a PROJECT page (https://<username>.github.io/<repo>/),
   // change this to "/<repo>/" and remove client/public/CNAME.
   base: "/",
-  plugins: [react(), tailwindcss(), githubPagesPlugin()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -44,7 +24,10 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir,
+    outDir: path.resolve(
+      import.meta.dirname,
+      isSsrBuild ? "dist/server" : "dist/public"
+    ),
     emptyOutDir: true,
   },
   server: {
@@ -52,4 +35,4 @@ export default defineConfig({
     strictPort: false,
     host: true,
   },
-});
+}));

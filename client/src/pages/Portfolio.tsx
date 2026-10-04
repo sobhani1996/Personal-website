@@ -4,14 +4,30 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Award, CheckCircle2, Clock, BarChart3, Search, Briefcase, PenTool, Video, Bot, LineChart, FileText, Mail, Smartphone, Image as ImageIcon, PieChart } from "lucide-react";
-import ContentCarousel from "@/components/ContentCarousel";
 import { Link } from "wouter";
+import CtaBanner from "@/components/offer/CtaBanner";
 import { useState } from "react";
 
 export default function Portfolio() {
   const [activeTool, setActiveTool] = useState<number | null>(null);
 
     const tools = [
+    { 
+      name: "Google Ads",
+      company: "Aftabgardoon Shop", 
+      icon: <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads" className="w-full h-full object-contain p-1.5" />,
+      whatIDid: "Ran search campaigns targeting high-intent product keywords, researched terms, wrote ad copy, and set bids.",
+      impact: "Contributed to a 300% traffic increase and 500% growth in conversions by aligning ad messages with landing pages.",
+      toolsUsed: "Search Campaigns, Keyword Targeting"
+    },
+    { 
+      name: "Meta Ads",
+      company: "Aftabgardoon Shop", 
+      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128" alt="Meta" className="w-full h-full object-contain p-1" />,
+      whatIDid: "Set up campaign targeting, wrote ad copy, and monitored performance for a winter seasonal push on Instagram.",
+      impact: "Resulted in a 15% sales increase compared to the previous year.",
+      toolsUsed: "Ads Manager, Pixel Setup"
+    },
     { 
       name: "Google Analytics",
       company: "TallTree Technologies & Aftabgardoon Shop", 
@@ -21,12 +37,12 @@ export default function Portfolio() {
       toolsUsed: "Traffic Sources, Conversion Tracking"
     },
     { 
-      name: "Google Ads",
+      name: "Search Console",
       company: "Aftabgardoon Shop", 
-      icon: <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads" className="w-full h-full object-contain p-1.5" />,
-      whatIDid: "Ran search campaigns targeting high-intent product keywords, researched terms, wrote ad copy, and set bids.",
-      impact: "Contributed to a 300% traffic increase and 500% growth in conversions by aligning ad messages with landing pages.",
-      toolsUsed: "Search Campaigns, Keyword Targeting"
+      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://search.google.com&size=128" alt="Search Console" className="w-full h-full object-contain p-1" />,
+      whatIDid: "Analyzed organic search performance, identified queries driving traffic, and found indexing issues.",
+      impact: "Used insights to prioritize product page rewrites and keyword targeting, improving organic visibility.",
+      toolsUsed: "Performance Reports, Indexing"
     },
     { 
       name: "LinkedIn Ads",
@@ -53,22 +69,6 @@ export default function Portfolio() {
       toolsUsed: "Video Editing, Audio Sync"
     },
     { 
-      name: "HeyGen",
-      company: "MSc Business Plan Competition", 
-      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://heygen.com&size=128" alt="HeyGen" className="w-full h-full object-contain p-1" />,
-      whatIDid: "Created an AI presenter video for a business plan competition pitch.",
-      impact: "Brought the presentation to life without a full video production setup, helping the pitch stand out.",
-      toolsUsed: "AI Video Generation"
-    },
-    { 
-      name: "Search Console",
-      company: "Aftabgardoon Shop", 
-      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://search.google.com&size=128" alt="Search Console" className="w-full h-full object-contain p-1" />,
-      whatIDid: "Analyzed organic search performance, identified queries driving traffic, and found indexing issues.",
-      impact: "Used insights to prioritize product page rewrites and keyword targeting, improving organic visibility.",
-      toolsUsed: "Performance Reports, Indexing"
-    },
-    { 
       name: "WordPress",
       company: "Aftabgardoon Shop", 
       icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://wordpress.org&size=128" alt="WordPress" className="w-full h-full object-contain p-1" />,
@@ -85,12 +85,12 @@ export default function Portfolio() {
       toolsUsed: "List Segmentation, Sequences"
     },
     { 
-      name: "Meta Ads",
-      company: "Aftabgardoon Shop", 
-      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128" alt="Meta" className="w-full h-full object-contain p-1" />,
-      whatIDid: "Set up campaign targeting, wrote ad copy, and monitored performance for a winter seasonal push on Instagram.",
-      impact: "Resulted in a 15% sales increase compared to the previous year.",
-      toolsUsed: "Ads Manager, Pixel Setup"
+      name: "HeyGen",
+      company: "MSc Business Plan Competition", 
+      icon: <img loading="lazy" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://heygen.com&size=128" alt="HeyGen" className="w-full h-full object-contain p-1" />,
+      whatIDid: "Created an AI presenter video for a business plan competition pitch.",
+      impact: "Brought the presentation to life without a full video production setup, helping the pitch stand out.",
+      toolsUsed: "AI Video Generation"
     }
   ];
 
@@ -108,7 +108,7 @@ export default function Portfolio() {
             Cases That <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Moved the Needle</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            Real brands, real strategies, real results. Here's what happened when I was given a channel and a challenge.
+            Real campaigns, real numbers. Google Ads, Meta Ads and LinkedIn Ads work, plus the tracking, SEO and landing pages that made it convert.
           </p>
         </section>
 
@@ -125,8 +125,8 @@ export default function Portfolio() {
                 <div className="text-sm text-muted-foreground font-medium">Website traffic increase via SEO & Ads</div>
               </div>
               <div className="p-8 text-center md:text-left">
-                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">200<span className="text-2xl">%</span></div>
-                <div className="text-sm text-muted-foreground font-medium">Instagram engagement growth</div>
+                <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">+15<span className="text-2xl">%</span></div>
+                <div className="text-sm text-muted-foreground font-medium">Year-on-year sales from a Meta Ads seasonal campaign</div>
               </div>
               <div className="p-8 text-center md:text-left">
                 <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">3<span className="text-2xl">+</span></div>
@@ -331,91 +331,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* SPEC PROJECT */}
-          <div className="bg-white rounded-[2rem] overflow-hidden soft-shadow border border-gray-100">
-            <div className="p-8 md:p-12 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start gap-6">
-              <div>
-                <div className="inline-block px-3 py-1 rounded-md bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-4">
-                  Spec Project · Content Strategy
-                </div>
-                <h3 className="text-3xl font-extrabold text-secondary mb-2">Social Media Campaign — Local Business Brief</h3>
-                <p className="text-muted-foreground">Self-initiated spec work demonstrating content strategy & creation process</p>
-              </div>
-              <div className="px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-muted-foreground whitespace-nowrap">
-                2026
-              </div>
-            </div>
-
-            <div className="p-8 md:p-12 pb-6">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                <strong className="text-secondary">The Brief:</strong> Develop a 9-post Instagram grid strategy for a local Portsmouth independent business with under 500 followers, aiming to increase engagement and build a local community audience.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                <strong className="text-secondary">The Strategy:</strong> Audience-first content mix: 40% educational (tips/value), 30% brand personality, 20% product/service showcase, 10% community/UGC-style. All Reels-led for maximum organic reach. Caption copy tailored for save-and-share behaviour over likes.
-              </p>
-            </div>
-
-            <div className="px-8 md:px-12 pb-8 grid md:grid-cols-3 gap-6">
-              <div className="border border-gray-200 rounded-xl overflow-hidden group hover:border-primary/50 transition-colors">
-                <div className="h-40 bg-gradient-to-br from-indigo-900 to-purple-900 flex items-center justify-center text-4xl relative">
-                  📊
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-[9px] text-white/70 text-center py-1 tracking-widest uppercase">Spec Content Preview</div>
-                </div>
-                <div className="p-4">
-                  <div className="text-[10px] font-bold text-red-500 uppercase tracking-wider mb-2">Educational Reel</div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">"3 things Portsmouth locals don't know about [business]" — hook-led, saves-optimised caption</p>
-                </div>
-              </div>
-              <div className="border border-gray-200 rounded-xl overflow-hidden group hover:border-primary/50 transition-colors">
-                <div className="h-40 bg-gradient-to-br from-green-900 to-emerald-900 flex items-center justify-center text-4xl relative">
-                  🎬
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-[9px] text-white/70 text-center py-1 tracking-widest uppercase">Spec Content Preview</div>
-                </div>
-                <div className="p-4">
-                  <div className="text-[10px] font-bold text-red-500 uppercase tracking-wider mb-2">Brand Personality</div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">Behind-the-scenes content — builds trust, humanises the brand, drives comments</p>
-                </div>
-              </div>
-              <div className="border border-gray-200 rounded-xl overflow-hidden group hover:border-primary/50 transition-colors">
-                <div className="h-40 bg-gradient-to-br from-red-900 to-rose-900 flex items-center justify-center text-4xl relative">
-                  ✨
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-[9px] text-white/70 text-center py-1 tracking-widest uppercase">Spec Content Preview</div>
-                </div>
-                <div className="p-4">
-                  <div className="text-[10px] font-bold text-red-500 uppercase tracking-wider mb-2">Product Showcase</div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">Visual-first carousel: problem → solution format with a strong CTA in final slide</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="px-8 md:px-12 pb-12">
-              <div className="bg-red-50 border border-red-100 rounded-lg p-4 text-xs text-secondary flex items-start gap-3">
-                <span className="text-lg leading-none">💡</span>
-                <p><strong>Note:</strong> This is self-initiated spec work. All content is original and created to demonstrate strategy, copywriting, and visual thinking — not tied to a paid client.</p>
-              </div>
-            </div>
-          </div>
-
         </div>
-
-        {/* CONTENT CREATION EXAMPLES */}
-        <section className="mt-16 py-16 bg-gray-50/50 border-y border-gray-100">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6">
-                Creative Work
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-secondary tracking-tight">
-                Content Creation
-              </h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                A showcase of the different formats I use to engage audiences, from short-form video to visual storytelling.
-              </p>
-            </div>
-
-            <ContentCarousel />
-          </div>
-        </section>
 
         {/* TOOLS & SKILLS */}
         <section className="py-16 bg-white border-y border-gray-100 overflow-hidden">
@@ -655,48 +571,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-primary/5 border-t border-primary/10 relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="container relative z-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-              <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-primary/20 text-sm font-medium text-primary mb-8 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-                  Open to opportunities · Portsmouth & Remote
-                </div>
-                <h2 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight mb-6">
-                  Let's Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500 italic font-serif">Together</span>
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl md:mx-0 mx-auto mb-10">
-                  I'm actively looking for my next role in digital marketing, content creation, or social media. Happy to relocate from Portsmouth for the right opportunity.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                  <Link href="/contact">
-                    <Button size="lg" className="rounded-full px-8 h-14 text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90">
-                      Get in Touch <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                  </Link>
-                  <a href="mailto:mori.sobhani@outlook.com">
-                    <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg bg-white hover:bg-gray-50 text-secondary border-gray-200">
-                      mori.sobhani@outlook.com
-                    </Button>
-                  </a>
-                </div>
-              </div>
-              <div className="flex-1 flex justify-center md:justify-end">
-                <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-2xl"></div>
-                  <img loading="lazy" 
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/Mori_16d0d9e7.png" 
-                    alt="Mori Sobhani" 
-                    className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CtaBanner title="Want results like these from your ad budget?" />
 
       </main>
       <Footer />

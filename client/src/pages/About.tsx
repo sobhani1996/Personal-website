@@ -3,24 +3,25 @@ import Navbar from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Mail } from "lucide-react";
+import { CalendarCheck, FileText } from "lucide-react";
+import { Link } from "wouter";
+import CtaBanner from "@/components/offer/CtaBanner";
+import { COMMISSION_RANGE } from "@/content/offer";
 
 export default function About() {
   const skills = [
-    "Digital Marketing Strategy",
-    "Social Media Marketing",
-    "Content Creation & Strategy",
-    "SEO & Keyword Research",
-    "Google Analytics & Search Console",
-    "Paid Advertising (LinkedIn/Google)",
-    "Campaign Management",
-    "Brand Storytelling",
-    "WordPress & CMS",
-    "Canva & CapCut",
-    "HeyGen (AI Video Creation)",
-    "Generative AI for Marketing",
-    "B2B Social Media Strategy",
-    "LinkedIn Creator Strategy"
+    "Google Ads (Search, Performance Max, Shopping)",
+    "Meta Ads (Facebook & Instagram)",
+    "Conversion Tracking & GA4",
+    "Meta Pixel & Conversions API",
+    "Keyword Research",
+    "Audience Targeting & Retargeting",
+    "Ad Copywriting",
+    "Ad Creative (Canva & CapCut)",
+    "Landing Page Optimisation",
+    "Google Search Console",
+    "LinkedIn Ads",
+    "Campaign Reporting & Analytics"
   ];
 
   return (
@@ -31,17 +32,17 @@ export default function About() {
           {/* Header Section */}
           <div className="text-center mb-16 space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Mori</span>
+              About Mori Sobhani
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Strategic Digital Marketing Specialist focused on social media growth, comprehensive marketing planning, and high-impact content creation.
+              Paid media specialist helping small businesses get customers from Google Ads and Meta Ads, with free setup and pay-on-results pricing.
             </p>
-            <div className="flex justify-center gap-4 pt-4">
-              <Button className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
-                <Download className="mr-2 w-4 h-4" /> Download CV
+            <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+              <Button asChild className="rounded-full px-8 h-12 bg-primary text-primary-foreground font-bold hover:bg-primary/90 shadow-lg shadow-primary/20">
+                <Link href="/contact/"><CalendarCheck className="mr-2 w-4 h-4" aria-hidden="true" /> Book a free strategy call</Link>
               </Button>
-              <Button variant="outline" className="rounded-full px-8 h-12 border-secondary/20 hover:bg-secondary/5">
-                <Mail className="mr-2 w-4 h-4" /> Contact Me
+              <Button asChild variant="outline" className="rounded-full px-8 h-12 border-secondary/20 hover:bg-secondary/5">
+                <Link href="/cv/"><FileText className="mr-2 w-4 h-4" aria-hidden="true" /> View my CV</Link>
               </Button>
             </div>
           </div>
@@ -51,13 +52,16 @@ export default function About() {
             <div className="bg-white rounded-[2rem] p-8 md:p-12 soft-shadow border border-gray-100 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3" />
               
-              <h2 className="text-2xl font-bold text-secondary mb-6 relative z-10">Professional Summary</h2>
+              <h2 className="text-2xl font-bold text-secondary mb-6 relative z-10">What I do</h2>
               <div className="space-y-4 text-lg text-muted-foreground relative z-10 leading-relaxed">
                 <p>
-                  I am a Digital Marketing Specialist with a core focus on <strong>Social Media Marketing</strong>, <strong>Digital Marketing Planning</strong>, and <strong>Content Creation</strong>. I combine creative storytelling with data-driven strategies to build brand presence and drive engagement.
+                  I'm a <strong>paid media specialist</strong> based in Portsmouth. I plan, build and manage <strong>Google Ads</strong> and <strong>Meta Ads</strong> (Facebook and Instagram) campaigns for small businesses, with one goal: turning ad budget into profitable customers.
                 </p>
                 <p>
-                  My expertise lies in developing comprehensive digital marketing plans that align with business goals, executing targeted social media campaigns, and producing high-quality content that resonates with audiences. I leverage SEO, analytics, and UX insights to optimize performance and ensure every piece of content delivers measurable results.
+                  I've run Google Ads, Meta Ads and LinkedIn Ads campaigns for an online fashion shop and a B2B tech start-up, and I hold an MSc in Digital Marketing. My background in SEO, analytics and content means I also look at the things around your ads, like landing pages and tracking, that decide whether a click becomes a sale.
+                </p>
+                <p>
+                  I work differently from most agencies: <strong>I set up your campaigns for free</strong>, and after launch my only fee is <strong>{COMMISSION_RANGE} of the conversion value</strong> the ads bring you. If your ads don't convert, I don't earn, so we always want the same thing.
                 </p>
               </div>
             </div>
@@ -65,7 +69,7 @@ export default function About() {
 
           {/* Skills Grid */}
           <section className="mb-20">
-            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Key Skills & Expertise</h2>
+            <h2 className="text-2xl font-bold text-secondary mb-8 text-center">Paid media skills</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {skills.map((skill, index) => (
                 <Badge 
@@ -149,6 +153,7 @@ export default function About() {
             </div>
           </section>
         </div>
+        <CtaBanner title="Let's see if your business is a good fit" />
       </main>
       <Footer />
     </div>

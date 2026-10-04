@@ -3,23 +3,24 @@ import Navbar from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Briefcase, Calendar } from "lucide-react";
+import { Link } from "wouter";
 
 export default function CV() {
   const experiences = [
     {
-      role: "Digital Marketing Specialist (Self-Employed)",
+      role: "Paid Media Specialist, Google Ads & Meta Ads (Self-Employed)",
       company: "Freelance",
-      location: "Remote",
+      location: "Portsmouth & Remote",
       period: "Mar 2025 - Present",
-      description: "Providing tailored digital marketing solutions to diverse clients, focusing on growth and brand visibility.",
+      description: "Helping small businesses grow with Google Ads and Meta Ads, on a free-setup, pay-on-results model.",
       achievements: [
-        "Developing and executing comprehensive digital marketing strategies for small to medium-sized businesses.",
-        "Managing social media accounts, creating engaging content, and fostering community growth.",
-        "Conducting SEO audits and implementing optimizations to improve organic search rankings.",
         "Running targeted paid advertising campaigns on social media platforms to drive conversions.",
+        "Developing and executing digital marketing strategies for small to medium-sized businesses.",
+        "Conducting SEO audits and implementing optimisations to improve organic search rankings.",
+        "Managing social media accounts, creating engaging content, and fostering community growth.",
         "Consulting on content strategy and brand positioning to enhance market presence."
       ],
-      tags: ["Digital Strategy", "Social Media Management", "SEO Consulting", "Content Creation"]
+      tags: ["Paid Social", "Google Ads", "Meta Ads", "Digital Strategy"]
     },
     {
       role: "Digital Marketing Assistant",
@@ -77,7 +78,7 @@ export default function CV() {
               Curriculum <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Vitae</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              A detailed timeline of my professional experience, achievements, and career milestones in digital marketing.
+              My experience in paid media and digital marketing, from e-commerce Google Ads and Meta Ads campaigns to B2B LinkedIn advertising.
             </p>
           </div>
 
@@ -135,12 +136,12 @@ export default function CV() {
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
               
               <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-                <h2 className="text-3xl font-bold">Ready to collaborate?</h2>
+                <h2 className="text-3xl font-bold">Want this experience working on your ads?</h2>
                 <p className="text-blue-100 text-lg">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                  I set up Google Ads and Meta Ads for small businesses for free, then earn a small share of the conversion value they bring in.
                 </p>
-                <Button className="bg-primary text-secondary hover:bg-white hover:text-secondary rounded-full px-8 h-12 font-bold shadow-lg shadow-black/20 border-none">
-                  Get in Touch <ArrowUpRight className="ml-2 w-4 h-4" />
+                <Button asChild className="bg-primary text-secondary hover:bg-white hover:text-secondary rounded-full px-8 h-12 font-bold shadow-lg shadow-black/20 border-none">
+                  <Link href="/contact/">Book a free strategy call <ArrowUpRight className="ml-2 w-4 h-4" aria-hidden="true" /></Link>
                 </Button>
               </div>
             </div>

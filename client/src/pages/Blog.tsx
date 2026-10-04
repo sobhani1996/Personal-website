@@ -66,10 +66,10 @@ export default function Blog() {
           {/* Header */}
           <div className="text-center mb-16 space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight">
-              Insights & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Articles</span>
+              Marketing insights for small businesses
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Thoughts on digital marketing, SEO strategies, and the ever-changing landscape of content creation.
+              Practical guides on Google Ads, Meta Ads and the marketing basics that decide whether paid campaigns turn clicks into customers.
             </p>
           </div>
 
@@ -154,7 +154,7 @@ export default function Blog() {
           {/* Blog Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredAndSortedPosts.map((post, index) => (
-              <Link key={post.id} href={`/blog/${post.slug}`} className="block h-full">
+              <Link key={post.id} href={`/blog/${post.slug}/`} className="block h-full">
                 <article 
                   className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full animate-in fade-in slide-in-from-bottom-8 cursor-pointer"
                   style={{ animationDelay: `${index * 150}ms` }}
@@ -207,9 +207,9 @@ export default function Blog() {
                         </div>
                         {post.author}
                       </div>
-                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 hover:bg-primary/5 p-0 h-auto font-semibold group-hover:translate-x-1 transition-transform duration-300">
-                        Read More <ArrowRight className="ml-1 w-4 h-4" />
-                      </Button>
+                      <span className="inline-flex items-center text-sm text-secondary font-bold group-hover:translate-x-1 transition-transform duration-300">
+                        Read more <ArrowRight className="ml-1 w-4 h-4" aria-hidden="true" />
+                      </span>
                     </div>
                   </div>
                 </article>

@@ -368,7 +368,7 @@ export default function BookLanding() {
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-900/5">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/">
+          <Link href="/" asChild>
             <a className="book-landing-font-display font-extrabold text-lg text-[#1E3A8A] flex items-center gap-2.5">
               <div className="w-2.5 h-2.5 bg-[#FFC107] rounded-full shadow-[0_0_0_4px_rgba(255,193,7,0.2)]"></div>
               Mori Sobhani
@@ -623,7 +623,7 @@ export default function BookLanding() {
             </div>
 
             <div className="flex gap-3 flex-wrap">
-              <Link href="/">
+              <Link href="/" asChild>
                 <a className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white book-landing-font-display font-bold text-sm px-4 py-2.5 rounded-xl transition-colors">
                   <span role="img" aria-label="link">🔗</span> mrsobhani.uk
                 </a>
@@ -631,7 +631,7 @@ export default function BookLanding() {
               <a href="https://linkedin.com/in/mori-sobhani" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white book-landing-font-display font-bold text-sm px-4 py-2.5 rounded-xl transition-colors">
                 <span role="img" aria-label="briefcase">💼</span> LinkedIn
               </a>
-              <Link href="/contact">
+              <Link href="/contact/" asChild>
                 <a className="inline-flex items-center gap-2 bg-[#FFC107] hover:bg-[#FFC107]/90 text-slate-900 book-landing-font-display font-bold text-sm px-4 py-2.5 rounded-xl transition-colors shadow-sm">
                   <span role="img" aria-label="envelope">✉️</span> Contact Me
                 </a>
@@ -659,7 +659,7 @@ export default function BookLanding() {
       {/* FOOTER */}
       <footer className="py-8 border-t border-slate-100 text-center text-slate-500 text-sm book-landing-font-body">
         <div className="max-w-6xl mx-auto px-6">
-          &copy; 2026 Mori Sobhani &middot; <Link href="/"><a className="text-[#1E3A8A] hover:underline font-semibold">mrsobhani.uk</a></Link> &middot; Independently published
+          &copy; 2026 Mori Sobhani &middot; <Link href="/" asChild><a className="text-[#1E3A8A] hover:underline font-semibold">mrsobhani.uk</a></Link> &middot; Independently published
         </div>
       </footer>
     </div>

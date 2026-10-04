@@ -39,7 +39,7 @@ export default function CookieConsent() {
           <div className="pr-6">
             <h3 className="text-base font-bold text-secondary mb-1">We value your privacy</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              We use cookies to enhance your browsing experience and analyze our traffic. Read our <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>.
+              We use cookies to enhance your browsing experience and analyze our traffic. Read our <a href="/privacy-policy/" className="text-primary hover:underline">Privacy Policy</a>.
             </p>
           </div>
           

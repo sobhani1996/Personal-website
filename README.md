@@ -52,6 +52,12 @@ pnpm build         # production build into dist/public
 pnpm preview       # preview the production build
 ```
 
-The build automatically creates `404.html`, `.nojekyll`, and copies `CNAME`
-into the output so client-side routes (like `/about`, `/cv`) work correctly on
-GitHub Pages, including on page refresh.
+`pnpm build` also pre-renders every page (`scripts/prerender.mjs`): each route
+gets its own `index.html` with full content, title, description, canonical URL
+and structured data, so search engines see real pages instead of an empty app
+shell. It also writes `404.html`, `sitemap.xml` and `.nojekyll`, and copies
+`CNAME`.
+
+Page titles and descriptions live in `client/src/seo/pages.ts`. The offer
+wording (free setup, 3–7% of conversion value, FAQs) lives in
+`client/src/content/offer.ts`, so changing it there updates the whole site.

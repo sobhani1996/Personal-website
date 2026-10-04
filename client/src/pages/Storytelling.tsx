@@ -77,10 +77,18 @@ const slides = [
   {
     id: "10",
     year: "2025",
-    title: "The Future of Digital",
-    description: "Today, I blend academic research with hands-on digital marketing. Exploring how algorithms shape dietary behaviours and continuing to push the boundaries of ethical, impactful marketing.",
+    title: "Back to Performance",
+    description: "Going freelance in the UK and bringing everything together: the analytics, the campaigns and the creative, focused on one thing, advertising that pays for itself.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000",
-    buttonText: "Discover Future"
+    buttonText: "See Results"
+  },
+  {
+    id: "11",
+    year: "2026",
+    title: "Paid Media for Small Businesses",
+    description: "Today I'm a Google Ads and Meta Ads specialist for small businesses. I set up campaigns for free and earn 3–7% of the conversion value they bring in, so I only win when my clients do.",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000",
+    buttonText: "How It Works"
   }
 ];
 
@@ -150,12 +158,13 @@ export default function Storytelling() {
 
   return (
     <div className="h-screen w-full overflow-hidden bg-background relative font-sans">
+      <h1 className="sr-only">My story: from chemical engineering to Google Ads and Meta Ads specialist</h1>
       {/* Header */}
       <div className="absolute top-0 left-0 w-full z-50 p-6 flex justify-between items-center">
         <a href="/" className="text-secondary font-bold text-xl tracking-tight flex items-center gap-2 bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm border border-white/50 hover:bg-white transition-colors">
           Mori Sobhani
         </a>
-        <a href="/portfolio" className="text-sm font-bold text-secondary hover:text-primary transition-colors bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm border border-white/50 hover:bg-white">
+        <a href="/portfolio/" className="text-sm font-bold text-secondary hover:text-primary transition-colors bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm border border-white/50 hover:bg-white">
           Back to Portfolio
         </a>
       </div>

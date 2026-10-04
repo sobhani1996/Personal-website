@@ -40,8 +40,8 @@ export default function Testimonials() {
 
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Kind Words</h2>
-          <p className="text-muted-foreground">What colleagues and mentors are saying.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">What people say about working with me</h2>
+          <p className="text-muted-foreground">Feedback from colleagues and mentors I've worked alongside.</p>
         </div>
 
         <div className="max-w-4xl mx-auto">

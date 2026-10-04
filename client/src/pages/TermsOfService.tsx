@@ -10,7 +10,7 @@ export default function TermsOfService() {
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 md:p-12 lg:p-16 rounded-[2.5rem] shadow-sm border border-gray-100">
             <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mb-8">Terms of Service</h1>
-            <p className="text-muted-foreground mb-10">Last updated: {new Date().toLocaleDateString('en-GB', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            <p className="text-muted-foreground mb-10">Last updated: 4 October 2026</p>
             
             <div className="prose prose-lg max-w-none text-[#333333] leading-[1.8] 
               prose-headings:text-secondary prose-headings:font-bold prose-headings:mt-10 prose-headings:mb-4 

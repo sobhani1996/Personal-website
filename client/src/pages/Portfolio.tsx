@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ArrowRight, Play, Award, CheckCircle2, Clock, BarChart3, Search, Briefcase, PenTool, Video, Bot, LineChart, FileText, Mail, Smartphone, Image as ImageIcon, PieChart } from "lucide-react";
+import { ArrowRight, Play, Award, CheckCircle2, Clock, BarChart3, Search, Briefcase, PenTool, Video, Bot, LineChart, FileText, Mail, Image as ImageIcon, PieChart } from "lucide-react";
 import { Link } from "wouter";
 import CtaBanner from "@/components/offer/CtaBanner";
 import { useState } from "react";
@@ -146,64 +146,6 @@ export default function Portfolio() {
 
         <div className="container max-w-5xl mx-auto px-4 space-y-12">
           
-          {/* MANAGED PAGES QUICK LINKS */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-100 soft-shadow">
-            <h3 className="text-xl font-bold text-secondary mb-6 flex items-center gap-2">
-              <Smartphone className="w-5 h-5 text-primary" /> Pages I've Managed
-            </h3>
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-4">
-              <a href="https://www.instagram.com/ibolak" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">IB</span>
-                <div className="flex flex-col">
-                  <span className="font-bold text-secondary group-hover:text-primary transition-colors">Ibolak</span>
-                  <span className="text-xs text-muted-foreground">Social Media Team</span>
-                </div>
-              </a>
-              
-              <div className="flex flex-col items-center justify-center px-1">
-                <span className="text-[10px] font-bold text-primary/70 mb-1">2022</span>
-                <ArrowRight className="hidden lg:block text-muted-foreground/40 w-5 h-5 flex-shrink-0" />
-                <div className="lg:hidden w-px h-4 bg-muted-foreground/20"></div>
-              </div>
-              
-              <a href="https://www.instagram.com/aftabgardoonshopp/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">AG</span>
-                <div className="flex flex-col">
-                  <span className="font-bold text-secondary group-hover:text-primary transition-colors">Aftabgardoon Shop</span>
-                  <span className="text-xs text-muted-foreground">Instagram Management</span>
-                </div>
-              </a>
-
-              <div className="flex flex-col items-center justify-center px-1">
-                <span className="text-[10px] font-bold text-primary/70 mb-1">2024</span>
-                <ArrowRight className="hidden lg:block text-muted-foreground/40 w-5 h-5 flex-shrink-0" />
-                <div className="lg:hidden w-px h-4 bg-muted-foreground/20"></div>
-              </div>
-
-              <a href="https://talltree.tech/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">TT</span>
-                <div className="flex flex-col">
-                  <span className="font-bold text-secondary group-hover:text-primary transition-colors">TallTree Tech</span>
-                  <span className="text-xs text-muted-foreground">B2B Website & LinkedIn</span>
-                </div>
-              </a>
-
-              <div className="flex flex-col items-center justify-center px-1">
-                <span className="text-[10px] font-bold text-primary/70 mb-1">2025</span>
-                <ArrowRight className="hidden lg:block text-muted-foreground/40 w-5 h-5 flex-shrink-0" />
-                <div className="lg:hidden w-px h-4 bg-muted-foreground/20"></div>
-              </div>
-
-              <a href="https://www.instagram.com/northampton_su/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">SU</span>
-                <div className="flex flex-col">
-                  <span className="font-bold text-secondary group-hover:text-primary transition-colors">Northampton SU</span>
-                  <span className="text-xs text-muted-foreground">Managed Jan-Aug 2025</span>
-                </div>
-              </a>
-            </div>
-          </div>
-
           {/* CASE STUDY: MUD PIES */}
           <div className="bg-white rounded-[2rem] overflow-hidden soft-shadow border border-gray-100">
             <div className="p-8 md:p-12 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start gap-6">

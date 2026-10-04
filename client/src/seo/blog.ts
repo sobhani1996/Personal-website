@@ -1,4 +1,5 @@
-import { blogPostsData, type BlogPost } from "@/data/blogPosts";
+import { listedPosts, type BlogPost } from "@/data/blogPosts";
+import { isListed } from "@/data/blogCuration";
 import type { HeadData } from "./head";
 import { breadcrumbs, graph, PERSON_ID, webPage } from "./schema";
 import { canonicalUrl, SITE_URL } from "./site";
@@ -72,6 +73,8 @@ export function blogPostSeo(post: BlogPost): HeadData {
     title,
     description,
     canonical: url,
+    // Unlisted archive posts stay reachable but out of search results.
+    noindex: !isListed(post),
     ogType: "article",
     image: post.image,
     imageAlt: post.title,
@@ -91,7 +94,7 @@ export function blogPostSeo(post: BlogPost): HeadData {
 /** Same-category posts first, then the newest others. Deterministic so pre-rendered HTML matches the browser. */
 export function relatedPosts(post: BlogPost, count: number) {
   const time = (p: BlogPost) => new Date(p.date).getTime() || 0;
-  return blogPostsData
+  return listedPosts
     .filter(p => p.id !== post.id)
     .sort((a, b) => {
       const sameA = a.category === post.category ? 1 : 0;

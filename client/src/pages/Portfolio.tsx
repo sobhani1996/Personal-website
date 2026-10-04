@@ -201,7 +201,7 @@ export default function Portfolio() {
             <div className="p-8 md:p-12 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start gap-6">
               <div>
                 <div className="inline-block px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider mb-4">
-                  SEO · Google Ads · Instagram · Content
+                  Google Ads · Meta Ads · SEO · Instagram
                 </div>
                 <h3 className="text-3xl font-extrabold text-secondary mb-2">Aftabgardoon Shop</h3>
                 <p className="text-muted-foreground">E-commerce growth strategy · Tehran, Iran</p>

@@ -1,3 +1,4 @@
+import { curate, isListed } from "./blogCuration";
 import { paidAdsPosts } from "./paidAdsPosts";
 
 export interface BlogPost {
@@ -2734,4 +2735,10 @@ const archivePosts: BlogPost[] = [
   },
 ];
 
-export const blogPostsData: BlogPost[] = [...paidAdsPosts, ...archivePosts];
+/** Every post, including unlisted ones that are still reachable by URL. */
+export const blogPostsData: BlogPost[] = [...paidAdsPosts, ...archivePosts].map(
+  curate
+);
+
+/** Posts shown on the blog page, in related posts and in the sitemap. */
+export const listedPosts: BlogPost[] = blogPostsData.filter(isListed);

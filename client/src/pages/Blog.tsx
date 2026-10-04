@@ -6,10 +6,10 @@ import { ArrowRight, Calendar, Clock, User, ArrowDownAZ, ArrowUpZA, Search, X } 
 import { Link } from "wouter";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import { blogPostsData } from "@/data/blogPosts";
+import { listedPosts } from "@/data/blogPosts";
 
 export default function Blog() {
-  const posts = blogPostsData;
+  const posts = listedPosts;
 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");

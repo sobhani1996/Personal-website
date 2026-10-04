@@ -159,22 +159,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
-              {/* Intro video */}
-              <div className="bg-white p-1 rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-                <div
-                  className="relative bg-gray-900 rounded-2xl overflow-hidden"
-                  style={{ aspectRatio: "1080/1350" }}
-                >
-                  <video
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/mrsobhani.uk_19eb95e1.mp4"
-                    controls
-                    preload="metadata"
-                    className="w-full h-full object-cover"
-                    aria-label="Introduction video from Mori Sobhani"
-                  />
-                </div>
-              </div>
             </div>
 
             {/* Calendar */}

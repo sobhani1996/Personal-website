@@ -64,7 +64,7 @@ export default function Navbar() {
           className="text-xl md:text-2xl font-extrabold tracking-tight text-secondary flex items-center gap-3 group"
         >
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/MoriSobhaniLogo_c812f661.png"
+            src="/images/logo-96.png"
             alt=""
             width="40"
             height="40"

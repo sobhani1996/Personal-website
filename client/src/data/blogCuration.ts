@@ -26,8 +26,15 @@ export const LISTED_POSTS: Record<string, string> = {
 
 export const isListed = (post: BlogPost) => post.slug in LISTED_POSTS;
 
-/** Listed posts carry their curated category; unlisted posts keep their own. */
+/**
+ * Listed posts carry their curated category; unlisted posts keep their own.
+ * Every post uses its branded cover from /images/blog (generated per slug),
+ * since the original Manus-hosted images are no longer served.
+ */
 export function curate(post: BlogPost): BlogPost {
-  const category = LISTED_POSTS[post.slug];
-  return category ? { ...post, category } : post;
+  return {
+    ...post,
+    category: LISTED_POSTS[post.slug] ?? post.category,
+    image: `/images/blog/${post.slug}.jpg`,
+  };
 }

@@ -30,7 +30,7 @@ export default function Footer() {
             >
               <img
                 loading="lazy"
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/MoriSobhaniLogo_c812f661.png"
+                src="/images/logo-96.png"
                 alt=""
                 width="40"
                 height="40"

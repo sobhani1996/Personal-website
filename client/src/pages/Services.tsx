@@ -140,19 +140,19 @@ export default function Services() {
                 <div className="grid grid-cols-2 gap-4 relative z-10">
                   {[
                     [
-                      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031747991/nWPTWTeNqvLEGwUV.jpg",
+                      "/images/services/barbershop.jpg",
                       "Local barbershop interior",
                     ],
                     [
-                      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031747991/ysOIVbjVMdzivCNN.jpg",
+                      "/images/services/bakery.jpg",
                       "Fresh pastries in a local bakery",
                     ],
                     [
-                      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031747991/bZfIuLFrkbrnidhq.jpg",
+                      "/images/services/restaurant.jpg",
                       "Busy local restaurant",
                     ],
                     [
-                      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031747991/UppynoQlcviOKbjp.jpg",
+                      "/images/services/flower-shop.jpg",
                       "Colourful flower shop display",
                     ],
                   ].map(([src, alt], i) => (

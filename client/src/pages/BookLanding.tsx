@@ -415,7 +415,11 @@ export default function BookLanding() {
               <div className="absolute -left-[14px] top-0 w-[14px] h-full rounded-l-sm book-landing-book-spine"></div>
               <div className="absolute -right-[1px] top-1 bottom-1 w-[10px] rounded-r-sm book-landing-book-pages"></div>
               <div className="absolute inset-0 rounded-r-lg rounded-l-sm shadow-[0_30px_60px_-15px_rgba(30,58,138,0.35),0_15px_30px_-10px_rgba(15,23,42,0.25)] overflow-hidden bg-[#F1F5F9] book-landing-book-front">
-                <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/cover_cd5f8d6b.jpg" alt="Book Cover" className="block w-full h-full object-cover" style={{ imageRendering: '-webkit-optimize-contrast' }} />
+                <div className="flex h-full w-full flex-col justify-between bg-[#1E3A8A] p-8 text-white">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FFC107]">The Digital Marketer&apos;s Illustrated Guide to</span>
+                  <span className="book-landing-font-display text-4xl font-black leading-tight">AI Image Generation</span>
+                  <span className="text-sm font-semibold text-blue-100">Mori Sobhani</span>
+                </div>
               </div>
             </div>
           </div>
@@ -584,7 +588,7 @@ export default function BookLanding() {
             <div className="relative aspect-[4/5] bg-gradient-to-br from-[#152A66] to-[#1E3A8A] rounded-3xl overflow-hidden border border-white/10">
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-10">
                 <div className="w-[120px] h-[120px] bg-white rounded-full grid place-items-center mb-6 shadow-[0_12px_32px_rgba(255,193,7,0.35)] overflow-hidden">
-                  <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/MoriSobhaniLogo_6c9011da.png" alt="Mori Sobhani" className="w-full h-full object-cover" />
+                  <img loading="lazy" src="/images/logo-96.png" alt="Mori Sobhani" className="w-full h-full object-cover" />
                 </div>
                 <div className="book-landing-font-display text-[13px] font-bold tracking-[0.15em] uppercase text-white/70 mb-2">Author</div>
                 <div className="book-landing-font-display text-2xl font-extrabold text-white">Mori Sobhani</div>

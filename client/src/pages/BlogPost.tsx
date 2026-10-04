@@ -119,7 +119,7 @@ export default function BlogPost() {
                     <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-6 border-4 border-primary/20">
                       <img
                         loading="lazy"
-                        src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/02eaaa5f9c644c1d860f610a5a43fd5d_82a4231d.avif"
+                        src="/images/mori-logo.webp"
                         alt="Mori Sobhani"
                         width="96"
                         height="96"

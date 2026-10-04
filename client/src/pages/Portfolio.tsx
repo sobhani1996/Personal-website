@@ -145,7 +145,7 @@ export default function Portfolio() {
             </h3>
             <div className="flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-4">
               <a href="https://www.instagram.com/ibolak" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/2_79c273d1.jpg" alt="Ibolak Logo" className="w-12 h-12 rounded-full object-cover border border-gray-200" />
+                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">IB</span>
                 <div className="flex flex-col">
                   <span className="font-bold text-secondary group-hover:text-primary transition-colors">Ibolak</span>
                   <span className="text-xs text-muted-foreground">Social Media Team</span>
@@ -159,7 +159,7 @@ export default function Portfolio() {
               </div>
               
               <a href="https://www.instagram.com/aftabgardoonshopp/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/4_d5ddf765.jpg" alt="Aftabgardoon Shop Logo" className="w-12 h-12 rounded-full object-cover border border-gray-200" />
+                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">AG</span>
                 <div className="flex flex-col">
                   <span className="font-bold text-secondary group-hover:text-primary transition-colors">Aftabgardoon Shop</span>
                   <span className="text-xs text-muted-foreground">Instagram Management</span>
@@ -173,7 +173,7 @@ export default function Portfolio() {
               </div>
 
               <a href="https://talltree.tech/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/1_484737dc.jpeg" alt="TallTree Tech Logo" className="w-12 h-12 rounded-full object-cover border border-gray-200" />
+                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">TT</span>
                 <div className="flex flex-col">
                   <span className="font-bold text-secondary group-hover:text-primary transition-colors">TallTree Tech</span>
                   <span className="text-xs text-muted-foreground">B2B Website & LinkedIn</span>
@@ -187,7 +187,7 @@ export default function Portfolio() {
               </div>
 
               <a href="https://www.instagram.com/northampton_su/" target="_blank" rel="noopener noreferrer" className="w-full lg:flex-1 p-4 rounded-xl border border-gray-100 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center gap-4">
-                <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/3_e77f3fe8.jpg" alt="Northampton SU Logo" className="w-12 h-12 rounded-full object-cover border border-gray-200" />
+                <span aria-hidden="true" className="w-12 h-12 shrink-0 rounded-full bg-secondary text-white font-bold flex items-center justify-center">SU</span>
                 <div className="flex flex-col">
                   <span className="font-bold text-secondary group-hover:text-primary transition-colors">Northampton SU</span>
                   <span className="text-xs text-muted-foreground">Managed Jan-Aug 2025</span>
@@ -209,15 +209,6 @@ export default function Portfolio() {
               <div className="px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-muted-foreground whitespace-nowrap">
                 2022 – 2024
               </div>
-            </div>
-
-            {/* Video Player */}
-            <div className="m-8 md:m-12 mx-auto bg-black rounded-2xl aspect-[9/16] max-w-[300px] overflow-hidden shadow-xl">
-              <video 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/Untitleddesign_78bb1662.mp4" 
-                controls 
-                className="w-full h-full object-cover"
-              />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 border-y border-gray-100 divide-x divide-gray-100">
@@ -288,15 +279,6 @@ export default function Portfolio() {
               <div className="px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-muted-foreground whitespace-nowrap">
                 Jan 2024 – Mar 2025
               </div>
-            </div>
-
-            {/* Video Player */}
-            <div className="m-8 md:m-12 mx-auto bg-black rounded-2xl aspect-video max-w-3xl overflow-hidden shadow-xl">
-              <video 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/Mori_Portfolio_1_56f59251.mp4" 
-                controls 
-                className="w-full h-full object-contain"
-              />
             </div>
 
             <div className="p-8 md:p-12 grid md:grid-cols-2 gap-12">
@@ -484,9 +466,7 @@ export default function Portfolio() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="bg-white border border-gray-100 rounded-2xl p-6 soft-shadow hover:border-primary/30 transition-colors relative overflow-hidden cursor-pointer group">
+              <div className="bg-white border border-gray-100 rounded-2xl p-6 soft-shadow hover:border-primary/30 transition-colors relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors"></div>
                     <div className="text-3xl mb-4">🎓</div>
                     <h3 className="font-bold text-secondary mb-1 group-hover:text-primary transition-colors">MSc Digital Marketing</h3>
@@ -495,24 +475,10 @@ export default function Portfolio() {
                       <div className="flex items-center gap-2 text-xs font-bold text-green-600 bg-green-50 w-fit px-2 py-1 rounded">
                         <CheckCircle2 className="w-3 h-3" /> Awarded
                       </div>
-                      <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">View Certificate</span>
                     </div>
                   </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-3xl bg-transparent border-none shadow-none p-0">
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl p-2">
-                    <img loading="lazy" 
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/iScreenShoter-Preview-260320174548_40364a81.png" 
-                      alt="MSc Digital Marketing Certificate" 
-                      className="w-full h-auto rounded-2xl"
-                    />
-                  </div>
-                </DialogContent>
-              </Dialog>
               
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="bg-white border border-gray-100 rounded-2xl p-6 soft-shadow hover:border-primary/30 transition-colors relative overflow-hidden cursor-pointer group">
+              <div className="bg-white border border-gray-100 rounded-2xl p-6 soft-shadow hover:border-primary/30 transition-colors relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors"></div>
                     <div className="text-3xl mb-4">📜</div>
                     <h3 className="font-bold text-secondary mb-1 group-hover:text-primary transition-colors">Digital Marketing Institute Pro</h3>
@@ -521,20 +487,8 @@ export default function Portfolio() {
                       <div className="flex items-center gap-2 text-xs font-bold text-green-600 bg-green-50 w-fit px-2 py-1 rounded">
                         <CheckCircle2 className="w-3 h-3" /> Certified
                       </div>
-                      <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">View Certificate</span>
                     </div>
                   </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-3xl bg-transparent border-none shadow-none p-0">
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl p-2">
-                    <img loading="lazy" 
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031747991/Y3kw537GjyvvS43ZN9JMcY/iScreenShoter-Preview-260320174258_05b80cba.webp" 
-                      alt="Digital Marketing Institute Pro Certificate" 
-                      className="w-full h-auto rounded-2xl"
-                    />
-                  </div>
-                </DialogContent>
-              </Dialog>
 
               <div className="bg-white border border-gray-100 rounded-2xl p-6 soft-shadow hover:border-primary/30 transition-colors relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>

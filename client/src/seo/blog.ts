@@ -17,6 +17,8 @@ function truncate(text: string, max: number) {
   return `${cut.slice(0, cut.lastIndexOf(" "))}…`;
 }
 
+const absolute = (src: string) => (src.startsWith("/") ? `${SITE_URL}${src}` : src);
+
 /** Some imported posts were saved with a full <html><body> wrapper. */
 export function cleanPostHtml(html: string) {
   return html.replace(/<\/?(html|body)>/gi, "");
@@ -59,7 +61,7 @@ export function blogPostSeo(post: BlogPost): HeadData {
     "@id": `${url}#article`,
     headline: truncate(post.title, 110),
     description,
-    image: post.image,
+    image: absolute(post.image),
     datePublished: published,
     dateModified: published,
     author: { "@id": PERSON_ID },
@@ -76,7 +78,7 @@ export function blogPostSeo(post: BlogPost): HeadData {
     // Unlisted archive posts stay reachable but out of search results.
     noindex: !isListed(post),
     ogType: "article",
-    image: post.image,
+    image: absolute(post.image),
     imageAlt: post.title,
     publishedTime: published,
     jsonLd: graph(

@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import {
   COMMISSION_RANGE,
@@ -23,18 +24,36 @@ export default function Contact() {
           {/* Header */}
           <div className="text-center mb-16 space-y-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight">
-              Book your free strategy call
+              Let's talk about your ads
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              30 minutes, no obligation. We'll look at whether Google Ads or
-              Meta Ads can bring your business profitable customers, and how the
-              free setup and pay-on-results model would work for you.
+              Send me a message or book a free 30-minute strategy call. No
+              obligation: we'll look at whether Google Ads or Meta Ads can bring
+              your business profitable customers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-12">
+            <ContactForm />
+            {/* Calendar */}
+            <div className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 ">
+              <h2 className="px-4 pt-4 text-2xl font-bold text-secondary">
+                Pick a time that suits you
+              </h2>
+              <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2OalRHXjKS-mYlrI-3Kr6SA86PVUq5TKOXWrUp7Msf1OckLYWaU6XlmaK8pfDgXQi_gFwKb1cl?gv=true"
+                style={{ border: 0 }}
+                width="100%"
+                height="700"
+                loading="lazy"
+                title="Book a free strategy call with Mori Sobhani"
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className="contents">
               <div className="bg-secondary text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
                 <div className="relative z-10">
                   <h2 className="text-2xl font-bold mb-4">
@@ -159,21 +178,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Calendar */}
-            <div className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 lg:sticky lg:top-28">
-              <h2 className="px-4 pt-4 text-2xl font-bold text-secondary">
-                Pick a time that suits you
-              </h2>
-              <iframe
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2OalRHXjKS-mYlrI-3Kr6SA86PVUq5TKOXWrUp7Msf1OckLYWaU6XlmaK8pfDgXQi_gFwKb1cl?gv=true"
-                style={{ border: 0 }}
-                width="100%"
-                height="700"
-                loading="lazy"
-                title="Book a free strategy call with Mori Sobhani"
-              ></iframe>
             </div>
           </div>
         </div>

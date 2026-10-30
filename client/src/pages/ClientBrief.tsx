@@ -15,7 +15,6 @@ import {
   type TextField,
 } from "@/content/brief";
 import { CONTACT } from "@/content/offer";
-import { postToFormSubmit } from "@/lib/formsubmit";
 import { cn } from "@/lib/utils";
 import {
   ArrowLeft,
@@ -25,6 +24,7 @@ import {
   CheckCircle2,
   Clock,
   Loader2,
+  Mail,
   MessageCircle,
   Save,
   Send,
@@ -40,6 +40,8 @@ import {
 } from "react";
 import { Link } from "wouter";
 
+// Sent through FormSubmit like the contact form, so it arrives as an email.
+const ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
 const STORAGE_KEY = "mrsobhani-client-brief";
 const REVIEW = BRIEF_SECTIONS.length; // step index of the final check
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,6 +49,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Answer = string | string[];
 type Answers = Record<string, Answer>;
 type Errors = Partial<Record<"name" | "email", string>>;
+type Status = "idle" | "sending" | "sent" | "error";
 
 const text = (a: Answers, id: string) =>
   typeof a[id] === "string" ? (a[id] as string).trim() : "";
@@ -91,6 +94,7 @@ function buildEmail(a: Answers) {
   const email = text(a, "email");
   const body: Record<string, string> = {
     _subject: `Client brief: ${business ? `${business} (${name})` : name}`,
+    _template: "table",
   };
   if (email) body._replyto = email;
   BRIEF_SECTIONS.forEach((s, i) => {
@@ -98,18 +102,40 @@ function buildEmail(a: Answers) {
       .map(f => [f.label, displayValue(f, a)] as const)
       .filter(([, v]) => v);
     if (!rows.length) return;
-    body[`Section ${i + 1}: ${s.title}`] =
+    body[`— ${i + 1}. ${s.title} —`] =
       `${rows.length} of ${s.fields.length} answered`;
     for (const [label, v] of rows) body[label] = v;
   });
   return body;
 }
 
+/** The whole brief as plain text, for sending by WhatsApp or email instead. */
+function plainText(a: Answers) {
+  const business = text(a, "business");
+  const parts = [
+    `Client brief from ${text(a, "name")}${business ? ` (${business})` : ""}`,
+  ];
+  BRIEF_SECTIONS.forEach((s, i) => {
+    const rows = s.fields
+      .map(f => [f.label, displayValue(f, a)] as const)
+      .filter(([, v]) => v);
+    if (rows.length)
+      parts.push(
+        [
+          `${i + 1}. ${s.title}`,
+          ...rows.map(([l, v]) => `${l}${l.endsWith("?") ? "" : ":"} ${v}`),
+        ].join("\n")
+      );
+  });
+  return parts.join("\n\n");
+}
+
 export default function ClientBrief() {
   const [answers, setAnswers] = useState<Answers>({});
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState<Errors>({});
-  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [sendError, setSendError] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [restored, setRestored] = useState(false);
   const cardRef = useRef<HTMLFormElement>(null);
@@ -134,21 +160,13 @@ export default function ClientBrief() {
   }, []);
 
   useEffect(() => {
-    if (!loaded) return;
+    if (!loaded || status === "sent") return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, step }));
     } catch {
       // Ignore: saving is a convenience only.
     }
-  }, [answers, step, loaded]);
-
-  // Re-enable the button if someone comes back from FormSubmit with the
-  // browser's Back button.
-  useEffect(() => {
-    const reset = (e: PageTransitionEvent) => e.persisted && setSending(false);
-    window.addEventListener("pageshow", reset);
-    return () => window.removeEventListener("pageshow", reset);
-  }, []);
+  }, [answers, step, loaded, status]);
 
   // After changing step, bring the card into view and move focus to the
   // new heading (or the first field that needs fixing).
@@ -182,7 +200,7 @@ export default function ClientBrief() {
     goTo(0);
   }
 
-  function send() {
+  async function send() {
     const found = validate(answers);
     if (Object.keys(found).length) {
       setErrors(found);
@@ -191,9 +209,41 @@ export default function ClientBrief() {
     }
     if (honeyRef.current?.value) return; // bot filled the hidden field
 
-    // Answers stay saved until the thank-you page confirms they were sent.
-    setSending(true);
-    postToFormSubmit(buildEmail(answers), "/brief/thanks/");
+    setStatus("sending");
+    setSendError("");
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(buildEmail(answers)),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) !== "true") {
+        throw new Error(
+          json.message ||
+            "The service that delivers this form isn't responding."
+        );
+      }
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // Ignore.
+      }
+      setStatus("sent");
+      window.scrollTo({ top: 0 });
+    } catch (err) {
+      // fetch() throws a TypeError when FormSubmit can't be reached at all,
+      // e.g. when its server is down.
+      setSendError(
+        err instanceof Error && !(err instanceof TypeError)
+          ? err.message
+          : "The service that delivers this form isn't responding."
+      );
+      setStatus("error");
+    }
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -209,6 +259,14 @@ export default function ClientBrief() {
       }
     }
     goTo(step + 1);
+  }
+
+  if (status === "sent") {
+    return (
+      <Page>
+        <Thanks name={text(answers, "name").split(" ")[0]} />
+      </Page>
+    );
   }
 
   const section = BRIEF_SECTIONS[step];
@@ -404,6 +462,10 @@ export default function ClientBrief() {
             className="hidden"
             aria-hidden="true"
           />
+
+          {step === REVIEW && status === "error" && (
+            <SendFallback answers={answers} reason={sendError} />
+          )}
         </div>
 
         {/* Navigation */}
@@ -433,10 +495,10 @@ export default function ClientBrief() {
           ) : (
             <Button
               type="submit"
-              disabled={sending}
+              disabled={status === "sending"}
               className="h-12 rounded-full px-7 text-base font-bold shadow-lg shadow-primary/20"
             >
-              {sending ? (
+              {status === "sending" ? (
                 <>
                   Sending
                   <Loader2
@@ -819,6 +881,59 @@ function Review({
   );
 }
 
+/** Lets people send the brief themselves when FormSubmit is unavailable. */
+function SendFallback({
+  answers,
+  reason,
+}: {
+  answers: Answers;
+  reason: string;
+}) {
+  const body = plainText(answers);
+  const subject = buildEmail(answers)._subject;
+  return (
+    <div
+      className="mt-6 rounded-2xl border border-red-100 bg-red-50 p-5 text-sm text-red-800"
+      role="alert"
+    >
+      <p className="text-base font-bold">
+        Your brief couldn't be sent just now
+      </p>
+      <p className="mt-1">
+        {reason} Your answers are saved, so you can try again in a few minutes,
+        or send them to me directly in one tap:
+      </p>
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+        <Button
+          asChild
+          className="h-11 rounded-full bg-[#25D366] px-5 font-bold text-white hover:bg-[#1fb956]"
+        >
+          <a
+            href={`${CONTACT.whatsapp}?text=${encodeURIComponent(body)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            Send on WhatsApp
+          </a>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          className="h-11 rounded-full bg-white px-5 font-bold text-secondary"
+        >
+          <a
+            href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Send by email
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 function NextSteps({ className }: { className?: string }) {
   return (
     <ol className={cn("space-y-3", className)}>
@@ -837,23 +952,7 @@ function NextSteps({ className }: { className?: string }) {
   );
 }
 
-/** FormSubmit redirects here after emailing the brief. */
-export function ClientBriefThanks() {
-  useEffect(() => {
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // Ignore.
-    }
-  }, []);
-  return (
-    <Page>
-      <Thanks />
-    </Page>
-  );
-}
-
-function Thanks() {
+function Thanks({ name }: { name: string }) {
   return (
     <div
       className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm md:p-12"
@@ -865,7 +964,7 @@ function Thanks() {
           aria-hidden="true"
         />
         <h1 className="text-3xl font-extrabold text-secondary md:text-4xl">
-          Thanks! Your brief is on its way
+          Thanks{name ? `, ${name}` : ""}! Your brief is on its way
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-lg text-muted-foreground">
           I'll read your answers and get back to you within 2 working days to

@@ -16,6 +16,7 @@ import {
 } from "@/content/brief";
 import { CONTACT } from "@/content/offer";
 import { cn } from "@/lib/utils";
+import { sendForm } from "@/lib/web3forms";
 import {
   ArrowLeft,
   ArrowRight,
@@ -24,7 +25,6 @@ import {
   CheckCircle2,
   Clock,
   Loader2,
-  Mail,
   MessageCircle,
   Save,
   Send,
@@ -40,8 +40,6 @@ import {
 } from "react";
 import { Link } from "wouter";
 
-// Sent through FormSubmit like the contact form, so it arrives as an email.
-const ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
 const STORAGE_KEY = "mrsobhani-client-brief";
 const REVIEW = BRIEF_SECTIONS.length; // step index of the final check
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -88,46 +86,18 @@ function displayValue(f: BriefField, a: Answers): string {
   return value;
 }
 
-function buildEmail(a: Answers) {
-  const name = text(a, "name");
-  const business = text(a, "business");
-  const email = text(a, "email");
-  const body: Record<string, string> = {
-    _subject: `Client brief: ${business ? `${business} (${name})` : name}`,
-    _template: "table",
-  };
-  if (email) body._replyto = email;
+/** The answers in order, with a heading row per section, for the email. */
+function emailFields(a: Answers) {
+  const fields: Record<string, string> = {};
   BRIEF_SECTIONS.forEach((s, i) => {
     const rows = s.fields
       .map(f => [f.label, displayValue(f, a)] as const)
       .filter(([, v]) => v);
     if (!rows.length) return;
-    body[`— ${i + 1}. ${s.title} —`] =
-      `${rows.length} of ${s.fields.length} answered`;
-    for (const [label, v] of rows) body[label] = v;
+    fields[`Section ${i + 1}`] = s.title;
+    for (const [label, v] of rows) fields[label] = v;
   });
-  return body;
-}
-
-/** The whole brief as plain text, for sending by WhatsApp or email instead. */
-function plainText(a: Answers) {
-  const business = text(a, "business");
-  const parts = [
-    `Client brief from ${text(a, "name")}${business ? ` (${business})` : ""}`,
-  ];
-  BRIEF_SECTIONS.forEach((s, i) => {
-    const rows = s.fields
-      .map(f => [f.label, displayValue(f, a)] as const)
-      .filter(([, v]) => v);
-    if (rows.length)
-      parts.push(
-        [
-          `${i + 1}. ${s.title}`,
-          ...rows.map(([l, v]) => `${l}${l.endsWith("?") ? "" : ":"} ${v}`),
-        ].join("\n")
-      );
-  });
-  return parts.join("\n\n");
+  return fields;
 }
 
 export default function ClientBrief() {
@@ -212,21 +182,13 @@ export default function ClientBrief() {
     setStatus("sending");
     setSendError("");
     try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(buildEmail(answers)),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) !== "true") {
-        throw new Error(
-          json.message ||
-            "The service that delivers this form isn't responding."
-        );
-      }
+      const name = text(answers, "name");
+      const business = text(answers, "business");
+      await sendForm(
+        `Client brief: ${business ? `${business} (${name})` : name}`,
+        emailFields(answers),
+        text(answers, "email") || undefined
+      );
       try {
         localStorage.removeItem(STORAGE_KEY);
       } catch {
@@ -235,12 +197,8 @@ export default function ClientBrief() {
       setStatus("sent");
       window.scrollTo({ top: 0 });
     } catch (err) {
-      // fetch() throws a TypeError when FormSubmit can't be reached at all,
-      // e.g. when its server is down.
       setSendError(
-        err instanceof Error && !(err instanceof TypeError)
-          ? err.message
-          : "The service that delivers this form isn't responding."
+        err instanceof Error ? err.message : "The message couldn't be sent."
       );
       setStatus("error");
     }
@@ -464,7 +422,12 @@ export default function ClientBrief() {
           />
 
           {step === REVIEW && status === "error" && (
-            <SendFallback answers={answers} reason={sendError} />
+            <p
+              className="mt-6 rounded-xl bg-red-50 p-4 text-sm text-red-700"
+              role="alert"
+            >
+              {sendError} Your answers are still saved, so you can try again.
+            </p>
           )}
         </div>
 
@@ -519,7 +482,7 @@ export default function ClientBrief() {
 
       <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
         Your answers stay on this device until you send them. They're sent to me
-        by email through FormSubmit and used only to prepare for our call and
+        by email through Web3Forms and used only to prepare for our call and
         plan your campaigns. I don't share them with anyone else. See my{" "}
         <a
           href="/privacy-policy/"
@@ -878,59 +841,6 @@ function Review({
         </span>
       </label>
     </>
-  );
-}
-
-/** Lets people send the brief themselves when FormSubmit is unavailable. */
-function SendFallback({
-  answers,
-  reason,
-}: {
-  answers: Answers;
-  reason: string;
-}) {
-  const body = plainText(answers);
-  const subject = buildEmail(answers)._subject;
-  return (
-    <div
-      className="mt-6 rounded-2xl border border-red-100 bg-red-50 p-5 text-sm text-red-800"
-      role="alert"
-    >
-      <p className="text-base font-bold">
-        Your brief couldn't be sent just now
-      </p>
-      <p className="mt-1">
-        {reason} Your answers are saved, so you can try again in a few minutes,
-        or send them to me directly in one tap:
-      </p>
-      <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-        <Button
-          asChild
-          className="h-11 rounded-full bg-[#25D366] px-5 font-bold text-white hover:bg-[#1fb956]"
-        >
-          <a
-            href={`${CONTACT.whatsapp}?text=${encodeURIComponent(body)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Send on WhatsApp
-          </a>
-        </Button>
-        <Button
-          asChild
-          variant="outline"
-          className="h-11 rounded-full bg-white px-5 font-bold text-secondary"
-        >
-          <a
-            href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
-          >
-            <Mail className="h-4 w-4" aria-hidden="true" />
-            Send by email
-          </a>
-        </Button>
-      </div>
-    </div>
   );
 }
 

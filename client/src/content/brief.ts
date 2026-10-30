@@ -1,5 +1,5 @@
 // Questions for the client brief at /brief/. The form, the review step and
-// the email sent through FormSubmit are all built from this list.
+// the email sent through Web3Forms are all built from this list.
 import { COMMISSION_RANGE, OFFER_AD_SPEND_NOTE } from "./offer";
 
 type Base = {

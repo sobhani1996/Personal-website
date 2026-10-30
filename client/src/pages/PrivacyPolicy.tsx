@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
               <h2>3. How Is Your Personal Data Collected?</h2>
               <p>I use different methods to collect data from and about you including through:</p>
               <ul>
-                <li><strong>Direct interactions.</strong> You may give me your Identity and Contact Data by filling in forms or by corresponding with me by post, phone, email or otherwise. When you use the contact form or the client brief form on this website, the details you enter are sent to me by email through FormSubmit (formsubmit.co), a third-party form service, and are used only to reply to your enquiry and prepare for our work together. The client brief form also keeps your answers in your own browser until you send them, so you can finish it later.</li>
+                <li><strong>Direct interactions.</strong> You may give me your Identity and Contact Data by filling in forms or by corresponding with me by post, phone, email or otherwise. When you use the contact form or the client brief form on this website, the details you enter are sent to me by email through Web3Forms (web3forms.com), a third-party form service, and are used only to reply to your enquiry and prepare for our work together. The client brief form also keeps your answers in your own browser until you send them, so you can finish it later.</li>
                 <li><strong>Automated technologies or interactions.</strong> As you interact with my website, I will automatically collect Technical Data about your equipment, browsing actions and patterns. I collect this personal data by using cookies, server logs and other similar technologies. Please see my Cookie Policy for further details.</li>
               </ul>
 

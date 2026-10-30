@@ -3,13 +3,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CONTACT } from "@/content/offer";
+import { sendForm } from "@/lib/web3forms";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
-// GitHub Pages can't process forms, so submissions go through FormSubmit,
-// which emails them to CONTACT.email. The first submission triggers a
-// one-time activation email to that address.
-const ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
+// Submissions are emailed to CONTACT.email by Web3Forms (see lib/web3forms).
 
 const services = [
   "Google Ads",
@@ -37,34 +35,34 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<
+      string,
+      string
+    >;
     if (data._honey) return; // bot filled the hidden field
 
     setStatus("sending");
     setError("");
     try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+      await sendForm(
+        `New enquiry from ${data.name} (mrsobhani.uk)`,
+        {
+          Name: data.name,
+          Email: data.email,
+          Phone: data.phone,
+          Business: data.business,
+          Website: data.website,
+          "Interested in": data.service,
+          "Monthly ad budget": data.budget,
+          Message: data.message,
         },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New enquiry from ${data.name} (mrsobhani.uk)`,
-          _template: "table",
-          _replyto: data.email,
-        }),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) !== "true") {
-        throw new Error(json.message || "The message could not be sent.");
-      }
+        data.email
+      );
       form.reset();
       setStatus("sent");
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "The message could not be sent."
+        err instanceof Error ? err.message : "The message couldn't be sent."
       );
       setStatus("error");
     }

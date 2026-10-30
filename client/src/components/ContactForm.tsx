@@ -2,14 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CONTACT } from "@/content/offer";
+import { postToFormSubmit } from "@/lib/formsubmit";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
-// GitHub Pages can't process forms, so submissions go through FormSubmit,
-// which emails them to CONTACT.email. The first submission triggers a
-// one-time activation email to that address.
-const ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
+// Submissions are emailed by FormSubmit (see lib/formsubmit), which then
+// sends the visitor back here with ?sent=1. The first submission triggers a
+// one-time activation email to CONTACT.email.
 
 const services = [
   "Google Ads",
@@ -28,51 +27,50 @@ const budgets = [
 const selectClass =
   "h-11 w-full rounded-md border border-input bg-transparent px-3 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 md:text-sm";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState("");
+  const sentRef = useRef<HTMLDivElement>(null);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("sent") === "1") {
+      setStatus("sent");
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+    // Re-enable the button if someone comes back with the Back button.
+    const reset = (e: PageTransitionEvent) => e.persisted && setStatus("idle");
+    window.addEventListener("pageshow", reset);
+    return () => window.removeEventListener("pageshow", reset);
+  }, []);
+
+  useEffect(() => {
+    if (status === "sent")
+      sentRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [status]);
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-    if (data._honey) return; // bot filled the hidden field
+    const { _honey, ...data } = Object.fromEntries(
+      new FormData(e.currentTarget).entries()
+    ) as Record<string, string>;
+    if (_honey) return; // bot filled the hidden field
 
     setStatus("sending");
-    setError("");
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New enquiry from ${data.name} (mrsobhani.uk)`,
-          _template: "table",
-          _replyto: data.email,
-        }),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) !== "true") {
-        throw new Error(json.message || "The message could not be sent.");
-      }
-      form.reset();
-      setStatus("sent");
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "The message could not be sent."
-      );
-      setStatus("error");
-    }
+    postToFormSubmit(
+      {
+        ...data,
+        _subject: `New enquiry from ${data.name} (mrsobhani.uk)`,
+        _replyto: data.email,
+      },
+      "/contact/?sent=1"
+    );
   }
 
   if (status === "sent") {
     return (
       <div
+        ref={sentRef}
         className="flex flex-col items-center rounded-3xl border border-gray-100 bg-white p-10 text-center shadow-sm"
         role="status"
       >
@@ -235,22 +233,6 @@ export default function ContactForm() {
           . *
         </span>
       </label>
-
-      {status === "error" && (
-        <p
-          className="rounded-xl bg-red-50 p-4 text-sm text-red-700"
-          role="alert"
-        >
-          {error} Please try again, or email me at{" "}
-          <a
-            href={`mailto:${CONTACT.email}`}
-            className="font-semibold underline"
-          >
-            {CONTACT.email}
-          </a>
-          .
-        </p>
-      )}
 
       <Button
         type="submit"

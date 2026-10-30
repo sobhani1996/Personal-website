@@ -136,6 +136,14 @@ export const PAGES: PageSeo[] = [
     noindex: true,
   },
   {
+    path: "/brief/thanks",
+    title: "Thanks for your brief | Mori Sobhani",
+    description:
+      "Your client brief has been sent. Mori Sobhani will be in touch within 2 working days.",
+    crumb: "Brief sent",
+    noindex: true,
+  },
+  {
     path: "/blog",
     title: "Google Ads, Meta Ads & Marketing Blog | Mori Sobhani",
     description:

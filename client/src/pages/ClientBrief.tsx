@@ -15,6 +15,7 @@ import {
   type TextField,
 } from "@/content/brief";
 import { CONTACT } from "@/content/offer";
+import { postToFormSubmit } from "@/lib/formsubmit";
 import { cn } from "@/lib/utils";
 import {
   ArrowLeft,
@@ -39,8 +40,6 @@ import {
 } from "react";
 import { Link } from "wouter";
 
-// Sent through FormSubmit like the contact form, so it arrives as an email.
-const ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
 const STORAGE_KEY = "mrsobhani-client-brief";
 const REVIEW = BRIEF_SECTIONS.length; // step index of the final check
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -48,7 +47,6 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Answer = string | string[];
 type Answers = Record<string, Answer>;
 type Errors = Partial<Record<"name" | "email", string>>;
-type Status = "idle" | "sending" | "sent" | "error";
 
 const text = (a: Answers, id: string) =>
   typeof a[id] === "string" ? (a[id] as string).trim() : "";
@@ -93,7 +91,6 @@ function buildEmail(a: Answers) {
   const email = text(a, "email");
   const body: Record<string, string> = {
     _subject: `Client brief: ${business ? `${business} (${name})` : name}`,
-    _template: "table",
   };
   if (email) body._replyto = email;
   BRIEF_SECTIONS.forEach((s, i) => {
@@ -101,7 +98,7 @@ function buildEmail(a: Answers) {
       .map(f => [f.label, displayValue(f, a)] as const)
       .filter(([, v]) => v);
     if (!rows.length) return;
-    body[`— ${i + 1}. ${s.title} —`] =
+    body[`Section ${i + 1}: ${s.title}`] =
       `${rows.length} of ${s.fields.length} answered`;
     for (const [label, v] of rows) body[label] = v;
   });
@@ -112,8 +109,7 @@ export default function ClientBrief() {
   const [answers, setAnswers] = useState<Answers>({});
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<Status>("idle");
-  const [sendError, setSendError] = useState("");
+  const [sending, setSending] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [restored, setRestored] = useState(false);
   const cardRef = useRef<HTMLFormElement>(null);
@@ -138,13 +134,21 @@ export default function ClientBrief() {
   }, []);
 
   useEffect(() => {
-    if (!loaded || status === "sent") return;
+    if (!loaded) return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, step }));
     } catch {
       // Ignore: saving is a convenience only.
     }
-  }, [answers, step, loaded, status]);
+  }, [answers, step, loaded]);
+
+  // Re-enable the button if someone comes back from FormSubmit with the
+  // browser's Back button.
+  useEffect(() => {
+    const reset = (e: PageTransitionEvent) => e.persisted && setSending(false);
+    window.addEventListener("pageshow", reset);
+    return () => window.removeEventListener("pageshow", reset);
+  }, []);
 
   // After changing step, bring the card into view and move focus to the
   // new heading (or the first field that needs fixing).
@@ -178,7 +182,7 @@ export default function ClientBrief() {
     goTo(0);
   }
 
-  async function send() {
+  function send() {
     const found = validate(answers);
     if (Object.keys(found).length) {
       setErrors(found);
@@ -187,34 +191,9 @@ export default function ClientBrief() {
     }
     if (honeyRef.current?.value) return; // bot filled the hidden field
 
-    setStatus("sending");
-    setSendError("");
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(buildEmail(answers)),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) !== "true") {
-        throw new Error(json.message || "Your brief could not be sent.");
-      }
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-      } catch {
-        // Ignore.
-      }
-      setStatus("sent");
-      window.scrollTo({ top: 0 });
-    } catch (err) {
-      setSendError(
-        err instanceof Error ? err.message : "Your brief could not be sent."
-      );
-      setStatus("error");
-    }
+    // Answers stay saved until the thank-you page confirms they were sent.
+    setSending(true);
+    postToFormSubmit(buildEmail(answers), "/brief/thanks/");
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -230,14 +209,6 @@ export default function ClientBrief() {
       }
     }
     goTo(step + 1);
-  }
-
-  if (status === "sent") {
-    return (
-      <Page>
-        <Thanks name={text(answers, "name").split(" ")[0]} />
-      </Page>
-    );
   }
 
   const section = BRIEF_SECTIONS[step];
@@ -433,23 +404,6 @@ export default function ClientBrief() {
             className="hidden"
             aria-hidden="true"
           />
-
-          {step === REVIEW && status === "error" && (
-            <p
-              className="mt-6 rounded-xl bg-red-50 p-4 text-sm text-red-700"
-              role="alert"
-            >
-              {sendError} Your answers are still saved. Please try again, or
-              email me at{" "}
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="font-semibold underline"
-              >
-                {CONTACT.email}
-              </a>
-              .
-            </p>
-          )}
         </div>
 
         {/* Navigation */}
@@ -479,10 +433,10 @@ export default function ClientBrief() {
           ) : (
             <Button
               type="submit"
-              disabled={status === "sending"}
+              disabled={sending}
               className="h-12 rounded-full px-7 text-base font-bold shadow-lg shadow-primary/20"
             >
-              {status === "sending" ? (
+              {sending ? (
                 <>
                   Sending
                   <Loader2
@@ -883,7 +837,23 @@ function NextSteps({ className }: { className?: string }) {
   );
 }
 
-function Thanks({ name }: { name: string }) {
+/** FormSubmit redirects here after emailing the brief. */
+export function ClientBriefThanks() {
+  useEffect(() => {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Ignore.
+    }
+  }, []);
+  return (
+    <Page>
+      <Thanks />
+    </Page>
+  );
+}
+
+function Thanks() {
   return (
     <div
       className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm md:p-12"
@@ -895,7 +865,7 @@ function Thanks({ name }: { name: string }) {
           aria-hidden="true"
         />
         <h1 className="text-3xl font-extrabold text-secondary md:text-4xl">
-          Thanks{name ? `, ${name}` : ""}! Your brief is on its way
+          Thanks! Your brief is on its way
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-lg text-muted-foreground">
           I'll read your answers and get back to you within 2 working days to

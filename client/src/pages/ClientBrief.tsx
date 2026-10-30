@@ -46,7 +46,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Answer = string | string[];
 type Answers = Record<string, Answer>;
-type Errors = Partial<Record<"name" | "email", string>>;
+type Errors = Record<string, string>;
 type Status = "idle" | "sending" | "sent" | "error";
 
 const text = (a: Answers, id: string) =>
@@ -58,14 +58,21 @@ const isAnswered = (v: Answer | undefined) =>
 const answeredIn = (s: BriefSection, a: Answers) =>
   s.fields.filter(f => isAnswered(a[f.id])).length;
 
+const REQUIRED = BRIEF_SECTIONS.flatMap(s => s.fields).filter(
+  (f): f is TextField => f.kind === "text" && !!f.required
+);
+
+/** Errors for the required fields, in the order they appear on the page. */
 function validate(a: Answers): Errors {
   const errors: Errors = {};
-  if (!text(a, "name")) errors.name = "Please add your name.";
-  const email = text(a, "email");
-  if (email && !EMAIL_RE.test(email))
-    errors.email = "This email address doesn't look right.";
-  else if (!email && !text(a, "phone"))
-    errors.email = "Add an email or a phone number so I can reach you.";
+  for (const f of REQUIRED) {
+    const v = text(a, f.id);
+    if (!v) errors[f.id] = f.required!;
+    else if (f.type === "email" && !EMAIL_RE.test(v))
+      errors[f.id] = "This email address doesn't look right.";
+    else if (f.type === "tel" && v.replace(/\D/g, "").length < 7)
+      errors[f.id] = "This phone number looks too short.";
+  }
   return errors;
 }
 
@@ -369,7 +376,7 @@ export default function ClientBrief() {
               </h2>
               <p className="mt-2 text-muted-foreground">
                 {step === 0
-                  ? "Only your name and an email or phone number are needed. Everything else is optional."
+                  ? "Fields marked * are required. Everything else is optional."
                   : section.intro}
               </p>
               {section.note && (
@@ -393,8 +400,8 @@ export default function ClientBrief() {
                       key={f.id}
                       field={f}
                       value={(answers[f.id] as string) ?? ""}
-                      required={f.id === "name"}
-                      error={errors[f.id as keyof Errors]}
+                      required={f.kind === "text" && !!f.required}
+                      error={errors[f.id]}
                       onChange={v => update(f.id, v)}
                     />
                   )
@@ -737,7 +744,7 @@ function Review({
       {missing && (
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-red-50 p-4 text-sm text-red-700">
           <span>
-            Please add your name and an email or phone number before sending.
+            Please fill in the required details in "About you" before sending.
           </span>
           <Button
             type="button"

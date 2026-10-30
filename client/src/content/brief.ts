@@ -18,6 +18,8 @@ export type TextField = Base & {
   placeholder?: string;
   prefix?: string;
   suffix?: string;
+  /** Makes the field required; shown as the error when it's left empty. */
+  required?: string;
 };
 
 export type LongTextField = Base & {
@@ -68,6 +70,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         id: "name",
         label: "Your name",
         autoComplete: "name",
+        required: "Please add your name.",
         half: true,
       },
       {
@@ -76,6 +79,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         label: "Your role",
         placeholder: "e.g. Owner, manager",
         autoComplete: "organization-title",
+        required: "Please add your role.",
         half: true,
       },
       {
@@ -83,6 +87,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         id: "business",
         label: "Business name",
         autoComplete: "organization",
+        required: "Please add your business name.",
         half: true,
       },
       {
@@ -90,7 +95,8 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         id: "website",
         label: "Website",
         inputMode: "url",
-        placeholder: "yourbusiness.co.uk",
+        placeholder: 'yourbusiness.co.uk, or "none"',
+        required: 'Please add your website, or type "none".',
         half: true,
       },
       {
@@ -100,6 +106,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         type: "email",
         inputMode: "email",
         autoComplete: "email",
+        required: "Please add your email.",
         half: true,
       },
       {
@@ -109,6 +116,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         type: "tel",
         inputMode: "tel",
         autoComplete: "tel",
+        required: "Please add your phone or WhatsApp number.",
         half: true,
       },
       {

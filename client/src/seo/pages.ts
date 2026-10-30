@@ -127,6 +127,15 @@ export const PAGES: PageSeo[] = [
     sitemap: { priority: "0.8", changefreq: "yearly" },
   },
   {
+    // Shared directly with prospects, so it stays out of search results.
+    path: "/brief",
+    title: "Client Project Brief | Mori Sobhani",
+    description:
+      "A short questionnaire to prepare for your free Google Ads or Meta Ads strategy call with Mori Sobhani.",
+    crumb: "Client brief",
+    noindex: true,
+  },
+  {
     path: "/blog",
     title: "Google Ads, Meta Ads & Marketing Blog | Mori Sobhani",
     description:

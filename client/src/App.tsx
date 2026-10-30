@@ -25,6 +25,7 @@ const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 const Storytelling = lazy(() => import("@/pages/Storytelling"));
 const BookLanding = lazy(() => import("@/pages/BookLanding"));
+const ClientBrief = lazy(() => import("@/pages/ClientBrief"));
 
 // Keeps the title, description, canonical and structured data in sync with the
 // current page after client-side navigation. Blog posts set their own head.
@@ -61,6 +62,7 @@ function Routes() {
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/contact" component={Contact} />
+        <Route path="/brief" component={ClientBrief} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />
         {/* Final fallback route */}

@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 md:p-12 lg:p-16 rounded-[2.5rem] shadow-sm border border-gray-100">
             <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mb-8">Privacy Policy (GDPR Compliant)</h1>
-            <p className="text-muted-foreground mb-10">Last updated: 4 October 2026</p>
+            <p className="text-muted-foreground mb-10">Last updated: 30 October 2026</p>
             
             <div className="prose prose-lg max-w-none text-[#333333] leading-[1.8] 
               prose-headings:text-secondary prose-headings:font-bold prose-headings:mt-10 prose-headings:mb-4 
@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
               <h2>3. How Is Your Personal Data Collected?</h2>
               <p>I use different methods to collect data from and about you including through:</p>
               <ul>
-                <li><strong>Direct interactions.</strong> You may give me your Identity and Contact Data by filling in forms or by corresponding with me by post, phone, email or otherwise. When you use the contact form on this website, the details you enter are sent to me by email through FormSubmit (formsubmit.co), a third-party form service, and are used only to reply to your enquiry.</li>
+                <li><strong>Direct interactions.</strong> You may give me your Identity and Contact Data by filling in forms or by corresponding with me by post, phone, email or otherwise. When you use the contact form or the client brief form on this website, the details you enter are sent to me by email through FormSubmit (formsubmit.co), a third-party form service, and are used only to reply to your enquiry and prepare for our work together. The client brief form also keeps your answers in your own browser until you send them, so you can finish it later.</li>
                 <li><strong>Automated technologies or interactions.</strong> As you interact with my website, I will automatically collect Technical Data about your equipment, browsing actions and patterns. I collect this personal data by using cookies, server logs and other similar technologies. Please see my Cookie Policy for further details.</li>
               </ul>
 

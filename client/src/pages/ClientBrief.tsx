@@ -36,12 +36,12 @@ import {
   useState,
   type FormEvent,
   type ReactNode,
-  type RefObject,
 } from "react";
 import { Link } from "wouter";
 
-const STORAGE_KEY = "mrsobhani-client-brief";
-const REVIEW = BRIEF_SECTIONS.length; // step index of the final check
+// v2: the brief was cut to 3 steps, so drafts saved before that are ignored.
+const STORAGE_KEY = "mrsobhani-client-brief-v2";
+const LAST = BRIEF_SECTIONS.length - 1; // the step with the Send button
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Answer = string | string[];
@@ -127,7 +127,7 @@ export default function ClientBrief() {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null");
       if (saved?.answers && Object.keys(saved.answers).length) {
         setAnswers(saved.answers);
-        setStep(Math.min(Number(saved.step) || 0, REVIEW));
+        setStep(Math.min(Number(saved.step) || 0, LAST));
         setRestored(true);
       }
     } catch {
@@ -213,7 +213,7 @@ export default function ClientBrief() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (step === REVIEW) return void send();
+    if (step === LAST) return void send();
     if (step === 0) {
       const found = validate(answers);
       setErrors(found);
@@ -235,8 +235,7 @@ export default function ClientBrief() {
   }
 
   const section = BRIEF_SECTIONS[step];
-  const percent = Math.round(((step + 1) / (REVIEW + 1)) * 100);
-  const missing = validate(answers);
+  const percent = Math.round(((step + 1) / BRIEF_SECTIONS.length) * 100);
 
   return (
     <Page>
@@ -255,7 +254,7 @@ export default function ClientBrief() {
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-secondary">
           <li className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-secondary/60" aria-hidden="true" />
-            About 10 minutes
+            About 3 minutes
           </li>
           <li className="flex items-center gap-2">
             <SkipForward
@@ -287,7 +286,7 @@ export default function ClientBrief() {
       <form
         ref={cardRef}
         onSubmit={handleSubmit}
-        noValidate={step !== REVIEW}
+        noValidate={step !== LAST}
         className="scroll-mt-28 rounded-3xl border border-gray-100 bg-white shadow-sm"
         aria-labelledby="brief-step-heading"
       >
@@ -295,7 +294,7 @@ export default function ClientBrief() {
         <div className="border-b border-gray-100 px-5 pb-5 pt-6 md:px-10">
           <div className="flex items-center justify-between text-sm">
             <span className="font-bold text-secondary">
-              {step < REVIEW ? `Step ${step + 1} of ${REVIEW}` : "Final check"}
+              Step {step + 1} of {BRIEF_SECTIONS.length}
             </span>
             <span className="text-muted-foreground">{percent}% done</span>
           </div>
@@ -312,14 +311,11 @@ export default function ClientBrief() {
               style={{ width: `${percent}%` }}
             />
           </div>
-          <ol className="mt-5 hidden grid-cols-7 gap-1 md:grid">
-            {[...BRIEF_SECTIONS.map(s => s.short), "Send"].map((label, i) => {
+          <ol className="mt-5 hidden grid-cols-3 gap-1 md:grid">
+            {BRIEF_SECTIONS.map((s, i) => {
+              const label = s.short;
               const current = i === step;
-              const done =
-                !current &&
-                (i < REVIEW
-                  ? answeredIn(BRIEF_SECTIONS[i], answers) > 0
-                  : false);
+              const done = !current && answeredIn(s, answers) > 0;
               return (
                 <li key={label}>
                   <button
@@ -364,57 +360,69 @@ export default function ClientBrief() {
 
         {/* Step content */}
         <div className="px-5 py-8 md:px-10">
-          {section ? (
-            <>
-              <h2
-                id="brief-step-heading"
-                ref={headingRef}
-                tabIndex={-1}
-                className="text-2xl font-bold text-secondary outline-none md:text-3xl"
-              >
-                {section.title}
-              </h2>
-              <p className="mt-2 text-muted-foreground">
-                {step === 0
-                  ? "Fields marked * are required. Everything else is optional."
-                  : section.intro}
-              </p>
-              {section.note && (
-                <p className="mt-4 rounded-xl border-l-4 border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-secondary">
-                  {section.note}
-                </p>
-              )}
-              <div className="mt-8 grid gap-x-5 gap-y-7 sm:grid-cols-2">
-                {section.fields.map(f =>
-                  f.kind === "choice" ? (
-                    <ChoiceQuestion
-                      key={f.id}
-                      field={f}
-                      value={answers[f.id]}
-                      other={text(answers, `${f.id}Other`)}
-                      onChange={v => update(f.id, v)}
-                      onOther={v => update(`${f.id}Other`, v)}
-                    />
-                  ) : (
-                    <TextQuestion
-                      key={f.id}
-                      field={f}
-                      value={(answers[f.id] as string) ?? ""}
-                      required={f.kind === "text" && !!f.required}
-                      error={errors[f.id]}
-                      onChange={v => update(f.id, v)}
-                    />
-                  )
-                )}
-              </div>
-            </>
-          ) : (
-            <Review
-              answers={answers}
-              missing={Object.keys(missing).length > 0}
-              onEdit={goTo}
-              headingRef={headingRef}
-            />
+          <h2
+            id="brief-step-heading"
+            ref={headingRef}
+            tabIndex={-1}
+            className="text-2xl font-bold text-secondary outline-none md:text-3xl"
+          >
+            {section.title}
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            {step === 0
+              ? "Fields marked * are required. Everything else is optional."
+              : section.intro}
+          </p>
+          {section.note && (
+            <p className="mt-4 rounded-xl border-l-4 border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-secondary">
+              {section.note}
+            </p>
+          )}
+          <div className="mt-8 grid gap-x-5 gap-y-7 sm:grid-cols-2">
+            {section.fields.map(f =>
+              f.kind === "choice" ? (
+                <ChoiceQuestion
+                  key={f.id}
+                  field={f}
+                  value={answers[f.id]}
+                  other={text(answers, `${f.id}Other`)}
+                  onChange={v => update(f.id, v)}
+                  onOther={v => update(`${f.id}Other`, v)}
+                />
+              ) : (
+                <TextQuestion
+                  key={f.id}
+                  field={f}
+                  value={(answers[f.id] as string) ?? ""}
+                  required={f.kind === "text" && !!f.required}
+                  error={errors[f.id]}
+                  onChange={v => update(f.id, v)}
+                />
+              )
+            )}
+          </div>
+
+          {step === LAST && (
+            <label className="mt-10 flex items-start gap-3 text-sm text-muted-foreground">
+              <input
+                type="checkbox"
+                name="consent"
+                value="yes"
+                required
+                className="mt-0.5 h-5 w-5 shrink-0 accent-[#1e3a8a]"
+              />
+              <span>
+                I agree that my answers are used to prepare for our call and
+                plan my campaigns, as described in the{" "}
+                <a
+                  href="/privacy-policy/"
+                  className="font-semibold text-secondary underline"
+                >
+                  privacy policy
+                </a>
+                . <span className="text-red-600">*</span>
+              </span>
+            </label>
           )}
 
           {/* Honeypot: hidden from people, filled in by spam bots. */}
@@ -428,7 +436,7 @@ export default function ClientBrief() {
             aria-hidden="true"
           />
 
-          {step === REVIEW && status === "error" && (
+          {step === LAST && status === "error" && (
             <p
               className="mt-6 rounded-xl bg-red-50 p-4 text-sm text-red-700"
               role="alert"
@@ -452,14 +460,12 @@ export default function ClientBrief() {
           ) : (
             <span />
           )}
-          {step < REVIEW ? (
+          {step < LAST ? (
             <Button
               type="submit"
               className="h-12 rounded-full px-6 text-base font-bold shadow-lg shadow-primary/20"
             >
-              {step === REVIEW - 1
-                ? "Check and send"
-                : `Next: ${BRIEF_SECTIONS[step + 1].short}`}
+              Next: {BRIEF_SECTIONS[step + 1].short}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           ) : (
@@ -712,142 +718,6 @@ function ChoiceQuestion({
         />
       )}
     </fieldset>
-  );
-}
-
-function Review({
-  answers,
-  missing,
-  onEdit,
-  headingRef,
-}: {
-  answers: Answers;
-  missing: boolean;
-  onEdit: (step: number) => void;
-  headingRef: RefObject<HTMLHeadingElement | null>;
-}) {
-  return (
-    <>
-      <h2
-        id="brief-step-heading"
-        ref={headingRef}
-        tabIndex={-1}
-        className="text-2xl font-bold text-secondary outline-none md:text-3xl"
-      >
-        Check and send
-      </h2>
-      <p className="mt-2 text-muted-foreground">
-        Go back to any section, or send it as it is. Anything you skipped we'll
-        cover on the call.
-      </p>
-
-      {missing && (
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-red-50 p-4 text-sm text-red-700">
-          <span>
-            Please fill in the required details in "About you" before sending.
-          </span>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={() => onEdit(0)}
-            className="rounded-full border-red-200 bg-white font-bold text-red-700"
-          >
-            Add details
-          </Button>
-        </div>
-      )}
-
-      <ul className="mt-6 divide-y divide-gray-100 rounded-2xl border border-gray-100">
-        {BRIEF_SECTIONS.map((s, i) => {
-          const count = answeredIn(s, answers);
-          const rows = s.fields
-            .map(f => [f.label, displayValue(f, answers)] as const)
-            .filter(([, v]) => v);
-          return (
-            <li key={s.id} className="p-4 md:px-5">
-              <div className="flex items-center gap-4">
-                <span
-                  className={cn(
-                    "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold",
-                    count
-                      ? "bg-secondary text-white"
-                      : "border-2 border-gray-200 text-muted-foreground"
-                  )}
-                  aria-hidden="true"
-                >
-                  {count ? <Check className="h-4 w-4" /> : i + 1}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="font-bold text-secondary">{s.title}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {count
-                      ? `${count} of ${s.fields.length} answered`
-                      : "Skipped"}
-                  </p>
-                </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => onEdit(i)}
-                  className="rounded-full px-4 font-bold text-secondary"
-                  aria-label={`Edit ${s.title}`}
-                >
-                  Edit
-                </Button>
-              </div>
-              {rows.length > 0 && (
-                <details className="group mt-2 pl-12">
-                  <summary className="cursor-pointer text-sm font-semibold text-secondary underline underline-offset-2">
-                    <span className="group-open:hidden">Show answers</span>
-                    <span className="hidden group-open:inline">
-                      Hide answers
-                    </span>
-                  </summary>
-                  <dl className="mt-3 space-y-3 text-sm">
-                    {rows.map(([label, v]) => (
-                      <div key={label}>
-                        <dt className="text-muted-foreground">{label}</dt>
-                        <dd className="whitespace-pre-line font-medium text-secondary">
-                          {v}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </details>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      <div className="mt-8 rounded-2xl bg-secondary p-6 text-white md:p-7">
-        <h3 className="text-lg font-bold">What happens next</h3>
-        <NextSteps className="mt-4 text-blue-100" />
-      </div>
-
-      <label className="mt-8 flex items-start gap-3 text-sm text-muted-foreground">
-        <input
-          type="checkbox"
-          name="consent"
-          value="yes"
-          required
-          className="mt-0.5 h-5 w-5 shrink-0 accent-[#1e3a8a]"
-        />
-        <span>
-          I agree that my answers are used to prepare for our call and plan my
-          campaigns, as described in the{" "}
-          <a
-            href="/privacy-policy/"
-            className="font-semibold text-secondary underline"
-          >
-            privacy policy
-          </a>
-          . <span className="text-red-600">*</span>
-        </span>
-      </label>
-    </>
   );
 }
 

@@ -19,7 +19,7 @@ const cards = [
     icon: Wrench,
     label: "Campaign setup",
     value: "£0",
-    text: "Tracking, research, ad copy and campaign build, done for free.",
+    text: "Shopify tracking, product feed, ad copy and campaign build, done for free.",
   },
   {
     icon: CalendarX,
@@ -57,7 +57,7 @@ export default function PricingModel({
               </span>
             </span>
           }
-          intro={`I set up your Google Ads or Meta Ads campaigns for free. After launch, my only fee is ${COMMISSION_RANGE} of each conversion's value, so I only earn when you do.`}
+          intro={`I set up Google Ads or Meta Ads for your Shopify store for free. After launch, my only fee is ${COMMISSION_RANGE} of the sales value your ads bring in, so I only earn when you do.`}
         />
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -90,7 +90,7 @@ export default function PricingModel({
               <strong className="text-white">
                 {formatGBP(EXAMPLE.conversionValue)}
               </strong>{" "}
-              of tracked sales in a month. At an agreed rate of{" "}
+              of tracked Shopify sales in a month. At an agreed rate of{" "}
               <strong className="text-white">{EXAMPLE.rate}%</strong>, my fee is{" "}
               <strong className="text-primary">{formatGBP(fee)}</strong>. If the
               ads bring in nothing, my fee is £0.

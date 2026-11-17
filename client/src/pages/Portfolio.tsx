@@ -116,7 +116,7 @@ export default function Portfolio() {
             Cases That <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Moved the Needle</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            Real campaigns, real numbers. Google Ads, Meta Ads and LinkedIn Ads work, plus the tracking, SEO and landing pages that made it convert.
+            Real campaigns, real numbers. The online store results behind my work with Shopify stores, plus the LinkedIn Ads, tracking and SEO work that came before.
           </p>
         </section>
 

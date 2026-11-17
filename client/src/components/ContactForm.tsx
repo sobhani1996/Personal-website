@@ -9,8 +9,9 @@ import { useState, type FormEvent } from "react";
 
 // Submissions are emailed to CONTACT.email by Web3Forms (see lib/web3forms).
 
+const shopifyOptions = ["Yes", "Not yet, I'm moving to Shopify", "No"];
 const services = [
-  "Google Ads",
+  "Google Ads (Shopping & Search)",
   "Meta Ads (Facebook & Instagram)",
   "Both",
   "Not sure yet",
@@ -50,8 +51,9 @@ export default function ContactForm() {
           Name: data.name,
           Email: data.email,
           Phone: data.phone,
-          Business: data.business,
-          Website: data.website,
+          Store: data.business,
+          "Store website": data.website,
+          "On Shopify": data.shopify,
           "Interested in": data.service,
           "Monthly ad budget": data.budget,
           Message: data.message,
@@ -109,7 +111,7 @@ export default function ContactForm() {
           Send me a message
         </h2>
         <p className="mt-1 text-muted-foreground">
-          Tell me a little about your business and I'll get back to you.
+          Tell me a little about your Shopify store and I'll get back to you.
         </p>
       </div>
 
@@ -146,7 +148,7 @@ export default function ContactForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="cf-business">Business name</Label>
+          <Label htmlFor="cf-business">Store name</Label>
           <Input
             id="cf-business"
             name="business"
@@ -154,16 +156,33 @@ export default function ContactForm() {
             className="h-11"
           />
         </div>
-        <div className="space-y-2 sm:col-span-2">
-          <Label htmlFor="cf-website">Website</Label>
+        <div className="space-y-2">
+          <Label htmlFor="cf-website">Store website</Label>
           <Input
             id="cf-website"
             name="website"
             type="text"
             inputMode="url"
-            placeholder="yourbusiness.co.uk"
+            placeholder="yourstore.co.uk"
             className="h-11"
           />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="cf-shopify">Is your store on Shopify? *</Label>
+          <select
+            id="cf-shopify"
+            name="shopify"
+            required
+            className={selectClass}
+            defaultValue=""
+          >
+            <option value="" disabled>
+              Choose one
+            </option>
+            {shopifyOptions.map(o => (
+              <option key={o}>{o}</option>
+            ))}
+          </select>
         </div>
         <div className="space-y-2">
           <Label htmlFor="cf-service">I'm interested in</Label>
@@ -198,7 +217,7 @@ export default function ContactForm() {
             name="message"
             required
             rows={5}
-            placeholder="What do you sell, who are your customers, and what would you like more of?"
+            placeholder="What do you sell, who buys from you, and what would you like the ads to achieve?"
           />
         </div>
       </div>

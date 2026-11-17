@@ -40,6 +40,10 @@ export type ChoiceField = Base & {
   cards?: boolean;
   /** Asks "Which one?" when the "Other" option is picked. */
   other?: boolean;
+  /** Makes the question required; shown as the error when nothing is picked. */
+  required?: string;
+  /** A message shown under the options while a given option is picked. */
+  note?: { when: string; text: string };
 };
 
 export type BriefField = TextField | LongTextField | ChoiceField;
@@ -61,8 +65,8 @@ export const OTHER = "Other";
 export const BRIEF_SECTIONS: BriefSection[] = [
   {
     id: "about",
-    short: "About you",
-    title: "About you and your business",
+    short: "Your store",
+    title: "About you and your store",
     intro: "The basics, so I know who I'm talking to and how to reach you.",
     fields: [
       {
@@ -77,26 +81,9 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         kind: "text",
         id: "role",
         label: "Your role",
-        placeholder: "e.g. Owner, manager",
+        placeholder: "e.g. Founder, ecommerce manager",
         autoComplete: "organization-title",
         required: "Please add your role.",
-        half: true,
-      },
-      {
-        kind: "text",
-        id: "business",
-        label: "Business name",
-        autoComplete: "organization",
-        required: "Please add your business name.",
-        half: true,
-      },
-      {
-        kind: "text",
-        id: "website",
-        label: "Website",
-        inputMode: "url",
-        placeholder: 'yourbusiness.co.uk, or "none"',
-        required: 'Please add your website, or type "none".',
         half: true,
       },
       {
@@ -120,16 +107,45 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         half: true,
       },
       {
-        kind: "textarea",
-        id: "sells",
-        label: "What you sell, in one or two sentences",
-        rows: 2,
+        kind: "text",
+        id: "business",
+        label: "Store name",
+        autoComplete: "organization",
+        required: "Please add your store name.",
+        half: true,
       },
       {
         kind: "text",
-        id: "location",
-        label: "Where you're based and the areas you serve",
-        placeholder: "e.g. Portsmouth, and anywhere within 20 miles",
+        id: "website",
+        label: "Store website",
+        inputMode: "url",
+        placeholder: "yourstore.co.uk",
+        required: "Please add your store's website.",
+        half: true,
+      },
+      {
+        kind: "choice",
+        id: "shopify",
+        label: "Is your store on Shopify?",
+        required: "Please tell me whether your store is on Shopify.",
+        options: opts("Yes", "Not yet, I'm moving to Shopify", "No"),
+        note: {
+          when: "No",
+          text: "I work only with Shopify stores, but you're welcome to send your brief. If you're thinking of moving to Shopify, I'm happy to talk it through.",
+        },
+      },
+      {
+        kind: "textarea",
+        id: "sells",
+        label: "What does your store sell?",
+        placeholder: "e.g. Handmade candles and home fragrance",
+        rows: 2,
+      },
+      {
+        kind: "choice",
+        id: "shipping",
+        label: "Where do you ship to?",
+        options: opts("UK only", "UK and Europe", "Worldwide"),
       },
     ],
   },
@@ -137,7 +153,8 @@ export const BRIEF_SECTIONS: BriefSection[] = [
     id: "goals",
     short: "Goals",
     title: "Your goals and customers",
-    intro: "What you'd like the ads to do for you, and who they should reach.",
+    intro:
+      "What you'd like the ads to do for your store, and who they should reach.",
     fields: [
       {
         kind: "choice",
@@ -145,7 +162,7 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         label: "Which channel are you interested in?",
         cards: true,
         options: [
-          { value: "Google Ads", detail: "Search, Shopping, Performance Max" },
+          { value: "Google Ads", detail: "Shopping, Performance Max, Search" },
           { value: "Meta Ads", detail: "Facebook and Instagram" },
           { value: "Both", detail: "Google and Meta together" },
           { value: "Not sure", detail: "I'd like your advice" },
@@ -154,29 +171,29 @@ export const BRIEF_SECTIONS: BriefSection[] = [
       {
         kind: "choice",
         id: "goals",
-        label: "What should a successful ad bring you?",
+        label: "What do you want the ads to do?",
         hint: "Pick as many as you like.",
         multiple: true,
         options: opts(
-          "Online sales",
-          "Phone calls",
-          "Enquiry or quote forms",
-          "Bookings or appointments",
-          "WhatsApp or Messenger messages",
-          "Visits to your shop or venue"
+          "More online sales",
+          "Find new customers",
+          "Bring back past customers",
+          "Better return on ad spend",
+          "Launch new products",
+          "Sell seasonal stock"
         ),
       },
       {
         kind: "textarea",
         id: "customer",
         label: "Who is your typical customer?",
-        hint: "Age, location, job, situation.",
+        hint: "Age, location, interests, what they buy.",
       },
       {
         kind: "textarea",
         id: "success",
         label: "What would a good result look like in 3 months?",
-        placeholder: "e.g. 20 more bookings a month",
+        placeholder: "e.g. 100 more orders a month from ads",
       },
       {
         kind: "choice",
@@ -189,14 +206,14 @@ export const BRIEF_SECTIONS: BriefSection[] = [
   {
     id: "numbers",
     short: "Numbers",
-    title: "Budget, numbers and tracking",
+    title: "Sales, budget and tracking",
     intro: `These help me set your fee rate (${COMMISSION_RANGE} of conversion value). Rough figures are fine and stay confidential.`,
     note: OFFER_AD_SPEND_NOTE,
     fields: [
       {
         kind: "text",
         id: "orderValue",
-        label: "Average order or job value",
+        label: "Average order value",
         inputMode: "decimal",
         prefix: "£",
         half: true,
@@ -204,10 +221,22 @@ export const BRIEF_SECTIONS: BriefSection[] = [
       {
         kind: "text",
         id: "margin",
-        label: "Rough profit margin on that",
+        label: "Rough profit margin",
         inputMode: "decimal",
         suffix: "%",
         half: true,
+      },
+      {
+        kind: "choice",
+        id: "revenue",
+        label: "Rough monthly online sales",
+        options: opts(
+          "Under £5,000",
+          "£5,000 – £20,000",
+          "£20,000 – £50,000",
+          "Over £50,000",
+          "Prefer not to say"
+        ),
       },
       {
         kind: "choice",
@@ -240,11 +269,12 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         multiple: true,
         exclusive: "None of these / not sure",
         options: opts(
+          "Shopify's Google & YouTube app",
+          "Shopify's Facebook & Instagram app",
+          "Google Merchant Center",
           "A Google Ads account",
           "A Meta Business account",
           "Google Analytics (GA4)",
-          "Meta Pixel",
-          "Online booking or shop checkout",
           "None of these / not sure"
         ),
       },

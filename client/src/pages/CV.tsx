@@ -26,7 +26,7 @@ export default function CV() {
       company: "Freelance",
       location: "Portsmouth & Remote",
       period: "Mar 2025 - Present",
-      description: "Helping small businesses grow with Google Ads and Meta Ads, on a free-setup, pay-on-results model.",
+      description: "Helping Shopify stores grow sales with Google Ads and Meta Ads, on a free-setup, pay-on-results model.",
       achievements: [
         "Running targeted paid advertising campaigns on social media platforms to drive conversions.",
         "Developing and executing digital marketing strategies for small to medium-sized businesses.",
@@ -92,7 +92,7 @@ export default function CV() {
               Curriculum <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">Vitae</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              My experience in paid media and digital marketing, from e-commerce Google Ads and Meta Ads campaigns to B2B LinkedIn advertising.
+              My experience in paid media and digital marketing, now focused on Google Ads and Meta Ads for Shopify stores, from e-commerce campaigns to B2B LinkedIn advertising.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ export default function CV() {
               <div className="relative z-10 max-w-2xl mx-auto space-y-6">
                 <h2 className="text-3xl font-bold">Want this experience working on your ads?</h2>
                 <p className="text-blue-100 text-lg">
-                  I set up Google Ads and Meta Ads for small businesses for free, then earn a small share of the conversion value they bring in.
+                  I set up Google Ads and Meta Ads for Shopify stores for free, then earn a small share of the conversion value they bring in.
                 </p>
                 <Button asChild className="bg-primary text-secondary hover:bg-white hover:text-secondary rounded-full px-8 h-12 font-bold shadow-lg shadow-black/20 border-none">
                   <Link href="/contact/">Book a free strategy call <ArrowUpRight className="ml-2 w-4 h-4" aria-hidden="true" /></Link>

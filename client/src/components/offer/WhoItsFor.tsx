@@ -1,43 +1,36 @@
-import {
-  Dumbbell,
-  Hammer,
-  ShoppingBag,
-  Stethoscope,
-  Briefcase,
-  UtensilsCrossed,
-} from "lucide-react";
+import { Coffee, Package, PawPrint, Shirt, Sofa, Sparkles } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const types = [
   {
-    icon: Hammer,
-    title: "Trades & home services",
-    text: "Plumbers, electricians, cleaners and builders who need more calls and quote requests.",
+    icon: Shirt,
+    title: "Fashion & accessories",
+    text: "Clothing, jewellery and accessories brands that want more sales from Google Shopping, Instagram and Facebook.",
   },
   {
-    icon: Stethoscope,
-    title: "Clinics & salons",
-    text: "Dental, physio, beauty and hair businesses that want more booked appointments.",
+    icon: Sparkles,
+    title: "Beauty & wellbeing",
+    text: "Skincare, cosmetics and wellbeing products with strong visuals and customers who come back to reorder.",
   },
   {
-    icon: UtensilsCrossed,
-    title: "Restaurants & cafés",
-    text: "Venues that want more table bookings, orders and local footfall.",
+    icon: Sofa,
+    title: "Home, gifts & lifestyle",
+    text: "Homeware, gift and lifestyle stores, including the big seasonal peaks like Black Friday and Christmas.",
   },
   {
-    icon: Dumbbell,
-    title: "Gyms & studios",
-    text: "Fitness and wellbeing businesses filling memberships and classes.",
+    icon: Coffee,
+    title: "Food & drink",
+    text: "Coffee, snacks, drinks and speciality food sold online and delivered across the UK.",
   },
   {
-    icon: ShoppingBag,
-    title: "Online shops",
-    text: "E-commerce brands that want profitable sales tracked to the penny.",
+    icon: PawPrint,
+    title: "Pet products",
+    text: "Food, treats, toys and accessories for pet owners, a loyal audience that buys again and again.",
   },
   {
-    icon: Briefcase,
-    title: "Professional services",
-    text: "Accountants, consultants and agencies looking for qualified enquiries.",
+    icon: Package,
+    title: "Specialist stores",
+    text: "Hobby, outdoor and niche product stores with a clear customer to target.",
   },
 ];
 
@@ -47,8 +40,8 @@ export default function WhoItsFor() {
       <div className="container max-w-6xl">
         <SectionHeading
           eyebrow="Who I work with"
-          title={<span id="who-heading">Built for small businesses</span>}
-          intro="If you can track a sale, a booking or an enquiry, the pay-on-results model can work for you. Some of the businesses it suits best:"
+          title={<span id="who-heading">Built for Shopify stores</span>}
+          intro="If your store runs on Shopify and sells physical products, the pay-on-results model can work for you. Some of the stores it suits best:"
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {types.map(({ icon: Icon, title, text }) => (

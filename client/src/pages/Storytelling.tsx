@@ -85,8 +85,8 @@ const slides = [
   {
     id: "11",
     year: "2026",
-    title: "Paid Media for Small Businesses",
-    description: "Today I'm a Google Ads and Meta Ads specialist for small businesses. I set up campaigns for free and earn 3–7% of the conversion value they bring in, so I only win when my clients do.",
+    title: "Paid Media for Shopify Stores",
+    description: "Today I'm a Google Ads and Meta Ads specialist for Shopify stores. I set up campaigns for free and earn 3–7% of the conversion value they bring in, so I only win when my clients do.",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000",
     buttonText: "How It Works"
   }

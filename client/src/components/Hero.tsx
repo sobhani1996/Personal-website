@@ -34,13 +34,13 @@ export default function Hero() {
               className="h-2 w-2 rounded-full bg-green-500"
               aria-hidden="true"
             />
-            Paid media specialist · Portsmouth, UK
+            Paid media for Shopify stores · Portsmouth, UK
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight text-secondary leading-[1.1]">
             Google Ads & Meta Ads specialist for{" "}
             <span className="relative whitespace-nowrap">
-              <span className="relative z-10">small businesses</span>
+              <span className="relative z-10">Shopify stores</span>
               <span
                 className="absolute inset-x-0 bottom-1 h-4 bg-primary/70 -z-0 rounded"
                 aria-hidden="true"
@@ -49,8 +49,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Hi, I'm Mori Sobhani. I set up your Google Ads or Meta Ads campaigns{" "}
-            <strong className="text-secondary">for free</strong>, then earn{" "}
+            Hi, I'm Mori Sobhani. I set up Google Ads or Meta Ads for your
+            Shopify store <strong className="text-secondary">for free</strong>,
+            then earn{" "}
             <strong className="text-secondary">
               {COMMISSION_RANGE} of the conversion value
             </strong>{" "}

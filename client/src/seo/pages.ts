@@ -34,8 +34,8 @@ const R = COMMISSION_RANGE;
 export const PAGES: PageSeo[] = [
   {
     path: "/",
-    title: "Google & Meta Ads Specialist for Small Businesses | Mori Sobhani",
-    description: `Google Ads and Meta Ads specialist in Portsmouth helping UK small businesses. Free campaign setup, then just ${R} of the conversion value. No retainer.`,
+    title: "Google & Meta Ads for Shopify Stores | Mori Sobhani",
+    description: `Google Ads and Meta Ads specialist for UK Shopify stores. Free campaign setup, then just ${R} of the conversion value your ads bring in. No retainer.`,
     crumb: "Home",
     sitemap: { priority: "1.0", changefreq: "weekly" },
     extraHead:
@@ -43,66 +43,66 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/services",
-    title: "Paid Media Services: Google Ads & Meta Ads | Mori Sobhani",
-    description: `Google Ads and Meta Ads management for small businesses. Tracking, research, ad copy and campaign build for free, then ${R} of conversion value.`,
+    title: "Shopify Advertising: Google Ads & Meta Ads | Mori Sobhani",
+    description: `Google Ads and Meta Ads management for Shopify stores. Purchase tracking, product feed and campaign build for free, then ${R} of conversion value.`,
     crumb: "Services",
     pageType: "CollectionPage",
     sitemap: { priority: "0.9", changefreq: "monthly" },
   },
   {
     path: "/google-ads-management",
-    title: "Google Ads Management for Small Businesses | Mori Sobhani",
-    description: `Google Ads management for UK small businesses. Free setup with conversion tracking, keyword research and ad copy, then pay just ${R} of conversion value.`,
+    title: "Google Shopping & Google Ads for Shopify Stores | Mori Sobhani",
+    description: `Google Shopping, Performance Max and Search ads for UK Shopify stores. Free setup with Merchant Center and purchase tracking, then ${R} of conversion value.`,
     crumb: "Google Ads management",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [
       service(
         url,
-        "Google Ads Management for Small Businesses",
+        "Google Ads Management for Shopify Stores",
         "Google Ads management",
-        "Search, Performance Max and Shopping campaigns for small businesses, with conversion tracking, keyword research, ad copy and ongoing optimisation."
+        "Shopping, Performance Max and Search campaigns for Shopify stores, with Google Merchant Center, purchase tracking and ongoing optimisation."
       ),
       faqPage(url, GOOGLE_ADS_FAQ),
     ],
   },
   {
     path: "/meta-ads-management",
-    title: "Meta Ads Management: Facebook & Instagram Ads | Mori Sobhani",
-    description: `Facebook and Instagram ads that bring leads and sales for small businesses. Free Meta Ads setup with Pixel tracking, then just ${R} of conversion value.`,
+    title: "Meta Ads for Shopify Stores: Facebook & Instagram | Mori Sobhani",
+    description: `Facebook and Instagram ads that sell for Shopify stores. Free Meta Ads setup with Pixel, Conversions API and catalogue, then ${R} of conversion value.`,
     crumb: "Meta Ads management",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [
       service(
         url,
-        "Meta Ads Management for Small Businesses",
+        "Meta Ads Management for Shopify Stores",
         "Facebook and Instagram advertising management",
-        "Lead generation, sales, message and retargeting campaigns on Facebook and Instagram, with Meta Pixel and Conversions API tracking."
+        "Catalogue, Advantage+ and retargeting campaigns on Facebook and Instagram for Shopify stores, with Meta Pixel and Conversions API tracking."
       ),
       faqPage(url, META_ADS_FAQ),
     ],
   },
   {
     path: "/pricing",
-    title: "Pay-on-Results Ads Management: Free Setup | Mori Sobhani",
-    description: `No setup fee and no monthly retainer. I set up Google Ads or Meta Ads for free, then charge ${R} of the conversion value they generate.`,
+    title: "Pay-on-Results Ads for Shopify Stores | Mori Sobhani",
+    description: `No setup fee and no monthly retainer. I set up Google Ads or Meta Ads for your Shopify store for free, then charge ${R} of the conversion value.`,
     crumb: "Pricing",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [faqPage(url, PRICING_FAQ)],
   },
   {
     path: "/portfolio",
-    title: "Paid Media Case Studies & Portfolio | Mori Sobhani",
+    title: "E-commerce Paid Media Case Studies | Mori Sobhani",
     description:
-      "Paid media case studies: 2x paid-channel sales at Mud Pies with Google, Meta and Microsoft Ads, and +500% conversions for an online fashion shop.",
+      "E-commerce paid media case studies: 2x paid-channel sales at Mud Pies with Google, Meta and Microsoft Ads, and +500% conversions for an online fashion shop.",
     crumb: "Portfolio",
     pageType: "CollectionPage",
     sitemap: { priority: "0.8", changefreq: "monthly" },
   },
   {
     path: "/about",
-    title: "About Mori Sobhani, Google Ads & Meta Ads Specialist",
+    title: "About Mori Sobhani, Google & Meta Ads for Shopify Stores",
     description:
-      "Mori Sobhani is a Portsmouth-based paid media specialist with an MSc in Digital Marketing, running Google Ads and Meta Ads for small businesses on results.",
+      "Mori Sobhani is a Portsmouth-based paid media specialist with an MSc in Digital Marketing, running Google Ads and Meta Ads for Shopify stores on results.",
     crumb: "About",
     pageType: "AboutPage",
     ogType: "profile",
@@ -110,9 +110,9 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/cv",
-    title: "CV: Paid Media & Digital Marketing Experience | Mori Sobhani",
+    title: "CV: E-commerce Paid Media Experience | Mori Sobhani",
     description:
-      "Mori Sobhani's CV: freelance paid media specialist, Google Ads and Meta Ads for e-commerce, LinkedIn Ads for B2B tech, and an MSc in Digital Marketing.",
+      "Mori Sobhani's CV: paid media for e-commerce and Shopify stores with Google, Meta and Microsoft Ads, LinkedIn Ads for B2B tech, and an MSc in Digital Marketing.",
     crumb: "CV",
     pageType: "ProfilePage",
     ogType: "profile",
@@ -120,8 +120,8 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/contact",
-    title: "Book a Free Google & Meta Ads Strategy Call | Mori Sobhani",
-    description: `Book a free 30-minute call to see if Google Ads or Meta Ads can bring your small business profitable customers. Free setup, then ${R} of conversion value.`,
+    title: "Book a Free Shopify Ads Strategy Call | Mori Sobhani",
+    description: `Book a free 30-minute call to see if Google Ads or Meta Ads can bring your Shopify store profitable sales. Free setup, then ${R} of conversion value.`,
     crumb: "Contact",
     pageType: "ContactPage",
     sitemap: { priority: "0.8", changefreq: "yearly" },
@@ -131,15 +131,15 @@ export const PAGES: PageSeo[] = [
     path: "/brief",
     title: "Client Project Brief | Mori Sobhani",
     description:
-      "A short questionnaire to prepare for your free Google Ads or Meta Ads strategy call with Mori Sobhani.",
+      "A short questionnaire for Shopify store owners to prepare for a free Google Ads or Meta Ads strategy call with Mori Sobhani.",
     crumb: "Client brief",
     noindex: true,
   },
   {
     path: "/blog",
-    title: "Google Ads, Meta Ads & Marketing Blog | Mori Sobhani",
+    title: "Google & Meta Ads Blog for Shopify Stores | Mori Sobhani",
     description:
-      "Practical guides for small business owners on Google Ads, Meta Ads, conversion tracking and the marketing basics that turn ad clicks into customers.",
+      "Practical guides for Shopify store owners on Google Ads, Meta Ads, purchase tracking and the marketing basics that turn ad clicks into sales.",
     crumb: "Blog",
     pageType: "CollectionPage",
     sitemap: { priority: "0.7", changefreq: "weekly" },
@@ -148,7 +148,7 @@ export const PAGES: PageSeo[] = [
     path: "/story",
     title: "My Story: From Engineering to Paid Media | Mori Sobhani",
     description:
-      "How Mori Sobhani went from chemical engineering to an MSc in Digital Marketing and a Google Ads and Meta Ads specialist for small businesses.",
+      "How Mori Sobhani went from chemical engineering to an MSc in Digital Marketing and a Google Ads and Meta Ads specialist for Shopify stores.",
     crumb: "My story",
     pageType: "AboutPage",
     sitemap: { priority: "0.4", changefreq: "yearly" },
@@ -187,7 +187,7 @@ export const PAGES: PageSeo[] = [
     path: "/terms-of-service",
     title: "Terms of Service | Mori Sobhani",
     description:
-      "The terms that apply when you use mrsobhani.uk, the website of Mori Sobhani, Google Ads and Meta Ads specialist for small businesses.",
+      "The terms that apply when you use mrsobhani.uk, the website of Mori Sobhani, Google Ads and Meta Ads specialist for Shopify stores.",
     crumb: "Terms of service",
     sitemap: { priority: "0.2", changefreq: "yearly" },
   },
@@ -197,7 +197,7 @@ export const NOT_FOUND_SEO: PageSeo = {
   path: "/404",
   title: "Page Not Found | Mori Sobhani",
   description:
-    "This page doesn't exist. Visit the home page to learn about Google Ads and Meta Ads management for small businesses.",
+    "This page doesn't exist. Visit the home page to learn about Google Ads and Meta Ads management for Shopify stores.",
   crumb: "Not found",
   noindex: true,
 };

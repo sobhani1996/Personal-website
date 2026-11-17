@@ -12,7 +12,7 @@ import {
   COMMISSION_RANGE,
   PRICING_FAQ,
 } from "@/content/offer";
-import { CalendarCheck, ShoppingBag, Wrench } from "lucide-react";
+import { CalendarCheck, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Link } from "wouter";
 
 const comparison = [
@@ -41,16 +41,16 @@ const comparison = [
 
 const rateFactors = [
   {
-    title: "Your average sale or customer value",
-    text: "Higher-value sales usually mean a lower percentage.",
+    title: "Your average order value",
+    text: "Stores with higher-value orders usually pay a lower percentage.",
   },
   {
     title: "Your profit margins",
-    text: "The rate has to leave you a healthy profit on every conversion.",
+    text: "The rate has to leave you a healthy profit on every order.",
   },
   {
     title: "Campaign complexity",
-    text: "Many products, locations or channels take more work to manage well.",
+    text: "Large catalogues and running Google and Meta together take more work to manage well.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Pricing() {
               Free setup. You pay only when the ads bring results.
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              I set up your Google Ads or Meta Ads campaigns at no cost. After
+              I set up Google Ads or Meta Ads for your Shopify store at no cost. After
               launch, my only fee is {COMMISSION_MIN}% to {COMMISSION_MAX}% of
               the conversion value the campaigns generate. No setup fee, no
               retainer, no paying for hours.
@@ -99,7 +99,7 @@ export default function Pricing() {
             <SectionHeading
               eyebrow="Explained"
               title="What counts as conversion value?"
-              intro="A conversion is a sale, booking or enquiry that comes from your ads. Its value is recorded in Google Ads or Meta Ads Manager through the tracking I set up for free."
+              intro="A conversion is a purchase on your Shopify store that comes from your ads. Its value is recorded in Google Ads or Meta Ads Manager through the tracking I set up for free."
             />
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
@@ -108,27 +108,28 @@ export default function Pricing() {
                   aria-hidden="true"
                 />
                 <h3 className="mb-2 text-xl font-bold text-secondary">
-                  Online shops
+                  Orders tracked from Shopify
                 </h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  The conversion value is the order value of each sale tracked
-                  from your ads. A £120 order brings a fee of between £3.60 and
+                  The conversion value is the order value of each sale your ads
+                  bring in, sent from your Shopify checkout to Google Ads or Meta
+                  Ads Manager. A £120 order brings a fee of between £3.60 and
                   £8.40, depending on the agreed rate.
                 </p>
               </div>
               <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
-                <Wrench
+                <ShieldCheck
                   className="mb-4 h-8 w-8 text-secondary"
                   aria-hidden="true"
                 />
                 <h3 className="mb-2 text-xl font-bold text-secondary">
-                  Service and local businesses
+                  Numbers you can check
                 </h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  If your ads bring calls, enquiries or bookings, we agree a
-                  fixed value per lead or booking before launch. For example, if
-                  a booked appointment is worth £80 to you, each booking from
-                  the ads counts as £80 of conversion value.
+                  Shopify's official Google and Meta apps report each order to
+                  the ad platforms, and you see the same figures I do in your
+                  own ad accounts. My fee only counts orders from the campaigns
+                  I manage.
                 </p>
               </div>
             </div>

@@ -2,62 +2,62 @@ import ChannelPage, {
   type ChannelConfig,
 } from "@/components/offer/ChannelPage";
 import { COMMISSION_RANGE, GOOGLE_ADS_FAQ } from "@/content/offer";
-import { MapPin, PoundSterling, Search } from "lucide-react";
+import { PoundSterling, Search, ShoppingBag } from "lucide-react";
 
 const config: ChannelConfig = {
-  eyebrow: "Google Ads management",
-  h1: "Google Ads management for small businesses",
-  intro: `Show up when local customers search for exactly what you sell. I set up your Google Ads for free, then earn ${COMMISSION_RANGE} of the conversion value the campaigns bring you.`,
+  eyebrow: "Google Ads for Shopify stores",
+  h1: "Google Ads management for Shopify stores",
+  intro: `Show your products to people searching for exactly what you sell. I set up Google Ads for your Shopify store for free, then earn ${COMMISSION_RANGE} of the conversion value the campaigns bring you.`,
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
   logoAlt: "Google Ads logo",
   heroPoints: [
-    "Free account and conversion tracking setup",
-    "Keyword research, ad copy and campaign build",
+    "Free Merchant Center, product feed and purchase tracking setup",
+    "Shopping, Performance Max and Search campaigns",
     "Weekly optimisation and monthly reporting",
     "Your ad budget goes straight to Google",
   ],
   why: {
-    title: "Why Google Ads works for small businesses",
+    title: "Why Google Ads works for Shopify stores",
     intro:
-      "Google Ads reaches people at the moment they are looking for a business like yours.",
+      "Google Ads reaches shoppers at the moment they are looking for products like yours.",
     cards: [
       {
         icon: Search,
-        title: "Customers with intent",
-        text: "Searches like “emergency plumber near me” or “buy linen dress” come from people ready to act, not just browse.",
+        title: "Shoppers ready to buy",
+        text: "Searches like “linen summer dress” or “vegan protein powder” come from people comparing products and ready to order.",
       },
       {
-        icon: MapPin,
-        title: "Precise local targeting",
-        text: "Target a town, a postcode area or a radius around your shop, and show ads only during the hours you can take calls.",
+        icon: ShoppingBag,
+        title: "Your products, front and centre",
+        text: "Shopping ads show your product image, price and store name right in Google's results, before anyone clicks.",
       },
       {
         icon: PoundSterling,
         title: "Measurable to the pound",
-        text: "With conversion tracking in place, you see which keywords and ads bring sales, calls and enquiries, and what each one is worth.",
+        text: "With purchase tracking from Shopify, you see which products, searches and campaigns bring orders, and what each one is worth.",
       },
     ],
   },
   campaigns: {
     title: "Google Ads campaigns I manage",
     intro:
-      "I pick the campaign types that match your goals and budget, then build them properly.",
+      "I pick the campaign types that match your catalogue and budget, then build them properly.",
     items: [
       {
-        title: "Search campaigns",
-        text: "Text ads on Google search results for the keywords your customers use. The best starting point for most local and service businesses.",
+        title: "Shopping campaigns",
+        text: "Product listings with image, price and store name, fed from your Shopify products through Google Merchant Center.",
       },
       {
         title: "Performance Max",
-        text: "One campaign across Search, Shopping, YouTube, Display, Gmail and Maps, driven by your conversion data. Works well once tracking is solid.",
+        text: "One campaign across Search, Shopping, YouTube, Display and Gmail, driven by your purchase data. Works well once tracking is solid.",
       },
       {
-        title: "Shopping campaigns",
-        text: "Product listings with image, price and shop name, fed from Google Merchant Center. Built for online shops.",
+        title: "Search campaigns",
+        text: "Text ads for your brand name and high-intent product searches, to win customers who know what they want.",
       },
       {
-        title: "Calls, locations and remarketing",
-        text: "Call and location assets that turn searches into phone calls and visits, plus remarketing to bring back people who visited but didn't buy.",
+        title: "Remarketing",
+        text: "Bring back shoppers who viewed products or added to cart but didn't check out, across Google's network and YouTube.",
       },
     ],
   },
@@ -65,22 +65,22 @@ const config: ChannelConfig = {
     title: "Included in the free setup",
     items: [
       "Google Ads account setup or audit of your existing account",
-      "Conversion tracking with Google Ads and GA4, including calls and forms",
-      "Keyword research and negative keyword lists",
-      "Campaign and ad group structure",
-      "Responsive search ads and ad assets (sitelinks, callouts, calls, location)",
-      "Location, schedule and budget settings",
-      "Landing page recommendations",
+      "Shopify's Google & YouTube app connected to Google Ads and Merchant Center",
+      "Purchase tracking with order values, plus GA4",
+      "Product feed fixes: titles, images and disapproved products",
+      "Campaign structure by product, margin and performance",
+      "Search ads for your brand and best-selling products",
+      "Budget and bidding settings based on conversion value",
     ],
   },
   optimise: {
     title: "How I keep improving results",
     items: [
       "Reviewing search terms and blocking wasted clicks",
-      "Bidding towards conversion value, not cheap clicks",
-      "Testing new headlines and descriptions",
-      "Shifting budget to the keywords and campaigns that convert",
-      "Monthly report showing conversions, conversion value and my fee",
+      "Bidding towards conversion value and return on ad spend",
+      "Improving product titles and images in the feed",
+      "Shifting budget to the products and campaigns that sell",
+      "Monthly report showing sales, conversion value and my fee",
     ],
   },
   proof: {
@@ -92,11 +92,11 @@ const config: ChannelConfig = {
   },
   faqTitle: "Google Ads questions",
   faq: GOOGLE_ADS_FAQ,
-  cta: { title: "Want more customers from Google search?" },
+  cta: { title: "Want more sales from Google Shopping and Search?" },
   other: {
     href: "/meta-ads-management/",
     label: "Meta Ads management",
-    text: "Reach customers on Facebook and Instagram before they start searching. Same free setup, same pay-on-results model.",
+    text: "Find new customers on Facebook and Instagram and bring back shoppers who left items in their cart. Same free setup, same pay-on-results model.",
   },
 };
 

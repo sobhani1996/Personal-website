@@ -130,7 +130,7 @@ export default function BlogPost() {
                       {post.author}
                     </p>
                     <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                      Google Ads and Meta Ads specialist for small businesses.
+                      Google Ads and Meta Ads specialist for Shopify stores.
                       Free campaign setup, then paid {COMMISSION_RANGE} of the
                       conversion value the ads bring in.
                     </p>
@@ -200,11 +200,11 @@ export default function BlogPost() {
                   />
                   <div className="relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                      Want Google or Meta to bring you customers?
+                      Want Google or Meta to grow your Shopify sales?
                     </h2>
                     <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
-                      I set up Google Ads and Meta Ads campaigns for small
-                      businesses for free. After launch, my only fee is{" "}
+                      I set up Google Ads and Meta Ads for Shopify stores for
+                      free. After launch, my only fee is{" "}
                       {COMMISSION_RANGE} of the conversion value they generate,
                       so I only earn when your ads pay off.
                     </p>
@@ -242,7 +242,7 @@ export default function BlogPost() {
                 Keep reading
               </h2>
               <p className="text-muted-foreground text-lg">
-                More practical guides for small business owners.
+                More practical guides for Shopify store owners.
               </p>
             </div>
 

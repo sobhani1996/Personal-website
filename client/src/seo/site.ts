@@ -2,7 +2,7 @@ export const SITE_URL = "https://mrsobhani.uk";
 export const SITE_NAME = "Mori Sobhani";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const DEFAULT_OG_IMAGE_ALT =
-  "Mori Sobhani, Google Ads and Meta Ads specialist for small businesses. Free setup, paid on results.";
+  "Mori Sobhani, Google Ads and Meta Ads specialist for Shopify stores. Free setup, paid on results.";
 
 /** Canonical URL for a route path. Every page except the home page ends in "/". */
 export function canonicalUrl(path: string) {

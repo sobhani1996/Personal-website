@@ -39,8 +39,8 @@ import {
 } from "react";
 import { Link } from "wouter";
 
-// v2: the brief was cut to 3 steps, so drafts saved before that are ignored.
-const STORAGE_KEY = "mrsobhani-client-brief-v2";
+// Bumped when the questions change, so older saved drafts are ignored.
+const STORAGE_KEY = "mrsobhani-client-brief-v3";
 const LAST = BRIEF_SECTIONS.length - 1; // the step with the Send button
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -59,13 +59,17 @@ const answeredIn = (s: BriefSection, a: Answers) =>
   s.fields.filter(f => isAnswered(a[f.id])).length;
 
 const REQUIRED = BRIEF_SECTIONS.flatMap(s => s.fields).filter(
-  (f): f is TextField => f.kind === "text" && !!f.required
+  (f): f is TextField | ChoiceField => f.kind !== "textarea" && !!f.required
 );
 
 /** Errors for the required fields, in the order they appear on the page. */
 function validate(a: Answers): Errors {
   const errors: Errors = {};
   for (const f of REQUIRED) {
+    if (f.kind === "choice") {
+      if (!isAnswered(a[f.id])) errors[f.id] = f.required!;
+      continue;
+    }
     const v = text(a, f.id);
     if (!v) errors[f.id] = f.required!;
     else if (f.type === "email" && !EMAIL_RE.test(v))
@@ -386,6 +390,7 @@ export default function ClientBrief() {
                   field={f}
                   value={answers[f.id]}
                   other={text(answers, `${f.id}Other`)}
+                  error={errors[f.id]}
                   onChange={v => update(f.id, v)}
                   onOther={v => update(`${f.id}Other`, v)}
                 />
@@ -622,15 +627,18 @@ function ChoiceQuestion({
   field,
   value,
   other,
+  error,
   onChange,
   onOther,
 }: {
   field: ChoiceField;
   value: Answer | undefined;
   other: string;
+  error?: string;
   onChange: (v: Answer) => void;
   onOther: (v: string) => void;
 }) {
+  const errorId = `brief-${field.id}-error`;
   const selected = Array.isArray(value) ? value : value ? [value] : [];
 
   function toggle(option: string) {
@@ -642,9 +650,17 @@ function ChoiceQuestion({
   }
 
   return (
-    <fieldset className="sm:col-span-2">
+    <fieldset
+      className="sm:col-span-2"
+      aria-describedby={error ? errorId : undefined}
+    >
       <legend className="text-[15px] font-bold text-secondary">
         {field.label}
+        {field.required && (
+          <span className="ml-2 text-red-600" aria-hidden="true">
+            *
+          </span>
+        )}
       </legend>
       {field.hint && (
         <p className="mt-1 text-sm text-muted-foreground">{field.hint}</p>
@@ -655,7 +671,7 @@ function ChoiceQuestion({
           field.cards ? "grid gap-3 sm:grid-cols-2" : "flex flex-wrap gap-2.5"
         )}
       >
-        {field.options.map(o => {
+        {field.options.map((o, i) => {
           const checked = selected.includes(o.value);
           return (
             <label
@@ -671,6 +687,8 @@ function ChoiceQuestion({
               )}
             >
               <input
+                // The first option takes the field's id so errors can focus it.
+                id={i === 0 ? `brief-${field.id}` : undefined}
                 type={field.multiple ? "checkbox" : "radio"}
                 name={field.id}
                 value={o.value}
@@ -716,6 +734,16 @@ function ChoiceQuestion({
           className="mt-3 h-12 max-w-sm bg-white text-base md:text-base"
           autoFocus
         />
+      )}
+      {field.note && selected.includes(field.note.when) && (
+        <p className="mt-3 rounded-xl border-l-4 border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-secondary">
+          {field.note.text}
+        </p>
+      )}
+      {error && (
+        <p id={errorId} className="mt-2 text-sm font-semibold text-red-600">
+          {error}
+        </p>
       )}
     </fieldset>
   );

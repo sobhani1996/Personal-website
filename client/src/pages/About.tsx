@@ -36,7 +36,7 @@ export default function About() {
               About Mori Sobhani
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Paid media specialist helping small businesses get customers from Google Ads and Meta Ads, with free setup and pay-on-results pricing.
+              Paid media specialist helping Shopify stores grow sales with Google Ads and Meta Ads, with free setup and pay-on-results pricing.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
               <Button asChild className="rounded-full px-8 h-12 bg-primary text-primary-foreground font-bold hover:bg-primary/90 shadow-lg shadow-primary/20">
@@ -56,10 +56,10 @@ export default function About() {
               <h2 className="text-2xl font-bold text-secondary mb-6 relative z-10">What I do</h2>
               <div className="space-y-4 text-lg text-muted-foreground relative z-10 leading-relaxed">
                 <p>
-                  I'm a <strong>paid media specialist</strong> based in Portsmouth. I plan, build and manage <strong>Google Ads</strong> and <strong>Meta Ads</strong> (Facebook and Instagram) campaigns for small businesses, with one goal: turning ad budget into profitable customers.
+                  I'm a <strong>paid media specialist</strong> based in Portsmouth. I plan, build and manage <strong>Google Ads</strong> and <strong>Meta Ads</strong> (Facebook and Instagram) campaigns for <strong>Shopify stores</strong>, with one goal: turning ad budget into profitable sales.
                 </p>
                 <p>
-                  Since February 2026 I've been Paid Media Specialist at <strong>Mud Pies</strong>, a UK online shop, where I've doubled sales from paid channels across Google Ads, Meta Ads and Microsoft Ads (Bing). Before that I ran Google Ads, Meta Ads and LinkedIn Ads campaigns for an online fashion shop and a B2B tech start-up, and I hold an MSc in Digital Marketing. My background in SEO, analytics and content means I also look at the things around your ads, like landing pages and tracking, that decide whether a click becomes a sale.
+                  Since February 2026 I've been Paid Media Specialist at <strong>Mud Pies</strong>, a UK online shop, where I've doubled sales from paid channels across Google Ads, Meta Ads and Microsoft Ads (Bing). Before that I ran Google Ads, Meta Ads and LinkedIn Ads campaigns for an online fashion shop and a B2B tech start-up, and I hold an MSc in Digital Marketing. My background in SEO, analytics and content means I also look at the things around your ads, like product pages and tracking, that decide whether a click becomes a sale.
                 </p>
                 <p>
                   I work differently from most agencies: <strong>I set up your campaigns for free</strong>, and after launch my only fee is <strong>{COMMISSION_RANGE} of the conversion value</strong> the ads bring you. If your ads don't convert, I don't earn, so we always want the same thing.
@@ -154,7 +154,7 @@ export default function About() {
             </div>
           </section>
         </div>
-        <CtaBanner title="Let's see if your business is a good fit" />
+        <CtaBanner title="Let's see if your Shopify store is a good fit" />
       </main>
       <Footer />
     </div>

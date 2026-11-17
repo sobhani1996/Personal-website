@@ -66,10 +66,10 @@ export default function Blog() {
           {/* Header */}
           <div className="text-center mb-16 space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight">
-              Marketing insights for small businesses
+              Marketing insights for Shopify stores
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Practical guides on Google Ads, Meta Ads and the marketing basics that decide whether paid campaigns turn clicks into customers.
+              Practical guides for Shopify store owners on Google Ads, Meta Ads and the marketing basics that decide whether paid campaigns turn clicks into sales.
             </p>
           </div>
 

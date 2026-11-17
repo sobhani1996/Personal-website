@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function CtaBanner({
-  title = "Ready to get more customers from Google and Meta?",
+  title = "Ready to grow your Shopify sales with Google and Meta?",
   text = OFFER_ONE_LINER,
 }: Props) {
   return (

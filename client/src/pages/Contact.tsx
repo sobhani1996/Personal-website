@@ -9,7 +9,7 @@ import {
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const callAgenda = [
-  "Your business, typical customer and what a sale or booking is worth",
+  "Your Shopify store, products, typical customer and average order value",
   "Whether Google Ads, Meta Ads or both make sense for you",
   "A realistic starting budget and what results to expect",
   `The commission rate (${COMMISSION_RANGE}) that would apply to you`,
@@ -24,12 +24,12 @@ export default function Contact() {
           {/* Header */}
           <div className="text-center mb-16 space-y-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight">
-              Let's talk about your ads
+              Let's talk about your Shopify ads
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Send me a message or book a free 30-minute strategy call. No
               obligation: we'll look at whether Google Ads or Meta Ads can bring
-              your business profitable customers.
+              your Shopify store profitable sales.
             </p>
           </div>
 
@@ -171,8 +171,7 @@ export default function Contact() {
                         {CONTACT.postalCode}, {CONTACT.locality}, United Kingdom
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Working with small businesses across the UK, remotely or
-                        in person.
+                        Working remotely with Shopify stores across the UK.
                       </p>
                     </div>
                   </div>

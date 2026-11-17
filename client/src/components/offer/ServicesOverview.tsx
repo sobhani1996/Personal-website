@@ -9,26 +9,26 @@ const services = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
     logoAlt: "Google Ads logo",
     title: "Google Ads Management",
-    text: "Be the business people find when they search for what you sell, with every click tracked back to a sale or enquiry.",
+    text: "Put your products in front of shoppers searching on Google, with every sale tracked back from your Shopify checkout.",
     points: [
-      "Search, Performance Max and Shopping campaigns",
-      "Keyword research and negative keywords",
-      "Conversion tracking with Google Ads and GA4",
+      "Shopping and Performance Max campaigns",
+      "Google Merchant Center product feed",
+      "Purchase tracking through Shopify's Google & YouTube app",
     ],
-    cta: "Google Ads for small businesses",
+    cta: "Google Ads for Shopify stores",
   },
   {
     href: "/meta-ads-management/",
     logo: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128",
     logoAlt: "Meta logo",
     title: "Meta Ads Management",
-    text: "Reach local customers on Facebook and Instagram with ads built to bring leads, bookings and sales, not just likes.",
+    text: "Find new customers on Facebook and Instagram, and bring back shoppers who viewed products or left items in their cart.",
     points: [
-      "Lead, sales and message campaigns",
-      "Local, interest and retargeting audiences",
-      "Meta Pixel and Conversions API tracking",
+      "Catalogue (dynamic product) ads from your Shopify products",
+      "Advantage+ and retargeting campaigns",
+      "Meta Pixel and Conversions API through Shopify",
     ],
-    cta: "Meta Ads for small businesses",
+    cta: "Meta Ads for Shopify stores",
   },
 ];
 
@@ -40,8 +40,8 @@ type Props = {
 
 export default function ServicesOverview({
   eyebrow = "What I do",
-  title = "Two channels. One goal: profitable customers.",
-  intro = "I focus on the two ad platforms that work best for small businesses, so every hour goes into making your budget earn more.",
+  title = "Two channels. One goal: profitable sales.",
+  intro = "I focus on the two ad platforms that matter most for online stores, so every hour goes into making your budget earn more.",
 }: Props) {
   return (
     <section className="py-20 md:py-24" aria-label="Paid media services">

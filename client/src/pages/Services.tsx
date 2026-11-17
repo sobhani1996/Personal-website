@@ -1,8 +1,12 @@
 import {
   ArrowRight,
+  BarChart3,
   CalendarCheck,
   Check,
   CheckCircle2,
+  LayoutGrid,
+  ShoppingBag,
+  ShoppingCart,
   X,
 } from "lucide-react";
 import { Link } from "wouter";
@@ -19,17 +23,41 @@ import { COMMISSION_RANGE } from "@/content/offer";
 
 const problems = [
   "Agencies charge a monthly retainer whether your ads work or not.",
-  "Boosted posts and DIY campaigns burn budget without bringing customers.",
-  "You can't tell which ads actually lead to sales or enquiries.",
+  "Boosted posts and DIY campaigns burn budget without bringing sales.",
+  "You can't tell which ads actually lead to Shopify orders.",
 ];
 
 const included = [
-  "Conversion tracking (Google Ads, GA4, Meta Pixel and Conversions API)",
+  "Purchase tracking through Shopify's Google & YouTube and Facebook & Instagram apps",
+  "Google Merchant Center feed and Meta product catalogue",
   "Keyword, audience and competitor research",
   "Campaign structure, budgets and bidding strategy",
-  "Ad copy, plus images and short videos for Meta",
-  "Landing page recommendations to lift conversion rate",
-  "Launch, quality checks and first-week monitoring",
+  "Ad copy, plus product images and short videos for Meta",
+  "Product page recommendations to lift conversion rate",
+];
+
+// What the ads do for a store, shown in place of photos.
+const tiles = [
+  {
+    icon: ShoppingBag,
+    label: "Google Shopping",
+    tone: "bg-secondary text-white",
+  },
+  {
+    icon: LayoutGrid,
+    label: "Catalogue ads",
+    tone: "bg-primary text-primary-foreground",
+  },
+  {
+    icon: ShoppingCart,
+    label: "Cart retargeting",
+    tone: "bg-white text-secondary",
+  },
+  {
+    icon: BarChart3,
+    label: "Tracked revenue",
+    tone: "bg-secondary text-white",
+  },
 ];
 
 const reasons = [
@@ -46,8 +74,8 @@ const reasons = [
     text: "MSc in Digital Marketing (University of Northampton) and Certified Digital Marketing Professional (DMI).",
   },
   {
-    title: "Local and reachable",
-    text: "Based in Portsmouth. You deal with me directly, not an account manager, and we can meet in person if you're local.",
+    title: "Shopify only",
+    text: "I work only with Shopify stores, so your setup uses Shopify's own Google and Meta integrations, done properly. You deal with me directly, not an account manager.",
   },
 ];
 
@@ -68,12 +96,12 @@ export default function Services() {
                 Services
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight leading-tight">
-                Paid media services for small businesses
+                Paid media services for Shopify stores
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Google Ads and Meta Ads management with free setup. After
-                launch, I earn {COMMISSION_RANGE} of the conversion value the
-                campaigns bring you, and nothing if they don't.
+                Google Ads and Meta Ads management for Shopify stores, with free
+                setup. After launch, I earn {COMMISSION_RANGE} of the conversion
+                value the campaigns bring you, and nothing if they don't.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
                 <Button
@@ -111,7 +139,7 @@ export default function Services() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-secondary leading-tight">
-                  You're great at what you do. <br />
+                  You've built a great store. <br />
                   <span className="bg-primary/70 px-2 rounded-lg box-decoration-clone">
                     Advertising shouldn't be a gamble.
                   </span>
@@ -137,40 +165,17 @@ export default function Services() {
                 </p>
               </div>
               <div className="relative">
-                <div className="grid grid-cols-2 gap-4 relative z-10">
-                  {[
-                    [
-                      "/images/services/barbershop.jpg",
-                      "Local barbershop interior",
-                    ],
-                    [
-                      "/images/services/bakery.jpg",
-                      "Fresh pastries in a local bakery",
-                    ],
-                    [
-                      "/images/services/restaurant.jpg",
-                      "Busy local restaurant",
-                    ],
-                    [
-                      "/images/services/flower-shop.jpg",
-                      "Colourful flower shop display",
-                    ],
-                  ].map(([src, alt], i) => (
-                    <div
-                      key={src}
-                      className={`aspect-square rounded-2xl overflow-hidden shadow-lg ${i === 1 ? "translate-y-8" : i === 2 ? "-translate-y-8" : ""}`}
+                <ul className="grid grid-cols-2 gap-4 relative z-10">
+                  {tiles.map(({ icon: Icon, label, tone }, i) => (
+                    <li
+                      key={label}
+                      className={`flex aspect-square flex-col items-center justify-center gap-4 rounded-2xl border border-gray-100 p-6 text-center shadow-lg ${tone} ${i === 1 ? "translate-y-8" : i === 2 ? "-translate-y-8" : ""}`}
                     >
-                      <img
-                        src={src}
-                        alt={alt}
-                        width="400"
-                        height="400"
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
+                      <Icon className="h-12 w-12" aria-hidden="true" />
+                      <span className="text-lg font-extrabold">{label}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/10 to-blue-200/20 rounded-full blur-3xl -z-10"
                   aria-hidden="true"
@@ -223,7 +228,7 @@ export default function Services() {
                   align="left"
                   eyebrow="Why work with me"
                   title="A specialist who only wins when you do"
-                  intro="I focus on Google Ads and Meta Ads for small businesses, and my pricing means every decision is about making your budget profitable."
+                  intro="I focus on Google Ads and Meta Ads for Shopify stores, and my pricing means every decision is about making your budget profitable."
                 />
                 <Button
                   asChild

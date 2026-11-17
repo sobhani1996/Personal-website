@@ -4,6 +4,155 @@ import type { BlogPost } from "./blogPosts";
 // imported archive in blogPosts.ts so they are easy to find and update.
 export const paidAdsPosts: BlogPost[] = [
   {
+    id: 79,
+    slug: "google-ads-for-shopify-stores-guide",
+    title: "Google Ads for Shopify Stores: A Practical Guide for 2026",
+    excerpt:
+      "How to run Google Ads that sell for a Shopify store: connecting Shopify to Google, fixing your product feed, choosing Shopping, Performance Max or Search, break-even ROAS and bidding.",
+    category: "Google Ads",
+    date: "Nov 17, 2026",
+    readTime: "9 min read",
+    author: "Mori Sobhani",
+    image: "",
+    content: `
+<p>When someone searches Google for "linen summer dress" or "vegan protein powder", they are not browsing. They are comparing products and getting ready to buy. For a Shopify store, Google Ads is how you put your products, with their photo and price, in front of those shoppers at exactly that moment.</p>
+<p>It is also easy to waste money on. This guide covers how to set Google Ads up properly for a Shopify store, in the order that matters, so your budget turns into orders rather than clicks.</p>
+
+<h2>Step 1: Connect Shopify to Google properly</h2>
+<p>Everything else depends on this step. Shopify's free <strong>Google &amp; YouTube</strong> app connects your store to three Google tools:</p>
+<ul>
+<li><strong>Google Merchant Center</strong>, which holds your product feed: the titles, images, prices and stock levels Google uses to build Shopping ads.</li>
+<li><strong>Google Ads</strong>, where your campaigns run and where purchases are recorded as conversions.</li>
+<li><strong>Google Analytics 4</strong>, which shows what visitors do on your store, including those who don't buy.</li>
+</ul>
+<p>Once it is connected, check that purchases are recorded <strong>once per order</strong> and <strong>with the order value</strong>. A common problem is double counting, where the app and an old, manually installed tag both record the same purchase. That inflates your results and steers Google's bidding in the wrong direction. Place a test order, then confirm it appears once in Google Ads with the right value.</p>
+
+<h2>Step 2: Get your product feed into shape</h2>
+<p>Shopping ads have no keywords. Google decides which searches to show your products for by reading your product feed, so the feed does the job that keywords do in a Search campaign.</p>
+<ul>
+<li><strong>Titles</strong>: write them the way people search. "Women's Linen Midi Dress – Sage Green" matches far more buying searches than "The Clara".</li>
+<li><strong>Images</strong>: clear product shots on a plain background, with no added text or watermarks.</li>
+<li><strong>Identifiers</strong>: include the brand, and GTINs (barcodes) for branded products where you have them.</li>
+<li><strong>Price and availability</strong>: these must match your store exactly, or products get disapproved.</li>
+</ul>
+<p>Check the diagnostics in Merchant Center every week. Disapproved products can't appear in Shopping ads at all, and the reasons, such as a missing image or a price mismatch, are usually quick to fix. A clean feed also lets your products appear in Google's free listings.</p>
+
+<h2>Step 3: Choose the right campaign types</h2>
+<ul>
+<li><strong>Standard Shopping campaigns</strong> show product ads in Google results and the Shopping tab. They give you the most control and the clearest data on which products and searches sell.</li>
+<li><strong>Performance Max</strong> runs across Search, Shopping, YouTube, Display, Gmail and Discover from one campaign, using your feed and your conversion data. It can scale well, but it needs accurate purchase tracking and enough sales to learn from.</li>
+<li><strong>Search campaigns</strong> show text ads. For a Shopify store they are most useful for your brand name, so competitors can't take those clicks, and for a small set of high-intent product searches.</li>
+</ul>
+<p>For most stores, a sensible start is one Shopping or Performance Max campaign for your products plus a small brand Search campaign. Add more only when the data gives you a reason to.</p>
+
+<h2>Step 4: Group products by what they earn</h2>
+<p>Putting your whole catalogue in one campaign with one target treats a £12 accessory and a £180 bestseller the same way. Instead, group products so budget follows profit:</p>
+<ul>
+<li><strong>Bestsellers</strong> with proven sales, which deserve the most budget.</li>
+<li><strong>High-margin products</strong>, which can afford a lower return on ad spend.</li>
+<li><strong>Low-margin or low-stock products</strong>, which should get less budget or none at all.</li>
+</ul>
+<p>Custom labels in your feed make this easy: tag products as "bestseller" or "high margin", then use those labels to split campaigns or asset groups.</p>
+
+<h2>Step 5: Work out your break-even ROAS</h2>
+<p>Return on ad spend (ROAS) is the sales value your ads bring in divided by what they cost. A ROAS of 4 means £4 of sales for every £1 spent. Whether that is good depends entirely on your margins.</p>
+<p>Your <strong>break-even ROAS</strong> is 1 divided by your margin. If you keep 40% of each sale after product, shipping and payment costs, your break-even ROAS is 1 ÷ 0.40 = 2.5. Below that, every sale from the ads loses money; above it, the ads make a profit. Knowing this number tells you what target to set and when to scale.</p>
+
+<h2>Step 6: Set bidding and budget sensibly</h2>
+<p>Once purchases are tracked with values, start with <strong>Maximise conversion value</strong>. When a campaign has a steady flow of sales, add a <strong>target ROAS</strong> comfortably above your break-even figure.</p>
+<p>Avoid spreading a small budget across many campaigns, because each one then gets too little data to learn. One or two well-funded campaigns usually beat five starved ones.</p>
+
+<h2>Don't forget your product pages</h2>
+<p>Google can bring the right shopper to your store, but the product page has to close the sale. Make sure pages load quickly on a phone, show clear photos and reviews, and state delivery costs and times before checkout. Unexpected shipping costs are one of the most common reasons people abandon their cart.</p>
+
+<h2>A simple weekly routine</h2>
+<ol>
+<li>Check that purchases are still recorded once, with the right value.</li>
+<li>Fix any new disapprovals in Merchant Center.</li>
+<li>Review search terms and add negative keywords for irrelevant searches.</li>
+<li>Compare ROAS by campaign and product group, and move budget to what sells.</li>
+<li>Improve titles and images for products with lots of views but few sales.</li>
+</ol>
+
+<h2>How to judge whether it's working</h2>
+<p>Compare what Google Ads reports with the orders in Shopify. The numbers won't match exactly, because each platform counts sales in its own way, but the trend should agree. Look at return on ad spend against your break-even figure, and at how many orders come from new customers. If the ads bring in more profit than they cost, scale them carefully. If they don't, the answer is usually in the tracking, the feed or the product pages rather than the budget.</p>
+
+<h2>Want someone to run it for you?</h2>
+<p>I manage <a href="/google-ads-management/">Google Ads for Shopify stores</a> on a simple model: I set everything above up for free, and after launch my fee is 3–7% of the conversion value the campaigns bring in. The <a href="/pricing/">pricing page</a> explains exactly how that works.</p>
+    `,
+  },
+  {
+    id: 80,
+    slug: "meta-ads-for-shopify-stores-guide",
+    title: "Meta Ads for Shopify Stores: Facebook and Instagram Ads That Sell",
+    excerpt:
+      "A practical guide to Facebook and Instagram ads for Shopify stores: Pixel and Conversions API through Shopify, catalogue ads, Advantage+ campaigns, creative, budgets and measurement.",
+    category: "Meta Ads",
+    date: "Nov 17, 2026",
+    readTime: "8 min read",
+    author: "Mori Sobhani",
+    image: "",
+    content: `
+<p>Google Ads reaches people who are already searching for a product. Meta Ads works the other way round: it shows your products to people who weren't looking yet, while they scroll Facebook and Instagram. For a Shopify store, that makes Meta one of the best ways to find new customers, and to bring back the ones who nearly bought.</p>
+<p>It is also where many store owners lose money, usually by boosting posts or running ads without proper tracking. This guide covers how to do it properly.</p>
+
+<h2>Step 1: Set up tracking through Shopify</h2>
+<p>Meta's systems learn from your sales. If they can't see purchases, they can't find more people like your buyers. The simplest way to set up tracking on Shopify is Meta's official <strong>Facebook &amp; Instagram</strong> app, which connects:</p>
+<ul>
+<li>the <strong>Meta Pixel</strong>, which records what visitors do in their browser;</li>
+<li>the <strong>Conversions API</strong>, which sends the same events from Shopify's servers, so fewer sales are lost to ad blockers and browser privacy settings;</li>
+<li>your <strong>product catalogue</strong>, which keeps Meta in sync with your products, prices and stock.</li>
+</ul>
+<p>Set data sharing to the highest level, Maximum, which turns on the Conversions API. Then open Events Manager and check that the key events arrive: <em>ViewContent</em>, <em>AddToCart</em>, <em>InitiateCheckout</em> and <em>Purchase</em>, with the purchase value attached. Place a test order to confirm each purchase is counted once.</p>
+
+<h2>Step 2: Use the right campaign setup</h2>
+<p>Choose the <strong>Sales</strong> objective and optimise for purchases. Campaigns optimised for traffic or engagement find people who click and like, not people who buy. Most stores need just a few building blocks:</p>
+<ul>
+<li><strong>Advantage+ campaigns</strong> to find new customers. Meta's automation decides who sees your ads using your purchase data, and it usually does better than narrow interest targeting.</li>
+<li><strong>Catalogue ads</strong> (also called dynamic product ads) to retarget people who viewed products or added to cart, showing them the exact items they looked at.</li>
+<li>A <strong>simple structure</strong>: a few campaigns with enough budget each, rather than many small ad sets competing with each other.</li>
+</ul>
+<p>Avoid the Boost button for selling products. It is quick, but it offers far fewer options and usually optimises for engagement rather than sales.</p>
+
+<h2>Step 3: Treat creative as your targeting</h2>
+<p>With broad, automated targeting, the ad itself decides who stops scrolling. Creative is now the biggest lever you have:</p>
+<ul>
+<li><strong>Short videos</strong> that show the product in use, ideally filmed on a phone: an unboxing, a quick demo, a customer trying it on.</li>
+<li><strong>Customer reviews and photos</strong>, which build trust faster than polished studio shots.</li>
+<li><strong>Carousels</strong> to show a range or several colours.</li>
+<li><strong>Vertical formats</strong>: 4:5 for feeds and 9:16 for Stories and Reels, with the hook in the first two or three seconds.</li>
+</ul>
+<p>Test genuinely different ideas, not small variations of one. A new angle, such as a different customer problem or a different product, teaches you far more than changing a button colour.</p>
+
+<h2>Step 4: Send people to the right page</h2>
+<p>Send clicks to the product or collection page shown in the ad, not your home page. Make the price, delivery cost and returns policy easy to find, show reviews near the "Add to cart" button, and make sure the page loads fast on a phone. An offer such as free delivery over a set amount can lift both your conversion rate and your average order value.</p>
+
+<h2>Step 5: Give campaigns enough budget to learn</h2>
+<p>Each ad set goes through a learning phase. Meta says it needs around 50 optimisation events, such as purchases, within a week to leave that phase. A small budget split across many ad sets keeps everything stuck in learning, while fewer, better-funded ad sets learn faster and perform more steadily.</p>
+<p>Make changes gradually. Big budget jumps and frequent edits restart the learning and make results bounce around.</p>
+
+<h2>Step 6: Measure what matters</h2>
+<p>Meta counts purchases using its own attribution rules, by default within 7 days of a click or 1 day of viewing an ad. Shopify will show different numbers, because each platform counts in its own way. Rather than chasing an exact match:</p>
+<ul>
+<li>check that Meta's purchase trend broadly agrees with Shopify;</li>
+<li>track <strong>return on ad spend</strong> against your break-even figure (1 divided by your margin);</li>
+<li>watch your overall <strong>marketing efficiency</strong>: total store revenue divided by total ad spend across all channels.</li>
+</ul>
+
+<h2>Mistakes that waste budget</h2>
+<ul>
+<li>Running ads before the Pixel and Conversions API record purchases with values.</li>
+<li>Optimising for clicks or engagement instead of purchases.</li>
+<li>Running the same few ads for months until people stop responding to them.</li>
+<li>Splitting a small budget across too many campaigns and ad sets.</li>
+<li>Judging results after two or three days, before campaigns have had time to learn.</li>
+</ul>
+
+<h2>Want help with Meta Ads?</h2>
+<p>I manage <a href="/meta-ads-management/">Meta Ads for Shopify stores</a>. I set up the tracking, catalogue and campaigns for free, and after launch my fee is 3–7% of the conversion value the ads bring in. See the <a href="/pricing/">pricing page</a> for how it works, or <a href="/contact/">book a free strategy call</a>.</p>
+    `,
+  },
+  {
     id: 76,
     slug: "google-ads-for-small-businesses-guide",
     title: "Google Ads for Small Businesses: A Practical Guide for 2026",
@@ -87,8 +236,8 @@ export const paidAdsPosts: BlogPost[] = [
 <h2>How to judge whether it's working</h2>
 <p>Clicks and impressions are not the goal. The numbers that matter are <strong>cost per conversion</strong>, <strong>conversion value</strong> and <strong>return on ad spend</strong>, checked against what actually happened in your business: sales in your till, bookings in your diary, jobs won from enquiries. If the ads bring in more profit than they cost, scale them carefully. If they don't, the answer is usually in tracking, keywords or the landing page rather than the budget.</p>
 
-<h2>Want someone to run it for you?</h2>
-<p>I manage <a href="/google-ads-management/">Google Ads for small businesses</a> on a simple model: I set everything above up for free, and after launch my fee is 3–7% of the conversion value the campaigns bring in. You can read exactly how that works on the <a href="/pricing/">pricing page</a>.</p>
+<h2>Running a Shopify store?</h2>
+<p>I now work only with Shopify stores. My <a href="/blog/google-ads-for-shopify-stores-guide/">guide to Google Ads for Shopify stores</a> covers product feeds, Shopping and Performance Max in detail, and I manage <a href="/google-ads-management/">Google Ads for Shopify stores</a> with free setup and pay-on-results pricing.</p>
     `,
   },
   {
@@ -173,8 +322,8 @@ export const paidAdsPosts: BlogPost[] = [
 <li>Judging success on likes, reach or clicks.</li>
 </ul>
 
-<h2>Want help with your Meta Ads?</h2>
-<p>I run <a href="/meta-ads-management/">Meta Ads for small businesses</a> with free setup, including the Pixel, Conversions API, audiences and creative. After launch I earn 3–7% of the conversion value the campaigns generate, so I only get paid when the ads work. The <a href="/pricing/">pricing page</a> explains the details.</p>
+<h2>Running a Shopify store?</h2>
+<p>I now work only with Shopify stores. My <a href="/blog/meta-ads-for-shopify-stores-guide/">guide to Meta Ads for Shopify stores</a> covers catalogue ads, Advantage+ campaigns and tracking through Shopify, and I manage <a href="/meta-ads-management/">Meta Ads for Shopify stores</a> with free setup and pay-on-results pricing.</p>
     `,
   },
   {
@@ -182,7 +331,7 @@ export const paidAdsPosts: BlogPost[] = [
     slug: "pay-on-results-google-meta-ads-management",
     title: "Pay-on-Results Ads Management: How Performance-Based Pricing Works",
     excerpt:
-      "Why monthly retainers and percentage-of-ad-spend fees reward the wrong things, and how a free-setup, pay-on-results model for Google Ads and Meta Ads works in practice.",
+      "Why monthly retainers and percentage-of-ad-spend fees reward the wrong things, and how a free-setup, pay-on-results model for Google Ads and Meta Ads works for Shopify stores.",
     category: "Paid Advertising",
     date: "Oct 4, 2026",
     readTime: "6 min read",
@@ -190,7 +339,7 @@ export const paidAdsPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000",
     content: `
-<p>Most small business owners who have tried paid advertising have had the same experience: a monthly invoice from an agency or freelancer, a report full of impressions and clicks, and no clear idea whether the ads actually made money. The problem is often not the people running the ads but the way they are paid.</p>
+<p>Most Shopify store owners who have tried paid advertising have had the same experience: a monthly invoice from an agency or freelancer, a report full of impressions and clicks, and no clear idea whether the ads actually made money. The problem is often not the people running the ads but the way they are paid.</p>
 
 <h2>The problem with traditional pricing</h2>
 <p>There are two common ways to pay someone to manage Google Ads or Meta Ads:</p>
@@ -198,40 +347,39 @@ export const paidAdsPosts: BlogPost[] = [
 <li><strong>A fixed monthly retainer.</strong> You pay the same amount whether the ads bring in ten sales or none. Results matter for keeping the client, but they don't change this month's invoice.</li>
 <li><strong>A percentage of ad spend.</strong> The manager earns more when you spend more. That rewards bigger budgets, not better results.</li>
 </ul>
-<p>Neither model is dishonest, and plenty of good agencies use them. But in both cases the manager's income is not directly linked to the thing you care about: profitable customers.</p>
+<p>Neither model is dishonest, and plenty of good agencies use them. But in both cases the manager's income is not directly linked to the thing you care about: profitable sales.</p>
 
 <h2>What pay-on-results means</h2>
 <p>With performance-based pricing, the fee is tied to the results the ads generate. My version is simple:</p>
 <ul>
-<li><strong>Setup is free.</strong> I set up conversion tracking, research keywords or audiences, write the ads and build the campaigns at no cost.</li>
+<li><strong>Setup is free.</strong> I set up purchase tracking on your Shopify store, connect your product feed and catalogue, write the ads and build the campaigns at no cost.</li>
 <li><strong>No monthly retainer.</strong> There is no fixed management fee.</li>
 <li><strong>My fee is 3–7% of the conversion value</strong> the campaigns generate, at a rate agreed before launch.</li>
 </ul>
 <p>Your advertising budget is separate and is paid by you directly to Google or Meta. If the campaigns bring in nothing, my fee is nothing.</p>
 
 <h2>What counts as conversion value?</h2>
-<p>A conversion is an action that matters to your business, recorded by the ad platform through the tracking set up at the start. Its value depends on the type of business:</p>
-<ul>
-<li><strong>Online shops</strong>: the value is the order value of each sale that comes from the ads.</li>
-<li><strong>Service and local businesses</strong>: we agree a fixed value for each lead or booking before launch, based on what a typical customer is worth to you.</li>
-</ul>
+<p>A conversion is a purchase on your Shopify store that comes from the ads. Shopify's official Google &amp; YouTube and Facebook &amp; Instagram apps send each order, with its value, to Google Ads and Meta Ads Manager. The conversion value is simply the order value of those sales.</p>
 <p>Because both of us see the same numbers in Google Ads or Meta Ads Manager, the fee is transparent and easy to check.</p>
 
 <h2>Two worked examples</h2>
 <p>These are illustrations only, to show how the maths works.</p>
-<p><strong>An online shop.</strong> In one month, the ads generate £8,000 of tracked sales. At an agreed rate of 4%, the management fee is £320.</p>
-<p><strong>A local clinic.</strong> We agree that a booked appointment is worth £80. The ads bring in 25 bookings, so the conversion value is £2,000. At an agreed rate of 6%, the fee is £120.</p>
+<p><strong>A homeware store.</strong> In one month, the ads generate £8,000 of tracked sales. At an agreed rate of 4%, the management fee is £320.</p>
+<p><strong>A fashion brand with higher order values.</strong> The ads generate £20,000 of tracked sales in a month. At an agreed rate of 3%, the fee is £600.</p>
+
+<h2>Check the numbers work for your margins</h2>
+<p>Before launch, it's worth knowing the return on ad spend (ROAS) you need to break even. Suppose you keep 40% of each sale after product, shipping and payment costs, and the agreed fee is 5%. That leaves 35% of each sale to cover the ad spend, so your break-even ROAS is 1 ÷ 0.35, or about 2.9: £2.90 of sales for every £1 spent on ads. Anything above that is profit, and it's the number we plan the campaigns around.</p>
 
 <h2>How the percentage is set</h2>
 <p>The exact rate within 3–7% depends on a few things:</p>
 <ul>
-<li><strong>Average sale or customer value.</strong> Higher-value sales usually mean a lower percentage.</li>
-<li><strong>Profit margins.</strong> The fee has to leave you a healthy profit on every conversion.</li>
-<li><strong>Complexity.</strong> Many products, locations or channels take more work to manage well.</li>
+<li><strong>Average order value.</strong> Stores with higher-value orders usually pay a lower percentage.</li>
+<li><strong>Profit margins.</strong> The fee has to leave you a healthy profit on every order.</li>
+<li><strong>Complexity.</strong> Large catalogues and running Google and Meta together take more work to manage well.</li>
 </ul>
 
 <h2>Who this model suits</h2>
-<p>Pay-on-results works best for businesses that can track a sale, booking or enquiry and want advertising to pay for itself. It is less suitable if conversions can't be tracked at all, or if the main goal is brand awareness rather than direct sales. In those cases a different arrangement makes more sense, and it's better to say so up front.</p>
+<p>Pay-on-results works best for Shopify stores that sell physical products, can track purchases and want advertising to pay for itself. It is less suitable if the main goal is brand awareness rather than direct sales. In that case a different arrangement makes more sense, and it's better to say so up front.</p>
 
 <h2>Questions to ask any ads manager</h2>
 <p>Whoever you work with, these questions help you understand what you're paying for:</p>
@@ -244,7 +392,7 @@ export const paidAdsPosts: BlogPost[] = [
 </ol>
 
 <h2>See if it fits your business</h2>
-<p>If you'd like to know what pay-on-results could look like for you, the <a href="/pricing/">pricing page</a> has the details, or you can <a href="/contact/">book a free 30-minute strategy call</a>. I'll tell you honestly whether <a href="/google-ads-management/">Google Ads</a>, <a href="/meta-ads-management/">Meta Ads</a> or both make sense for your business.</p>
+<p>If you'd like to know what pay-on-results could look like for you, the <a href="/pricing/">pricing page</a> has the details, or you can <a href="/contact/">book a free 30-minute strategy call</a>. I'll tell you honestly whether <a href="/google-ads-management/">Google Ads</a>, <a href="/meta-ads-management/">Meta Ads</a> or both make sense for your store.</p>
     `,
   },
 ];

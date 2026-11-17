@@ -73,7 +73,7 @@ export default function Navbar() {
           <span className="flex flex-col leading-none">
             Mori Sobhani
             <span className="mt-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-              Google & Meta Ads
+              Google & Meta Ads for Shopify
             </span>
           </span>
         </Link>

@@ -6,17 +6,17 @@ const steps = [
   {
     icon: PhoneCall,
     title: "Free strategy call",
-    text: "30 minutes on your business, margins and goals. I'll tell you honestly whether Google Ads or Meta Ads can be profitable for you.",
+    text: "30 minutes on your store, products, margins and goals. I'll tell you honestly whether Google Ads or Meta Ads can be profitable for you.",
   },
   {
     icon: Settings2,
     title: "Free setup and launch",
-    text: "I set up conversion tracking, research keywords or audiences, write the ads and build the campaigns. You pay nothing for this.",
+    text: "I set up purchase tracking on your Shopify store, fix your product feed, write the ads and build the campaigns. You pay nothing for this.",
   },
   {
     icon: LineChart,
     title: "Ongoing optimisation",
-    text: "I manage bids, budgets, targeting and creatives every week, and report your conversions and conversion value each month.",
+    text: "I manage bids, budgets, products and creatives every week, and report your sales and conversion value each month.",
   },
   {
     icon: BadgePercent,

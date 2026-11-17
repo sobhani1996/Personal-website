@@ -34,8 +34,8 @@ const R = COMMISSION_RANGE;
 export const PAGES: PageSeo[] = [
   {
     path: "/",
-    title: "Google & Meta Ads for Shopify Stores | Mori Sobhani",
-    description: `Google Ads and Meta Ads specialist for UK Shopify stores. Free campaign setup, then just ${R} of the conversion value your ads bring in. No retainer.`,
+    title: "E-commerce Google & Meta Ads for Shopify Stores | Mori Sobhani",
+    description: `E-commerce Google Ads and Meta Ads specialist for UK Shopify stores. Free campaign setup, then just ${R} of the conversion value your ads bring in.`,
     crumb: "Home",
     sitemap: { priority: "1.0", changefreq: "weekly" },
     extraHead:
@@ -43,22 +43,22 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/services",
-    title: "Shopify Advertising: Google Ads & Meta Ads | Mori Sobhani",
-    description: `Google Ads and Meta Ads management for Shopify stores. Purchase tracking, product feed and campaign build for free, then ${R} of conversion value.`,
+    title: "E-commerce Ads for Shopify Stores: Google & Meta | Mori Sobhani",
+    description: `E-commerce Google Ads and Meta Ads management for Shopify stores. Tracking, product feed and campaign build for free, then ${R} of conversion value.`,
     crumb: "Services",
     pageType: "CollectionPage",
     sitemap: { priority: "0.9", changefreq: "monthly" },
   },
   {
     path: "/google-ads-management",
-    title: "Google Shopping & Google Ads for Shopify Stores | Mori Sobhani",
-    description: `Google Shopping, Performance Max and Search ads for UK Shopify stores. Free setup with Merchant Center and purchase tracking, then ${R} of conversion value.`,
+    title: "E-commerce Google Ads & Shopping for Shopify | Mori Sobhani",
+    description: `E-commerce Google Ads for UK Shopify stores: Shopping, Performance Max and Search. Free setup with Merchant Center, then ${R} of conversion value.`,
     crumb: "Google Ads management",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [
       service(
         url,
-        "Google Ads Management for Shopify Stores",
+        "E-commerce Google Ads Management for Shopify Stores",
         "Google Ads management",
         "Shopping, Performance Max and Search campaigns for Shopify stores, with Google Merchant Center, purchase tracking and ongoing optimisation."
       ),
@@ -67,14 +67,14 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/meta-ads-management",
-    title: "Meta Ads for Shopify Stores: Facebook & Instagram | Mori Sobhani",
-    description: `Facebook and Instagram ads that sell for Shopify stores. Free Meta Ads setup with Pixel, Conversions API and catalogue, then ${R} of conversion value.`,
+    title: "E-commerce Facebook & Instagram Ads for Shopify | Mori Sobhani",
+    description: `E-commerce Meta Ads for Shopify stores: Facebook and Instagram ads that sell. Free setup with Pixel and Conversions API, then ${R} of conversion value.`,
     crumb: "Meta Ads management",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [
       service(
         url,
-        "Meta Ads Management for Shopify Stores",
+        "E-commerce Meta Ads Management for Shopify Stores",
         "Facebook and Instagram advertising management",
         "Catalogue, Advantage+ and retargeting campaigns on Facebook and Instagram for Shopify stores, with Meta Pixel and Conversions API tracking."
       ),
@@ -83,8 +83,8 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/pricing",
-    title: "Pay-on-Results Ads for Shopify Stores | Mori Sobhani",
-    description: `No setup fee and no monthly retainer. I set up Google Ads or Meta Ads for your Shopify store for free, then charge ${R} of the conversion value.`,
+    title: "Pay-on-Results E-commerce Ads for Shopify | Mori Sobhani",
+    description: `No setup fee, no retainer. I set up e-commerce Google Ads or Meta Ads for your Shopify store for free, then charge ${R} of the conversion value.`,
     crumb: "Pricing",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [faqPage(url, PRICING_FAQ)],
@@ -100,9 +100,9 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/about",
-    title: "About Mori Sobhani, Google & Meta Ads for Shopify Stores",
+    title: "About Mori Sobhani, E-commerce Google & Meta Ads Specialist",
     description:
-      "Mori Sobhani is a Portsmouth-based paid media specialist with an MSc in Digital Marketing, running Google Ads and Meta Ads for Shopify stores on results.",
+      "Mori Sobhani is a Portsmouth-based paid media specialist with an MSc in Digital Marketing, running e-commerce Google and Meta Ads for Shopify stores on results.",
     crumb: "About",
     pageType: "AboutPage",
     ogType: "profile",
@@ -120,8 +120,8 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/contact",
-    title: "Book a Free Shopify Ads Strategy Call | Mori Sobhani",
-    description: `Book a free 30-minute call to see if Google Ads or Meta Ads can bring your Shopify store profitable sales. Free setup, then ${R} of conversion value.`,
+    title: "Free E-commerce Ads Strategy Call for Shopify | Mori Sobhani",
+    description: `Book a free 30-minute call to see if e-commerce Google Ads or Meta Ads can bring your Shopify store profitable sales. Free setup, then ${R} of conversion value.`,
     crumb: "Contact",
     pageType: "ContactPage",
     sitemap: { priority: "0.8", changefreq: "yearly" },
@@ -137,9 +137,9 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/blog",
-    title: "Google & Meta Ads Blog for Shopify Stores | Mori Sobhani",
+    title: "E-commerce Google & Meta Ads Blog for Shopify | Mori Sobhani",
     description:
-      "Practical guides for Shopify store owners on Google Ads, Meta Ads, purchase tracking and the marketing basics that turn ad clicks into sales.",
+      "Practical e-commerce guides for Shopify store owners on Google Ads, Meta Ads, purchase tracking and the basics that turn ad clicks into sales.",
     crumb: "Blog",
     pageType: "CollectionPage",
     sitemap: { priority: "0.7", changefreq: "weekly" },

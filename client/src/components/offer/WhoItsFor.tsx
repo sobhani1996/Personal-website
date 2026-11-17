@@ -40,8 +40,10 @@ export default function WhoItsFor() {
       <div className="container max-w-6xl">
         <SectionHeading
           eyebrow="Who I work with"
-          title={<span id="who-heading">Built for Shopify stores</span>}
-          intro="If your store runs on Shopify and sells physical products, the pay-on-results model can work for you. Some of the stores it suits best:"
+          title={
+            <span id="who-heading">Built for Shopify e-commerce stores</span>
+          }
+          intro="If you run an e-commerce store on Shopify and sell physical products, the pay-on-results model can work for you. Some of the stores it suits best:"
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {types.map(({ icon: Icon, title, text }) => (

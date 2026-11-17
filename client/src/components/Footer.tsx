@@ -39,8 +39,8 @@ export default function Footer() {
               Mori Sobhani
             </Link>
             <p className="text-blue-100 max-w-sm leading-relaxed">
-              Google Ads and Meta Ads specialist for Shopify stores, based in
-              Portsmouth, UK. Free campaign setup, then I earn{" "}
+              E-commerce Google Ads and Meta Ads specialist for Shopify stores,
+              based in Portsmouth, UK. Free campaign setup, then I earn{" "}
               {COMMISSION_RANGE} of the conversion value your ads bring in.
             </p>
           </div>

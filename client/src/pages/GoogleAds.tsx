@@ -5,8 +5,8 @@ import { COMMISSION_RANGE, GOOGLE_ADS_FAQ } from "@/content/offer";
 import { PoundSterling, Search, ShoppingBag } from "lucide-react";
 
 const config: ChannelConfig = {
-  eyebrow: "Google Ads for Shopify stores",
-  h1: "Google Ads management for Shopify stores",
+  eyebrow: "E-commerce Google Ads",
+  h1: "E-commerce Google Ads management for Shopify stores",
   intro: `Show your products to people searching for exactly what you sell. I set up Google Ads for your Shopify store for free, then earn ${COMMISSION_RANGE} of the conversion value the campaigns bring you.`,
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
   logoAlt: "Google Ads logo",

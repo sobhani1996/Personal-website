@@ -5,8 +5,8 @@ import { COMMISSION_RANGE, META_ADS_FAQ } from "@/content/offer";
 import { Repeat, Target, Users } from "lucide-react";
 
 const config: ChannelConfig = {
-  eyebrow: "Meta Ads for Shopify stores",
-  h1: "Meta Ads management for Shopify stores",
+  eyebrow: "E-commerce Meta Ads",
+  h1: "E-commerce Meta Ads management for Shopify stores",
   intro: `Facebook and Instagram ads that sell your products, not just collect likes. I set up Meta Ads for your Shopify store for free, then earn ${COMMISSION_RANGE} of the conversion value they generate.`,
   logo: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128",
   logoAlt: "Meta logo",

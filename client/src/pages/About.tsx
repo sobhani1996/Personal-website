@@ -36,7 +36,7 @@ export default function About() {
               About Mori Sobhani
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Paid media specialist helping Shopify stores grow sales with Google Ads and Meta Ads, with free setup and pay-on-results pricing.
+              E-commerce paid media specialist helping Shopify stores grow sales with Google Ads and Meta Ads, with free setup and pay-on-results pricing.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
               <Button asChild className="rounded-full px-8 h-12 bg-primary text-primary-foreground font-bold hover:bg-primary/90 shadow-lg shadow-primary/20">

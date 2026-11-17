@@ -34,11 +34,11 @@ export default function Hero() {
               className="h-2 w-2 rounded-full bg-green-500"
               aria-hidden="true"
             />
-            Paid media for Shopify stores · Portsmouth, UK
+            E-commerce paid media · Portsmouth, UK
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight text-secondary leading-[1.1]">
-            Google Ads & Meta Ads specialist for{" "}
+            E-commerce Google Ads & Meta Ads specialist for{" "}
             <span className="relative whitespace-nowrap">
               <span className="relative z-10">Shopify stores</span>
               <span

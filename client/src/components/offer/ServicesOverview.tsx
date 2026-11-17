@@ -41,7 +41,7 @@ type Props = {
 export default function ServicesOverview({
   eyebrow = "What I do",
   title = "Two channels. One goal: profitable sales.",
-  intro = "I focus on the two ad platforms that matter most for online stores, so every hour goes into making your budget earn more.",
+  intro = "I focus on the two ad platforms that matter most for e-commerce, so every hour goes into making your budget earn more.",
 }: Props) {
   return (
     <section className="py-20 md:py-24" aria-label="Paid media services">

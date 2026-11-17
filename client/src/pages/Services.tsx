@@ -96,7 +96,7 @@ export default function Services() {
                 Services
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight leading-tight">
-                Paid media services for Shopify stores
+                E-commerce paid media services for Shopify stores
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Google Ads and Meta Ads management for Shopify stores, with free

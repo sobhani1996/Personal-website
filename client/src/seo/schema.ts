@@ -9,6 +9,7 @@ const sameAs = [CONTACT.linkedin, CONTACT.instagram];
 const knowsAbout = [
   "Shopify",
   "E-commerce advertising",
+  "E-commerce PPC",
   "Google Shopping",
   "Google Merchant Center",
   "Google Ads",
@@ -26,7 +27,8 @@ const person = {
   "@type": "Person",
   "@id": PERSON_ID,
   name: "Mori Sobhani",
-  jobTitle: "Paid Media Specialist for Shopify Stores (Google Ads & Meta Ads)",
+  jobTitle:
+    "E-commerce Paid Media Specialist (Google Ads & Meta Ads for Shopify)",
   url: `${SITE_URL}/about/`,
   image: `${SITE_URL}/images/hero-portrait.jpg`,
   email: `mailto:${CONTACT.email}`,
@@ -48,11 +50,11 @@ const person = {
 const business = {
   "@type": "ProfessionalService",
   "@id": BUSINESS_ID,
-  name: "Mori Sobhani – Google Ads & Meta Ads for Shopify Stores",
+  name: "Mori Sobhani – E-commerce Google Ads & Meta Ads for Shopify Stores",
   url: `${SITE_URL}/`,
   image: DEFAULT_OG_IMAGE,
   logo: `${SITE_URL}/logo.png`,
-  description: `Google Ads and Meta Ads management for Shopify stores. Free campaign setup, then ${COMMISSION_RANGE} of the conversion value the ads generate.`,
+  description: `E-commerce Google Ads and Meta Ads management for Shopify stores. Free campaign setup, then ${COMMISSION_RANGE} of the conversion value the ads generate.`,
   telephone: CONTACT.phoneE164,
   email: CONTACT.email,
   priceRange: `Free setup; ${COMMISSION_RANGE} of conversion value`,
@@ -88,7 +90,8 @@ const website = {
   "@id": WEBSITE_ID,
   url: `${SITE_URL}/`,
   name: "Mori Sobhani",
-  description: "Google Ads and Meta Ads specialist for Shopify stores",
+  description:
+    "E-commerce Google Ads and Meta Ads specialist for Shopify stores",
   publisher: { "@id": PERSON_ID },
   inLanguage: "en-GB",
 };

@@ -11,6 +11,7 @@ const services = [
   },
   { name: "All services", href: "/services/" },
   { name: "Pricing", href: "/pricing/" },
+  { name: "Profit calculator", href: "/roas-calculator/" },
 ];
 
 const explore = [

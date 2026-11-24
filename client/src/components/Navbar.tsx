@@ -23,7 +23,14 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  { name: "Pricing", href: "/pricing/" },
+  {
+    name: "Pricing",
+    href: "/pricing/",
+    children: [
+      { name: "Pricing", href: "/pricing/" },
+      { name: "Profit calculator", href: "/roas-calculator/" },
+    ],
+  },
   { name: "Portfolio", href: "/portfolio/" },
   { name: "Blog", href: "/blog/" },
   {

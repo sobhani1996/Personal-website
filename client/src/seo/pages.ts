@@ -1,4 +1,5 @@
 import {
+  CALCULATOR_FAQ,
   COMMISSION_RANGE,
   CONSULTANCY,
   CONSULTANCY_FAQ,
@@ -148,6 +149,28 @@ export const PAGES: PageSeo[] = [
     crumb: "Pricing",
     sitemap: { priority: "0.9", changefreq: "monthly" },
     extraNodes: url => [faqPage(url, PRICING_FAQ)],
+  },
+  {
+    path: "/roas-calculator",
+    title: "Shopify Ads Profit & Break-even ROAS Calculator | Mori Sobhani",
+    description:
+      "Free calculator for Shopify stores: find your break-even ROAS, profitability floor, ad revenue, new customers and cost per customer from Google or Meta Ads.",
+    crumb: "Profit calculator",
+    sitemap: { priority: "0.8", changefreq: "monthly" },
+    extraNodes: url => [
+      {
+        "@type": "WebApplication",
+        "@id": `${url}#calculator`,
+        name: "E-commerce Ads Profit Calculator",
+        url,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Any",
+        isAccessibleForFree: true,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+        creator: { "@id": PERSON_ID },
+      },
+      faqPage(url, CALCULATOR_FAQ),
+    ],
   },
   {
     path: "/portfolio",

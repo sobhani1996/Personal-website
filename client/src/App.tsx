@@ -18,6 +18,7 @@ const Services = lazy(() => import("@/pages/Services"));
 const GoogleAds = lazy(() => import("@/pages/GoogleAds"));
 const MetaAds = lazy(() => import("@/pages/MetaAds"));
 const Consultancy = lazy(() => import("@/pages/Consultancy"));
+const RoasCalculator = lazy(() => import("@/pages/RoasCalculator"));
 const Pricing = lazy(() => import("@/pages/Pricing"));
 const CV = lazy(() => import("@/pages/CV"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
@@ -59,6 +60,7 @@ function Routes() {
           component={Consultancy}
         />
         <Route path={"/pricing"} component={Pricing} />
+        <Route path={"/roas-calculator"} component={RoasCalculator} />
         <Route path={"/about"} component={About} />
         <Route path={"/cv"} component={CV} />
         <Route path={"/portfolio"} component={Portfolio} />

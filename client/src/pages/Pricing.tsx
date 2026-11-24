@@ -14,7 +14,12 @@ import {
   COMMISSION_TIERS,
   PRICING_FAQ,
 } from "@/content/offer";
-import { CalendarCheck, ShieldCheck, ShoppingBag } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarCheck,
+  ShieldCheck,
+  ShoppingBag,
+} from "lucide-react";
 import { Link } from "wouter";
 
 const comparison = [
@@ -188,6 +193,16 @@ export default function Pricing() {
                 <strong className="text-primary">£210</strong>.
               </p>
             </div>
+            <Link
+              href="/roas-calculator/"
+              className="mt-6 flex items-center justify-between gap-4 rounded-3xl border-2 border-primary bg-primary/10 p-6 font-bold text-secondary transition-colors hover:bg-primary/20"
+            >
+              <span>
+                Work out your own numbers: commission, break-even ROAS and
+                profit, in the free profit calculator.
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
+            </Link>
           </div>
         </section>
 

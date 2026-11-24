@@ -172,6 +172,21 @@ export const CONSULTANCY_FAQ: FaqItem[] = [
   },
 ];
 
+export const CALCULATOR_FAQ: FaqItem[] = [
+  {
+    q: "What is break-even ROAS?",
+    a: "The return on ad spend at which your ads exactly pay for themselves, including my commission. Below it, each sale from ads loses money; above it, the ads make a profit. It depends on your margin and your commission rate.",
+  },
+  {
+    q: "What is the profitability floor?",
+    a: "Your break-even ROAS plus a 10% safety margin. If your ads return less than the floor, you pay me no fee. Your actual floor is agreed in writing before launch, based on your real numbers.",
+  },
+  {
+    q: "Should I choose profit or growth?",
+    a: "Choose profit if every sale from ads must pay for itself. Choose growth if your customers reliably come back: you can accept a lower return on the first order, because repeat orders, mostly through email and organic, add profit later. Keep the orders-per-customer figure realistic.",
+  },
+];
+
 export const PROOF = [
   {
     value: "2x",

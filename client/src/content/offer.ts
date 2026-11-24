@@ -6,6 +6,29 @@ export const COMMISSION_MIN = 3;
 export const COMMISSION_MAX = 7;
 export const COMMISSION_RANGE = `${COMMISSION_MIN}–${COMMISSION_MAX}%`;
 
+/** Commission by the store's current monthly online revenue (3-month average). */
+export const COMMISSION_TIERS = [
+  { revenue: "Under £10,000", rate: 7 },
+  { revenue: "£10,000 to £30,000", rate: 5 },
+  { revenue: "Over £30,000", rate: 3 },
+];
+
+/** Optional consultancy, charged separately from ads management. */
+export const CONSULTANCY = {
+  href: "/digital-marketing-consultancy/",
+  weeklyPrice: 195,
+  weeklyHours: 6,
+  hourlyRate: 45,
+};
+export const CONSULTANCY_EFFECTIVE_RATE =
+  CONSULTANCY.weeklyPrice / CONSULTANCY.weeklyHours;
+export const CONSULTANCY_SAVING = Math.round(
+  (1 -
+    CONSULTANCY.weeklyPrice /
+      (CONSULTANCY.weeklyHours * CONSULTANCY.hourlyRate)) *
+    100
+);
+
 export const OFFER_HEADLINE = "Free setup. Paid only on results.";
 export const OFFER_ONE_LINER = `I set up Google Ads or Meta Ads for your Shopify store for free. After launch, I earn ${COMMISSION_RANGE} of the conversion value they bring you. No setup fee, no monthly retainer.`;
 export const OFFER_AD_SPEND_NOTE =
@@ -40,7 +63,7 @@ export const GENERAL_FAQ: FaqItem[] = [
   },
   {
     q: "How much do you charge?",
-    a: `Between ${COMMISSION_MIN}% and ${COMMISSION_MAX}% of the conversion value (the sales revenue) your campaigns generate. The exact percentage depends on your average order value, margins and product range, and we agree it in writing before launch.`,
+    a: `For ads management, between ${COMMISSION_MIN}% and ${COMMISSION_MAX}% of the conversion value your campaigns generate. The rate depends on your current monthly online revenue: 7% under £10,000, 5% from £10,000 to £30,000, and 3% above £30,000. Consultancy is optional and charged separately.`,
   },
   {
     q: "What counts as conversion value?",
@@ -118,7 +141,11 @@ export const PRICING_FAQ: FaqItem[] = [
   ...GENERAL_FAQ.slice(0, 5),
   {
     q: `How is my rate within ${COMMISSION_RANGE} decided?`,
-    a: "It depends on your average order value, your margins and how many products and campaigns we run. Stores with higher order values usually sit at the lower end of the range. We agree your rate in writing before launch, so there are no surprises.",
+    a: "By your current monthly online revenue, averaged over the three months before we start. Under £10,000 is 7%, £10,000 to £30,000 is 5%, and over £30,000 is 3%. We agree it in writing before launch.",
+  },
+  {
+    q: "Do I have to buy consultancy?",
+    a: "No. Ads management works on its own. I recommend consultancy when no one in your business is handling digital marketing, because ads perform best when your website, email and offers support them.",
   },
   {
     q: "Do you take a cut of sales that didn't come from the ads?",
@@ -127,6 +154,21 @@ export const PRICING_FAQ: FaqItem[] = [
   {
     q: "Is there a minimum ad budget?",
     a: "It depends on your products and competition. On the free strategy call I'll recommend a starting budget that gives the campaigns enough data to learn, and you decide what you're comfortable with.",
+  },
+];
+
+export const CONSULTANCY_FAQ: FaqItem[] = [
+  {
+    q: "Do I need consultancy to use your ads management?",
+    a: "No. Ads management is commission-only and works on its own. I recommend consultancy when there's no one handling digital marketing in your business, because it makes the ads more effective.",
+  },
+  {
+    q: "Is there a minimum contract?",
+    a: "No. Hourly support is pay-as-you-go, and the weekly package runs month by month.",
+  },
+  {
+    q: "Can I switch between hourly and weekly?",
+    a: "Yes. Many businesses start hourly and move to the weekly package once they see the value.",
   },
 ];
 
@@ -153,5 +195,6 @@ export const PROOF = [
 ];
 
 export function formatGBP(n: number) {
-  return `£${n.toLocaleString("en-GB")}`;
+  const pence = Number.isInteger(n) ? 0 : 2;
+  return `£${n.toLocaleString("en-GB", { minimumFractionDigits: pence, maximumFractionDigits: pence })}`;
 }

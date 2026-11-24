@@ -25,7 +25,7 @@ const cards = [
     icon: CalendarX,
     label: "Monthly retainer",
     value: "£0",
-    text: "No fixed monthly management fee and no paying for hours.",
+    text: "No fixed monthly fee for ads management.",
   },
   {
     icon: BadgePercent,

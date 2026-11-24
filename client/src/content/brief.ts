@@ -230,11 +230,11 @@ export const BRIEF_SECTIONS: BriefSection[] = [
         kind: "choice",
         id: "revenue",
         label: "Rough monthly online sales",
+        hint: "Your average over the last three months. This sets your commission rate.",
         options: opts(
-          "Under £5,000",
-          "£5,000 – £20,000",
-          "£20,000 – £50,000",
-          "Over £50,000",
+          "Under £10,000",
+          "£10,000 – £30,000",
+          "Over £30,000",
           "Prefer not to say"
         ),
       },

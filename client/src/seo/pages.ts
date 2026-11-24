@@ -1,5 +1,7 @@
 import {
   COMMISSION_RANGE,
+  CONSULTANCY,
+  CONSULTANCY_FAQ,
   GOOGLE_ADS_FAQ,
   META_ADS_FAQ,
   PRICING_FAQ,
@@ -7,6 +9,7 @@ import {
 import type { HeadData } from "./head";
 import {
   breadcrumbs,
+  BUSINESS_ID,
   faqPage,
   graph,
   PERSON_ID,
@@ -79,6 +82,56 @@ export const PAGES: PageSeo[] = [
         "Catalogue, Advantage+ and retargeting campaigns on Facebook and Instagram for Shopify stores, with Meta Pixel and Conversions API tracking."
       ),
       faqPage(url, META_ADS_FAQ),
+    ],
+  },
+  {
+    path: "/digital-marketing-consultancy",
+    title: "Digital Marketing Consultancy for Shopify Stores | Mori Sobhani",
+    description: `E-commerce marketing support for Shopify stores without a full-time hire: ${CONSULTANCY.weeklyHours} hours a week for £${CONSULTANCY.weeklyPrice}, or £${CONSULTANCY.hourlyRate} per hour. Strategy, email, website and campaigns.`,
+    crumb: "Digital marketing consultancy",
+    sitemap: { priority: "0.8", changefreq: "monthly" },
+    extraNodes: url => [
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: "Digital Marketing Consultancy for Shopify Stores",
+        serviceType: "Digital marketing consultancy",
+        description:
+          "Customer journey analysis, website and landing page reviews, email marketing, seasonal campaigns, offers, organic social, tracking, a management dashboard and competitor research for Shopify stores.",
+        url,
+        provider: { "@id": BUSINESS_ID },
+        areaServed: { "@type": "Country", name: "United Kingdom" },
+        audience: { "@type": "BusinessAudience", name: "Shopify store owners" },
+        offers: [
+          {
+            "@type": "Offer",
+            name: "Weekly package",
+            description: `${CONSULTANCY.weeklyHours} hours of digital marketing support every week`,
+            price: String(CONSULTANCY.weeklyPrice),
+            priceCurrency: "GBP",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: CONSULTANCY.weeklyPrice,
+              priceCurrency: "GBP",
+              unitText: "week",
+            },
+          },
+          {
+            "@type": "Offer",
+            name: "Hourly",
+            description: "Digital marketing support as and when you need it",
+            price: String(CONSULTANCY.hourlyRate),
+            priceCurrency: "GBP",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: CONSULTANCY.hourlyRate,
+              priceCurrency: "GBP",
+              unitText: "hour",
+            },
+          },
+        ],
+      },
+      faqPage(url, CONSULTANCY_FAQ),
     ],
   },
   {

@@ -13,6 +13,7 @@ import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
+import ConsultancyTeaser from "@/components/offer/ConsultancyTeaser";
 import CtaBanner from "@/components/offer/CtaBanner";
 import HowItWorks from "@/components/offer/HowItWorks";
 import PricingModel from "@/components/offer/PricingModel";
@@ -217,6 +218,7 @@ export default function Services() {
         </section>
 
         <PricingModel />
+        <ConsultancyTeaser />
         <HowItWorks />
 
         {/* Why me */}

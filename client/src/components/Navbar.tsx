@@ -17,6 +17,10 @@ const navItems: NavItem[] = [
       { name: "All services", href: "/services/" },
       { name: "Google Ads management", href: "/google-ads-management/" },
       { name: "Meta Ads management", href: "/meta-ads-management/" },
+      {
+        name: "Digital marketing consultancy",
+        href: "/digital-marketing-consultancy/",
+      },
     ],
   },
   { name: "Pricing", href: "/pricing/" },

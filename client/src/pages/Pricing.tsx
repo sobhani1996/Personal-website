@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
+import ConsultancyTeaser from "@/components/offer/ConsultancyTeaser";
 import CtaBanner from "@/components/offer/CtaBanner";
 import Faq from "@/components/offer/Faq";
 import HowItWorks from "@/components/offer/HowItWorks";
@@ -10,6 +11,7 @@ import {
   COMMISSION_MAX,
   COMMISSION_MIN,
   COMMISSION_RANGE,
+  COMMISSION_TIERS,
   PRICING_FAQ,
 } from "@/content/offer";
 import { CalendarCheck, ShieldCheck, ShoppingBag } from "lucide-react";
@@ -39,21 +41,6 @@ const comparison = [
   },
 ];
 
-const rateFactors = [
-  {
-    title: "Your average order value",
-    text: "Stores with higher-value orders usually pay a lower percentage.",
-  },
-  {
-    title: "Your profit margins",
-    text: "The rate has to leave you a healthy profit on every order.",
-  },
-  {
-    title: "Campaign complexity",
-    text: "Large catalogues and running Google and Meta together take more work to manage well.",
-  },
-];
-
 export default function Pricing() {
   return (
     <div className="min-h-screen flex flex-col bg-background selection:bg-primary/30">
@@ -73,10 +60,10 @@ export default function Pricing() {
               Free setup. You pay only when the ads bring results.
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              I set up Google Ads or Meta Ads for your Shopify store at no cost. After
-              launch, my only fee is {COMMISSION_MIN}% to {COMMISSION_MAX}% of
-              the conversion value the campaigns generate. No setup fee, no
-              retainer, no paying for hours.
+              I set up Google Ads or Meta Ads for your Shopify store at no cost.
+              After launch, my only fee is {COMMISSION_MIN}% to {COMMISSION_MAX}
+              % of the conversion value the campaigns generate. No setup fee and
+              no retainer for ads management.
             </p>
             <Button
               asChild
@@ -92,6 +79,7 @@ export default function Pricing() {
         </section>
 
         <PricingModel showPricingLink={false} eyebrow="The model" />
+        <ConsultancyTeaser />
 
         {/* What is conversion value */}
         <section className="py-20 md:py-24">
@@ -112,9 +100,9 @@ export default function Pricing() {
                 </h3>
                 <p className="leading-relaxed text-muted-foreground">
                   The conversion value is the order value of each sale your ads
-                  bring in, sent from your Shopify checkout to Google Ads or Meta
-                  Ads Manager. A £120 order brings a fee of between £3.60 and
-                  £8.40, depending on the agreed rate.
+                  bring in, sent from your Shopify checkout to Google Ads or
+                  Meta Ads Manager. A £120 order brings a fee of between £3.60
+                  and £8.40, depending on the agreed rate.
                 </p>
               </div>
               <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
@@ -138,30 +126,67 @@ export default function Pricing() {
 
         {/* Rate factors */}
         <section className="bg-white py-20 md:py-24">
-          <div className="container max-w-6xl">
+          <div className="container max-w-4xl">
             <SectionHeading
               eyebrow={`Your rate: ${COMMISSION_RANGE}`}
-              title="What decides your exact percentage"
-              intro="We agree the rate in writing before launch. These are the things that move it within the range."
+              title="How your commission rate is set"
+              intro="Your rate depends on your business's current monthly online revenue. Smaller businesses pay a higher percentage, because the commission has to cover the same management work on a lower revenue."
             />
-            <div className="grid gap-6 md:grid-cols-3">
-              {rateFactors.map((f, i) => (
-                <div
-                  key={f.title}
-                  className="rounded-3xl bg-background/60 border border-gray-100 p-8"
-                >
-                  <span
-                    className="mb-3 block text-4xl font-extrabold text-secondary/20"
-                    aria-hidden="true"
-                  >
-                    {i + 1}
-                  </span>
-                  <h3 className="mb-2 text-lg font-bold text-secondary">
-                    {f.title}
-                  </h3>
-                  <p className="text-muted-foreground">{f.text}</p>
-                </div>
-              ))}
+            <div className="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-sm">
+              <table className="w-full min-w-[420px] text-left">
+                <caption className="sr-only">
+                  Commission rate by current monthly online revenue
+                </caption>
+                <thead>
+                  <tr className="border-b border-gray-100 bg-background/60">
+                    <th
+                      scope="col"
+                      className="p-5 text-sm font-bold uppercase tracking-wider text-muted-foreground"
+                    >
+                      Your current monthly online revenue
+                    </th>
+                    <th
+                      scope="col"
+                      className="p-5 text-sm font-bold uppercase tracking-wider text-secondary"
+                    >
+                      My commission
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMMISSION_TIERS.map(t => (
+                    <tr
+                      key={t.revenue}
+                      className="border-b border-gray-100 last:border-0"
+                    >
+                      <th scope="row" className="p-5 font-bold text-secondary">
+                        {t.revenue}
+                      </th>
+                      <td className="p-5 text-2xl font-extrabold text-secondary">
+                        {t.rate}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-6 text-muted-foreground leading-relaxed">
+              Your current revenue is your average monthly online sales over the
+              three months before we start. Your rate is confirmed in writing
+              before launch, so there are no surprises.
+            </p>
+            <div className="mt-6 rounded-3xl bg-secondary p-7 text-white">
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider text-primary">
+                Example
+              </p>
+              <p className="text-lg leading-relaxed text-blue-50">
+                Your online shop currently makes{" "}
+                <strong className="text-white">£8,000 a month</strong>, so your
+                rate is <strong className="text-white">7%</strong>. If the ads
+                bring in <strong className="text-white">£3,000</strong> of sales
+                in a month, my fee is{" "}
+                <strong className="text-primary">£210</strong>.
+              </p>
             </div>
           </div>
         </section>

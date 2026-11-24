@@ -364,19 +364,20 @@ export const paidAdsPosts: BlogPost[] = [
 
 <h2>Two worked examples</h2>
 <p>These are illustrations only, to show how the maths works.</p>
-<p><strong>A homeware store.</strong> In one month, the ads generate £8,000 of tracked sales. At an agreed rate of 4%, the management fee is £320.</p>
-<p><strong>A fashion brand with higher order values.</strong> The ads generate £20,000 of tracked sales in a month. At an agreed rate of 3%, the fee is £600.</p>
+<p><strong>A growing homeware store.</strong> It currently sells £8,000 a month online, so its rate is 7%. If the ads bring in £3,000 of tracked sales in a month, the fee is £210.</p>
+<p><strong>An established fashion brand.</strong> It currently sells £40,000 a month online, so its rate is 3%. If the ads bring in £20,000 of tracked sales in a month, the fee is £600.</p>
 
 <h2>Check the numbers work for your margins</h2>
 <p>Before launch, it's worth knowing the return on ad spend (ROAS) you need to break even. Suppose you keep 40% of each sale after product, shipping and payment costs, and the agreed fee is 5%. That leaves 35% of each sale to cover the ad spend, so your break-even ROAS is 1 ÷ 0.35, or about 2.9: £2.90 of sales for every £1 spent on ads. Anything above that is profit, and it's the number we plan the campaigns around.</p>
 
 <h2>How the percentage is set</h2>
-<p>The exact rate within 3–7% depends on a few things:</p>
+<p>The rate depends on your store's current monthly online revenue, averaged over the three months before we start:</p>
 <ul>
-<li><strong>Average order value.</strong> Stores with higher-value orders usually pay a lower percentage.</li>
-<li><strong>Profit margins.</strong> The fee has to leave you a healthy profit on every order.</li>
-<li><strong>Complexity.</strong> Large catalogues and running Google and Meta together take more work to manage well.</li>
+<li><strong>Under £10,000 a month:</strong> 7%</li>
+<li><strong>£10,000 to £30,000 a month:</strong> 5%</li>
+<li><strong>Over £30,000 a month:</strong> 3%</li>
 </ul>
+<p>Smaller stores pay a higher percentage because the commission has to cover the same management work on a lower revenue. The rate is confirmed in writing before launch.</p>
 
 <h2>Who this model suits</h2>
 <p>Pay-on-results works best for Shopify stores that sell physical products, can track purchases and want advertising to pay for itself. It is less suitable if the main goal is brand awareness rather than direct sales. In that case a different arrangement makes more sense, and it's better to say so up front.</p>

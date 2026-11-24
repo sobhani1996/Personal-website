@@ -81,6 +81,12 @@ const business = {
         "@type": "Offer",
         itemOffered: { "@id": `${SITE_URL}/meta-ads-management/#service` },
       },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@id": `${SITE_URL}/digital-marketing-consultancy/#service`,
+        },
+      },
     ],
   },
 };

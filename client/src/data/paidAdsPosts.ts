@@ -4,6 +4,54 @@ import type { BlogPost } from "./blogPosts";
 // imported archive in blogPosts.ts so they are easy to find and update.
 export const paidAdsPosts: BlogPost[] = [
   {
+    id: 81,
+    slug: "why-i-work-on-commission-not-fixed-fees",
+    title: "Why I Work on Commission, Not Fixed Fees",
+    excerpt:
+      "Why I run Google Ads and Meta Ads for Shopify and e-commerce brands on 3–7% commission, not a retainer: free setup, and I only earn when ads sell.",
+    category: "Paid Advertising",
+    date: "Nov 24, 2026",
+    readTime: "3 min read",
+    author: "Mori Sobhani",
+    image: "",
+    content: `
+<p>People often ask why I don't charge a monthly retainer like most agencies. The short answer: I only want to be paid when your ads make you money.</p>
+<p>I set up Google Ads and Meta Ads campaigns for free, then earn <a href="/pricing/">3–7% of the sales they bring in</a>. If the ads don't sell, I don't earn. There are three reasons I chose this model, and each comes from what I've seen over five years of working with e-commerce businesses.</p>
+
+<h2>Reason 1: Too many businesses have paid for nothing</h2>
+<p>Over the last five years, I've heard the same story from client after client. They hired an agency, paid a fixed monthly fee, and received reports full of clicks, impressions and reach. What they didn't receive was profit.</p>
+<p>Some paid large sums over many months before realising their sales hadn't moved. The agency was paid every month either way, whether the ads worked or not.</p>
+<p>The money hurt, but the bigger loss was trust. By the time they spoke to me, many believed paid advertising simply didn't work for businesses like theirs.</p>
+<p>Commission fixes this at the root. If your ads don't bring in sales, I don't get paid. My income depends on your results, so we want exactly the same thing. It's a win-win deal by design, not by promise.</p>
+
+<h2>Reason 2: Good products shouldn't wait for a big budget</h2>
+<p>I've also met many small e-commerce brands with genuinely interesting products and real potential, but no money to pay an expert.</p>
+<p>They're usually just starting out: a founder doing everything, and every pound already spoken for. Paying a monthly retainer before seeing a single result isn't realistic for them.</p>
+<p>Yet with a few well-built campaigns, brands like these can grow quickly. The product was never the problem. They just needed the right setup.</p>
+<p>Commission removes that barrier. Setup is free, there's no monthly fee, and you pay only from the sales the ads create. The growth pays for itself.</p>
+
+<h2>Reason 3: It means something to me</h2>
+<p>The last reason is personal. Helping a small business grow its sales is the most meaningful part of my work.</p>
+<p>Behind every small online shop is someone who has taken a risk, often with their own savings. When a campaign starts working and orders pick up, it changes their month, and sometimes their year. Being part of that matters to me more than managing another large budget.</p>
+<p>Working on commission keeps me close to that. I share the risk with you, and I share the result.</p>
+
+<h2>How it works in practice</h2>
+<p>The model is simple:</p>
+<ul>
+<li><strong>Free setup:</strong> tracking, research, ad copy and campaign build</li>
+<li><strong>No retainer:</strong> no fixed monthly fee for ads management</li>
+<li><strong>Commission:</strong> 3–7% of the sales your ads generate, set by your current monthly online revenue: 7% under £10,000, 5% from £10,000 to £30,000, and 3% above £30,000</li>
+<li>Your ad budget is paid directly to Google or Meta, never to me</li>
+<li><strong>Your accounts stay yours:</strong> you keep full ownership of your ad accounts</li>
+</ul>
+<p>Commission only works when both sides are committed. I ask for a realistic ad budget, so the campaigns have enough data to learn, and access to the numbers I need to measure results honestly. In return, you work with someone who earns nothing unless you do.</p>
+
+<h2>Let's see if we're a good fit</h2>
+<p>If you've been let down by an agency before, or you have a great product but no budget for an expert, I'd like to hear from you.</p>
+<p><a href="/contact/">Book a free 30-minute strategy call</a>, and I'll tell you honestly whether Google Ads or Meta Ads can be profitable for your business.</p>
+    `,
+  },
+  {
     id: 79,
     slug: "google-ads-for-shopify-stores-guide",
     title: "Google Ads for Shopify Stores: A Practical Guide for 2026",

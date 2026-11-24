@@ -4,6 +4,7 @@ import type { BlogPost } from "./blogPosts";
 // blog. Every other article stays reachable by URL but is left off the blog
 // page and sitemap and marked noindex. Add a slug here to list it again.
 export const LISTED_POSTS: Record<string, string> = {
+  "why-i-work-on-commission-not-fixed-fees": "Paid Advertising",
   "google-ads-for-shopify-stores-guide": "Google Ads",
   "meta-ads-for-shopify-stores-guide": "Meta Ads",
   "pay-on-results-google-meta-ads-management": "Paid Advertising",

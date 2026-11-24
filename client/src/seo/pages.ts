@@ -30,6 +30,9 @@ export type PageSeo = {
   sitemap?: { priority: string; changefreq: string };
   extraNodes?: (url: string) => Record<string, unknown>[];
   extraHead?: string;
+  /** Share image for this page; defaults to the site-wide one. */
+  image?: string;
+  imageAlt?: string;
 };
 
 const R = COMMISSION_RANGE;
@@ -90,6 +93,10 @@ export const PAGES: PageSeo[] = [
     description: `E-commerce marketing consultancy for Shopify stores, without a full-time hire: ${CONSULTANCY.weeklyHours} hours a week for £${CONSULTANCY.weeklyPrice}, or £${CONSULTANCY.hourlyRate} per hour. Email, store pages, offers and tracking.`,
     crumb: "E-commerce marketing consultancy",
     sitemap: { priority: "0.8", changefreq: "monthly" },
+    image: `${SITE_URL}/images/consultancy-hero.jpg`,
+    imageAlt: "Mori Sobhani at his desk, working on e-commerce marketing",
+    extraHead:
+      '<link rel="preload" as="image" href="/images/consultancy-hero.webp" imagesrcset="/images/consultancy-hero-800.webp 800w, /images/consultancy-hero.webp 1200w" imagesizes="(min-width: 1024px) 560px, 100vw" type="image/webp" fetchpriority="high" />',
     extraNodes: url => [
       {
         "@type": "Service",
@@ -277,6 +284,8 @@ export function headForPage(p: PageSeo): HeadData {
     noindex: p.noindex,
     jsonLd: graph(...nodes),
     extraHead: p.extraHead,
+    image: p.image,
+    imageAlt: p.imageAlt,
   };
 }
 

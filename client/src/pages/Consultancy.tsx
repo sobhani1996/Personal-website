@@ -129,52 +129,87 @@ export default function Consultancy() {
       <Navbar />
       <main className="flex-grow">
         {/* Hero */}
-        <section className="relative overflow-hidden pt-36 pb-20">
+        <section className="relative overflow-hidden pt-32 pb-20 md:pt-36">
           <div
             className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-transparent to-blue-200/20"
             aria-hidden="true"
           />
-          <div className="container max-w-4xl text-center space-y-7">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 border border-secondary/10 text-sm font-bold text-secondary">
-              E-commerce marketing consultancy for Shopify{" "}
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight leading-tight">
-              E-commerce marketing support for Shopify stores, without hiring a
-              marketer
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Ads bring shoppers to your Shopify store. Everything else decides
-              whether they buy. I help you build the parts of{" "}
-              <span className="whitespace-nowrap">e-commerce</span> marketing
-              that make your ads, and your whole store, work harder.
-            </p>
-            <p className="text-2xl font-extrabold text-secondary">
-              {CONSULTANCY.weeklyHours} hours a week for{" "}
-              {formatGBP(CONSULTANCY.weeklyPrice)}, or{" "}
-              {formatGBP(CONSULTANCY.hourlyRate)} per hour.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="h-14 rounded-full bg-primary px-8 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
-              >
-                <Link href="/contact/">
-                  Book a free strategy call{" "}
-                  <CalendarCheck className="ml-2 h-5 w-5" aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="h-14 rounded-full bg-white/60 px-8 text-lg text-secondary"
-              >
-                <a href="#consultancy-pricing">
-                  See pricing{" "}
-                  <ArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
-                </a>
-              </Button>
+          <div className="container max-w-6xl">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+              <div className="space-y-7 text-center lg:text-left">
+                <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 border border-secondary/10 text-sm font-bold text-secondary">
+                  E-commerce marketing consultancy for Shopify
+                </div>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-secondary tracking-tight leading-tight">
+                  E-commerce marketing support for Shopify stores, without
+                  hiring a marketer
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Ads bring shoppers to your Shopify store. Everything else
+                  decides whether they buy. I help you build the parts of{" "}
+                  <span className="whitespace-nowrap">e-commerce</span>{" "}
+                  marketing that make your ads, and your whole store, work
+                  harder.
+                </p>
+                <p className="text-2xl font-extrabold text-secondary">
+                  {CONSULTANCY.weeklyHours} hours a week for{" "}
+                  {formatGBP(CONSULTANCY.weeklyPrice)}, or{" "}
+                  {formatGBP(CONSULTANCY.hourlyRate)} per hour.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="h-14 rounded-full bg-primary px-8 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
+                  >
+                    <Link href="/contact/">
+                      Book a free strategy call{" "}
+                      <CalendarCheck
+                        className="ml-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="h-14 rounded-full bg-white/60 px-8 text-lg text-secondary"
+                  >
+                    <a href="#consultancy-pricing">
+                      See pricing{" "}
+                      <ArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/images/consultancy-hero-800.webp 800w, /images/consultancy-hero.webp 1200w"
+                    sizes="(min-width: 1024px) 560px, 100vw"
+                  />
+                  <img
+                    src="/images/consultancy-hero.jpg"
+                    alt="Mori Sobhani at his desk, working on e-commerce marketing"
+                    width="1200"
+                    height="800"
+                    fetchPriority="high"
+                    className="aspect-[3/2] w-full rounded-[2rem] border-4 border-white object-cover shadow-2xl"
+                  />
+                </picture>
+                <div className="absolute -bottom-5 left-4 rounded-2xl bg-white px-5 py-3 text-left shadow-xl md:-left-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    Weekly package
+                  </p>
+                  <p className="font-bold text-secondary">
+                    {CONSULTANCY.weeklyHours} hours for{" "}
+                    {formatGBP(CONSULTANCY.weeklyPrice)}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

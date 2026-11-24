@@ -28,37 +28,37 @@ import {
 import { Link } from "wouter";
 
 const audience = [
-  "Run ads, or plan to, but have no one in-house handling digital marketing",
-  "Rely on the owner to do marketing alongside everything else",
-  "Have a website and social accounts, but no clear plan connecting them",
-  "Want expert support without the cost of a full-time hire",
+  "Run ads, or plan to, but have no one in-house handling e-commerce marketing",
+  "Rely on the owner to do marketing alongside running the store",
+  "Have a Shopify store and social accounts, but no clear plan connecting them",
+  "Want expert e-commerce support without the cost of a full-time hire",
 ];
 
 const covered = [
   {
     icon: Route,
     title: "Customer journey analysis",
-    text: "How people find you, what stops them buying, and a clear plan to fix it.",
+    text: "How shoppers find your store, what stops them buying, and a clear plan to fix it.",
   },
   {
     icon: MonitorSmartphone,
-    title: "Website and landing pages",
-    text: "Reviewing key pages and recommending changes that turn more visitors into customers.",
+    title: "Shopify store and product pages",
+    text: "Reviewing your product, collection and checkout pages, and recommending changes that turn more visitors into customers.",
   },
   {
     icon: Mail,
     title: "Email marketing strategy",
-    text: "Welcome emails, abandoned basket reminders, repeat-purchase emails and a campaign calendar.",
+    text: "Welcome emails, abandoned basket reminders, repeat-purchase emails and a campaign calendar, in Shopify Email or Klaviyo.",
   },
   {
     icon: CalendarDays,
     title: "Seasonal campaigns",
-    text: "Planning around your key dates across ads, email and social.",
+    text: "Planning around Black Friday, Christmas and your other key dates across ads, email and social.",
   },
   {
     icon: Tags,
     title: "Offers and promotions",
-    text: "Discounts and bundles that drive sales without hurting your margins.",
+    text: "Shopify discounts, bundles and free-delivery thresholds that drive sales without hurting your margins.",
   },
   {
     icon: Share2,
@@ -68,17 +68,17 @@ const covered = [
   {
     icon: Activity,
     title: "Tracking and reporting",
-    text: "Making sure sales are measured correctly.",
+    text: "Making sure your Shopify sales are measured correctly in Google Analytics, Google Ads and Meta.",
   },
   {
     icon: LayoutDashboard,
     title: "Management dashboard",
-    text: "Your ads, website, email and sales data in one place, so you can see the whole picture at a glance.",
+    text: "Your ads, Shopify sales, website and email data in one place, so you can see the whole picture at a glance.",
   },
   {
     icon: Telescope,
     title: "Competitor research",
-    text: "What others in your market are doing, and where you can stand out.",
+    text: "What other online stores in your market are doing, and where you can stand out.",
   },
 ];
 
@@ -89,7 +89,7 @@ const plans = [
     rows: [
       ["Time", `${CONSULTANCY.weeklyHours} hours every week`],
       ["Effective rate", `${formatGBP(CONSULTANCY_EFFECTIVE_RATE)} per hour`],
-      ["Best for", "Businesses with no in-house marketing"],
+      ["Best for", "Shopify stores with no in-house marketing"],
     ],
     badge: `Save ${CONSULTANCY_SAVING}%`,
   },
@@ -107,7 +107,7 @@ const plans = [
 const steps = [
   {
     title: "Free strategy call",
-    text: "We talk about your business, your goals and where you are now.",
+    text: "We talk about your Shopify store, your goals and where you are now.",
   },
   {
     title: "Plan",
@@ -115,7 +115,7 @@ const steps = [
   },
   {
     title: "Weekly work",
-    text: "I work through the plan and keep you updated on progress.",
+    text: "I work through the plan across your store, email and campaigns, and keep you updated on progress.",
   },
   {
     title: "Monthly review",
@@ -136,15 +136,17 @@ export default function Consultancy() {
           />
           <div className="container max-w-4xl text-center space-y-7">
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 border border-secondary/10 text-sm font-bold text-secondary">
-              E-commerce marketing consultancy
+              E-commerce marketing consultancy for Shopify{" "}
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold text-secondary tracking-tight leading-tight">
-              Digital marketing support, without hiring a marketer
+              E-commerce marketing support for Shopify stores, without hiring a
+              marketer
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Ads bring people to your business. Everything else decides whether
-              they buy. I help you build the parts of digital marketing that
-              make your ads, and your whole business, work harder.
+              Ads bring shoppers to your Shopify store. Everything else decides
+              whether they buy. I help you build the parts of{" "}
+              <span className="whitespace-nowrap">e-commerce</span> marketing
+              that make your ads, and your whole store, work harder.
             </p>
             <p className="text-2xl font-extrabold text-secondary">
               {CONSULTANCY.weeklyHours} hours a week for{" "}
@@ -186,7 +188,7 @@ export default function Consultancy() {
                   align="left"
                   eyebrow="Who it's for"
                   title="Built for Shopify stores without a marketer"
-                  intro="This package is for businesses that:"
+                  intro="This package is for Shopify stores that:"
                 />
                 <ul className="space-y-4">
                   {audience.map(item => (
@@ -212,14 +214,14 @@ export default function Consultancy() {
                 </h2>
                 <div className="space-y-4 leading-relaxed text-blue-100">
                   <p>
-                    If your website doesn't build trust, if there's no email
+                    If your product pages don't build trust, if there's no email
                     follow-up, or if no one is tracking what works, part of
                     every pound you spend on ads is wasted.
                   </p>
                   <p>
                     Most Shopify stores I speak to don't have anyone responsible
-                    for digital marketing. The owner does it when there's time,
-                    and there rarely is. That's when results stall.
+                    for e-commerce marketing. The owner does it when there's
+                    time, and there rarely is. That's when results stall.
                   </p>
                   <p className="font-semibold text-white">
                     My ads fee is commission-only, so I only earn when your ads
@@ -238,7 +240,8 @@ export default function Consultancy() {
           <div className="container max-w-6xl">
             <SectionHeading
               eyebrow="What's covered"
-              title="Everything around your ads that decides whether people buy"
+              title="Everything around your ads that decides whether shoppers buy"
+              intro="E-commerce marketing for your Shopify store, beyond the ads."
             />
             <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {covered.map(({ icon: Icon, title, text }) => (
@@ -270,7 +273,7 @@ export default function Consultancy() {
             <SectionHeading
               eyebrow="Pricing"
               title="Weekly or hourly, your choice"
-              intro="Consultancy is charged separately from ads management, which stays commission-only."
+              intro="E-commerce consultancy for Shopify stores, charged separately from ads management, which stays commission-only."
             />
             <div className="grid gap-6 md:grid-cols-2">
               {plans.map(plan => (
@@ -339,10 +342,10 @@ export default function Consultancy() {
           </div>
         </section>
 
-        <Faq items={CONSULTANCY_FAQ} title="Consultancy questions" />
+        <Faq items={CONSULTANCY_FAQ} title="E-commerce consultancy questions" />
         <CtaBanner
-          title="Want expert marketing support without a full-time hire?"
-          text={`${CONSULTANCY.weeklyHours} hours a week for ${formatGBP(CONSULTANCY.weeklyPrice)}, or ${formatGBP(CONSULTANCY.hourlyRate)} per hour. Book a free strategy call and we'll work out what your business needs first.`}
+          title="Want expert e-commerce support for your Shopify store?"
+          text={`${CONSULTANCY.weeklyHours} hours a week for ${formatGBP(CONSULTANCY.weeklyPrice)}, or ${formatGBP(CONSULTANCY.hourlyRate)} per hour. Book a free strategy call and we'll work out what your store needs first.`}
         />
       </main>
       <Footer />

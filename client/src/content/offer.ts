@@ -145,7 +145,7 @@ export const PRICING_FAQ: FaqItem[] = [
   },
   {
     q: "Do I have to buy consultancy?",
-    a: "No. Ads management works on its own. I recommend consultancy when no one in your business is handling digital marketing, because ads perform best when your website, email and offers support them.",
+    a: "No. Ads management works on its own. I recommend consultancy when no one in your store is handling e-commerce marketing, because ads perform best when your product pages, email and offers support them.",
   },
   {
     q: "Do you take a cut of sales that didn't come from the ads?",
@@ -160,7 +160,7 @@ export const PRICING_FAQ: FaqItem[] = [
 export const CONSULTANCY_FAQ: FaqItem[] = [
   {
     q: "Do I need consultancy to use your ads management?",
-    a: "No. Ads management is commission-only and works on its own. I recommend consultancy when there's no one handling digital marketing in your business, because it makes the ads more effective.",
+    a: "No. Ads management is commission-only and works on its own. I recommend consultancy when there's no one handling e-commerce marketing in your Shopify store, because it makes the ads more effective.",
   },
   {
     q: "Is there a minimum contract?",
@@ -168,7 +168,7 @@ export const CONSULTANCY_FAQ: FaqItem[] = [
   },
   {
     q: "Can I switch between hourly and weekly?",
-    a: "Yes. Many businesses start hourly and move to the weekly package once they see the value.",
+    a: "Yes. Many Shopify stores start hourly and move to the weekly package once they see the value.",
   },
 ];
 

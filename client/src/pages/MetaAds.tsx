@@ -17,7 +17,7 @@ const config: ChannelConfig = {
     "Your ad budget goes straight to Meta",
   ],
   why: {
-    title: "Why Meta Ads works for Shopify stores",
+    title: "Why Meta Ads works for Shopify e-commerce stores",
     intro:
       "Meta Ads creates demand by showing your products to the right people before they start searching.",
     cards: [
@@ -39,9 +39,9 @@ const config: ChannelConfig = {
     ],
   },
   campaigns: {
-    title: "Meta Ads campaigns I manage",
+    title: "E-commerce Meta Ads campaigns I manage",
     intro:
-      "Every campaign is built around tracked sales, not reach or engagement for its own sake.",
+      "Every campaign is built around tracked Shopify sales, not reach or engagement for its own sake.",
     items: [
       {
         title: "Catalogue ads",
@@ -74,7 +74,7 @@ const config: ChannelConfig = {
     ],
   },
   optimise: {
-    title: "How I keep improving results",
+    title: "How I keep improving your e-commerce results",
     items: [
       "Testing new creatives before old ones wear out",
       "Moving budget to the products, audiences and ads that sell",
@@ -84,18 +84,18 @@ const config: ChannelConfig = {
     ],
   },
   proof: {
-    eyebrow: "Case study · Online fashion shop",
+    eyebrow: "E-commerce case study · Online fashion shop",
     title: "A seasonal Instagram campaign that sold",
     text: "For Aftabgardoon's winter collection I set up the targeting, wrote the ad copy and monitored performance in Ads Manager. The campaign lifted sales 15% compared with the previous year.",
     stat: "+15%",
     statLabel: "year-on-year sales",
   },
-  faqTitle: "Meta Ads questions",
+  faqTitle: "E-commerce Meta Ads questions",
   faq: META_ADS_FAQ,
-  cta: { title: "Want Facebook and Instagram to sell your products?" },
+  cta: { title: "Want Facebook and Instagram to sell your Shopify products?" },
   other: {
     href: "/google-ads-management/",
-    label: "Google Ads management",
+    label: "Google Ads for Shopify",
     text: "Put your products in front of people already searching on Google. Same free setup, same pay-on-results model.",
   },
 };

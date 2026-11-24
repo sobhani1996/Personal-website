@@ -17,7 +17,7 @@ const config: ChannelConfig = {
     "Your ad budget goes straight to Google",
   ],
   why: {
-    title: "Why Google Ads works for Shopify stores",
+    title: "Why Google Ads works for Shopify e-commerce stores",
     intro:
       "Google Ads reaches shoppers at the moment they are looking for products like yours.",
     cards: [
@@ -39,9 +39,9 @@ const config: ChannelConfig = {
     ],
   },
   campaigns: {
-    title: "Google Ads campaigns I manage",
+    title: "E-commerce Google Ads campaigns I manage",
     intro:
-      "I pick the campaign types that match your catalogue and budget, then build them properly.",
+      "I pick the campaign types that match your Shopify catalogue and budget, then build them properly.",
     items: [
       {
         title: "Shopping campaigns",
@@ -74,7 +74,7 @@ const config: ChannelConfig = {
     ],
   },
   optimise: {
-    title: "How I keep improving results",
+    title: "How I keep improving your e-commerce results",
     items: [
       "Reviewing search terms and blocking wasted clicks",
       "Bidding towards conversion value and return on ad spend",
@@ -84,18 +84,18 @@ const config: ChannelConfig = {
     ],
   },
   proof: {
-    eyebrow: "Case study · Mud Pies, UK online shop",
+    eyebrow: "E-commerce case study · Mud Pies, UK online shop",
     title: "Paid-channel sales doubled",
     text: "As Paid Media Specialist at Mud Pies since February 2026, I run their Google Ads alongside Meta Ads and Microsoft Ads (Bing). Sales from paid channels have doubled. Earlier, for online fashion shop Aftabgardoon, Google Ads and SEO work grew conversions by 500%.",
     stat: "2x",
     statLabel: "paid-channel sales",
   },
-  faqTitle: "Google Ads questions",
+  faqTitle: "E-commerce Google Ads questions",
   faq: GOOGLE_ADS_FAQ,
-  cta: { title: "Want more sales from Google Shopping and Search?" },
+  cta: { title: "Want more Shopify sales from Google Shopping and Search?" },
   other: {
     href: "/meta-ads-management/",
-    label: "Meta Ads management",
+    label: "Meta Ads for Shopify",
     text: "Find new customers on Facebook and Instagram and bring back shoppers who left items in their cart. Same free setup, same pay-on-results model.",
   },
 };

@@ -22,10 +22,10 @@ export default function ConsultancyTeaser({ className = "" }: Props) {
             eyebrow="Optional"
             title={
               <span id="consultancy-teaser-heading">
-                Digital marketing consultancy
+                E-commerce marketing consultancy for Shopify stores{" "}
               </span>
             }
-            intro="Ads management stays commission-only. If your business has no one handling digital marketing, I strongly recommend adding consultancy, so your website, email and campaigns support your ads."
+            intro="Ads management stays commission-only. If your Shopify store has no one handling e-commerce marketing, I strongly recommend adding consultancy, so your product pages, email and campaigns support your ads."
           />
           <ul className="mb-8 grid gap-4 sm:grid-cols-2">
             <li className="flex items-start gap-3 rounded-2xl bg-white p-5 text-secondary shadow-sm">

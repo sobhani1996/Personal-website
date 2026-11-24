@@ -14,7 +14,7 @@ const services = [
   "Google Ads (Shopping & Search)",
   "Meta Ads (Facebook & Instagram)",
   "Both",
-  "Digital marketing consultancy",
+  "E-commerce consultancy",
   "Not sure yet",
 ];
 const budgets = [

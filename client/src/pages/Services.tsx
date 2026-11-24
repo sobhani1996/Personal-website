@@ -140,7 +140,7 @@ export default function Services() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-secondary leading-tight">
-                  You've built a great store. <br />
+                  You've built a great Shopify store. <br />
                   <span className="bg-primary/70 px-2 rounded-lg box-decoration-clone">
                     Advertising shouldn't be a gamble.
                   </span>
@@ -188,8 +188,8 @@ export default function Services() {
 
         <ServicesOverview
           eyebrow="Two specialist services"
-          title="Google Ads and Meta Ads, managed end to end"
-          intro="Pick one channel or combine both. Either way, setup is free and my fee comes only from results."
+          title="E-commerce Google Ads and Meta Ads, managed end to end"
+          intro="Pick one channel or combine both for your Shopify store. Either way, setup is free and my fee comes only from results."
         />
 
         {/* Free setup contents */}
@@ -198,7 +198,7 @@ export default function Services() {
             <SectionHeading
               eyebrow="Included for free"
               title="What the free setup includes"
-              intro="Everything needed to launch campaigns that can be measured properly from day one."
+              intro="Everything your Shopify store needs to launch e-commerce campaigns that can be measured properly from day one."
             />
             <ul className="grid gap-4 sm:grid-cols-2">
               {included.map(item => (

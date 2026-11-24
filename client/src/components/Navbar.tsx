@@ -15,10 +15,10 @@ const navItems: NavItem[] = [
     href: "/services/",
     children: [
       { name: "All services", href: "/services/" },
-      { name: "Google Ads management", href: "/google-ads-management/" },
-      { name: "Meta Ads management", href: "/meta-ads-management/" },
+      { name: "Google Ads for Shopify", href: "/google-ads-management/" },
+      { name: "Meta Ads for Shopify", href: "/meta-ads-management/" },
       {
-        name: "Digital marketing consultancy",
+        name: "E-commerce consultancy",
         href: "/digital-marketing-consultancy/",
       },
     ],

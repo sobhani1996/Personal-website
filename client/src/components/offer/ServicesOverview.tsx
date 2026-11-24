@@ -8,8 +8,8 @@ const services = [
     href: "/google-ads-management/",
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
     logoAlt: "Google Ads logo",
-    title: "Google Ads Management",
-    text: "Put your products in front of shoppers searching on Google, with every sale tracked back from your Shopify checkout.",
+    title: "Google Ads for Shopify",
+    text: "E-commerce Google Ads that put your products in front of shoppers searching on Google, with every sale tracked back from your Shopify checkout.",
     points: [
       "Shopping and Performance Max campaigns",
       "Google Merchant Center product feed",
@@ -21,8 +21,8 @@ const services = [
     href: "/meta-ads-management/",
     logo: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128",
     logoAlt: "Meta logo",
-    title: "Meta Ads Management",
-    text: "Find new customers on Facebook and Instagram, and bring back shoppers who viewed products or left items in their cart.",
+    title: "Meta Ads for Shopify",
+    text: "E-commerce Meta Ads that find new customers on Facebook and Instagram, and bring back shoppers who viewed products or left items in their cart.",
     points: [
       "Catalogue (dynamic product) ads from your Shopify products",
       "Advantage+ and retargeting campaigns",

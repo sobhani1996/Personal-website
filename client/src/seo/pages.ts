@@ -86,18 +86,18 @@ export const PAGES: PageSeo[] = [
   },
   {
     path: "/digital-marketing-consultancy",
-    title: "Digital Marketing Consultancy for Shopify Stores | Mori Sobhani",
-    description: `E-commerce marketing support for Shopify stores without a full-time hire: ${CONSULTANCY.weeklyHours} hours a week for £${CONSULTANCY.weeklyPrice}, or £${CONSULTANCY.hourlyRate} per hour. Strategy, email, website and campaigns.`,
-    crumb: "Digital marketing consultancy",
+    title: "E-commerce Marketing Consultancy for Shopify | Mori Sobhani",
+    description: `E-commerce marketing consultancy for Shopify stores, without a full-time hire: ${CONSULTANCY.weeklyHours} hours a week for £${CONSULTANCY.weeklyPrice}, or £${CONSULTANCY.hourlyRate} per hour. Email, store pages, offers and tracking.`,
+    crumb: "E-commerce marketing consultancy",
     sitemap: { priority: "0.8", changefreq: "monthly" },
     extraNodes: url => [
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "Digital Marketing Consultancy for Shopify Stores",
-        serviceType: "Digital marketing consultancy",
+        name: "E-commerce Marketing Consultancy for Shopify Stores",
+        serviceType: "E-commerce marketing consultancy",
         description:
-          "Customer journey analysis, website and landing page reviews, email marketing, seasonal campaigns, offers, organic social, tracking, a management dashboard and competitor research for Shopify stores.",
+          "E-commerce marketing for Shopify stores: customer journey analysis, product page reviews, email marketing, seasonal campaigns, offers, organic social, tracking, a management dashboard and competitor research.",
         url,
         provider: { "@id": BUSINESS_ID },
         areaServed: { "@type": "Country", name: "United Kingdom" },
@@ -106,7 +106,7 @@ export const PAGES: PageSeo[] = [
           {
             "@type": "Offer",
             name: "Weekly package",
-            description: `${CONSULTANCY.weeklyHours} hours of digital marketing support every week`,
+            description: `${CONSULTANCY.weeklyHours} hours of e-commerce marketing support every week`,
             price: String(CONSULTANCY.weeklyPrice),
             priceCurrency: "GBP",
             priceSpecification: {
@@ -119,7 +119,7 @@ export const PAGES: PageSeo[] = [
           {
             "@type": "Offer",
             name: "Hourly",
-            description: "Digital marketing support as and when you need it",
+            description: "E-commerce marketing support as and when you need it",
             price: String(CONSULTANCY.hourlyRate),
             priceCurrency: "GBP",
             priceSpecification: {

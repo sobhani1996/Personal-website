@@ -13,6 +13,9 @@ export const COMMISSION_TIERS = [
   { revenue: "Over £30,000", rate: 3 },
 ];
 
+/** The ads profit calculator page. */
+export const CALCULATOR_HREF = "/roas-calculator/";
+
 /** Optional consultancy, charged separately from ads management. */
 export const CONSULTANCY = {
   href: "/digital-marketing-consultancy/",

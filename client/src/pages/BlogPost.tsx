@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Calculator,
   Calendar,
   CalendarCheck,
   Clock,
@@ -12,7 +13,7 @@ import {
 import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { blogPostsData } from "@/data/blogPosts";
-import { COMMISSION_RANGE } from "@/content/offer";
+import { CALCULATOR_HREF, COMMISSION_RANGE } from "@/content/offer";
 import { blogPostSeo, cleanPostHtml, relatedPosts } from "@/seo/blog";
 import { applyHead } from "@/seo/head";
 import { headForPage, NOT_FOUND_SEO } from "@/seo/pages";
@@ -204,9 +205,9 @@ export default function BlogPost() {
                     </h2>
                     <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
                       I set up Google Ads and Meta Ads for Shopify stores for
-                      free. After launch, my only fee is{" "}
-                      {COMMISSION_RANGE} of the conversion value they generate,
-                      so I only earn when your ads pay off.
+                      free. After launch, my only fee is {COMMISSION_RANGE} of
+                      the conversion value they generate, so I only earn when
+                      your ads pay off.
                     </p>
                     <Button
                       asChild
@@ -221,6 +222,15 @@ export default function BlogPost() {
                         />
                       </Link>
                     </Button>
+                    <div className="mt-6">
+                      <Link
+                        href={CALCULATOR_HREF}
+                        className="inline-flex items-center gap-2 font-bold text-primary underline-offset-4 hover:underline"
+                      >
+                        <Calculator className="h-5 w-5" aria-hidden="true" />
+                        Or work out your numbers in the profit calculator
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

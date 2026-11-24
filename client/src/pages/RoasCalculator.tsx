@@ -4,6 +4,7 @@ import AdsCalculator from "@/components/offer/AdsCalculator";
 import Faq from "@/components/offer/Faq";
 import SectionHeading from "@/components/offer/SectionHeading";
 import { CALCULATOR_FAQ } from "@/content/offer";
+import { Link } from "wouter";
 
 const steps = [
   {
@@ -94,6 +95,30 @@ export default function RoasCalculator() {
               paid on ad revenue, which is mostly first orders. Repeat orders
               come through email and organic, so they bring profit without extra
               commission.
+            </p>
+            <p className="mt-6 text-center text-muted-foreground">
+              Read the full{" "}
+              <Link
+                href="/pricing/"
+                className="font-semibold text-secondary underline"
+              >
+                pricing details
+              </Link>
+              , or see how I run{" "}
+              <Link
+                href="/google-ads-management/"
+                className="font-semibold text-secondary underline"
+              >
+                Google Ads
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/meta-ads-management/"
+                className="font-semibold text-secondary underline"
+              >
+                Meta Ads
+              </Link>{" "}
+              for Shopify stores.
             </p>
           </div>
         </section>

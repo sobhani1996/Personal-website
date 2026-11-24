@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
+  CALCULATOR_HREF,
   COMMISSION_RANGE,
   EXAMPLE,
   OFFER_AD_SPEND_NOTE,
@@ -98,6 +99,13 @@ export default function PricingModel({
             <p className="mt-3 text-sm text-blue-200">
               Illustration only. Your rate is agreed before launch.
             </p>
+            <Link
+              href={CALCULATOR_HREF}
+              className="mt-5 inline-flex items-center gap-2 font-bold text-primary underline-offset-4 hover:underline"
+            >
+              Try it with your own numbers
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
           <div className="rounded-3xl border border-primary/40 bg-primary/10 p-8">
             <p className="mb-2 text-sm font-bold uppercase tracking-wider text-secondary">

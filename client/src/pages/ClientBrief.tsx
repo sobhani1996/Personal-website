@@ -382,6 +382,18 @@ export default function ClientBrief() {
               {section.note}
             </p>
           )}
+          {section.link && (
+            <a
+              href={section.link.href}
+              target="_blank"
+              rel="noopener"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-secondary underline underline-offset-4"
+            >
+              {section.link.text}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          )}
           <div className="mt-8 grid gap-x-5 gap-y-7 sm:grid-cols-2">
             {section.fields.map(f =>
               f.kind === "choice" ? (

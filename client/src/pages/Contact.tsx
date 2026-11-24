@@ -2,11 +2,13 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
 import {
+  CALCULATOR_HREF,
   COMMISSION_RANGE,
   CONTACT,
   OFFER_AD_SPEND_NOTE,
 } from "@/content/offer";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Link } from "wouter";
 
 const callAgenda = [
   "Your Shopify store, products, typical customer and average order value",
@@ -73,6 +75,13 @@ export default function Contact() {
                   <p className="mt-6 text-sm text-blue-200">
                     {OFFER_AD_SPEND_NOTE}
                   </p>
+                  <Link
+                    href={CALCULATOR_HREF}
+                    className="mt-5 inline-flex items-center gap-2 font-bold text-primary underline-offset-4 hover:underline"
+                  >
+                    See your numbers before the call
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </div>
                 <div
                   className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"

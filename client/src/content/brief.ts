@@ -1,6 +1,10 @@
 // Questions for the client brief at /brief/. The form, the review step and
 // the email sent through Web3Forms are all built from this list.
-import { COMMISSION_RANGE, OFFER_AD_SPEND_NOTE } from "./offer";
+import {
+  CALCULATOR_HREF,
+  COMMISSION_RANGE,
+  OFFER_AD_SPEND_NOTE,
+} from "./offer";
 
 type Base = {
   id: string;
@@ -54,6 +58,8 @@ export type BriefSection = {
   title: string;
   intro: string;
   note?: string;
+  /** A helpful link shown under the step intro. */
+  link?: { href: string; text: string };
   fields: BriefField[];
 };
 
@@ -209,6 +215,10 @@ export const BRIEF_SECTIONS: BriefSection[] = [
     title: "Sales, budget and tracking",
     intro: `These help me set your fee rate (${COMMISSION_RANGE} of conversion value). Rough figures are fine and stay confidential.`,
     note: OFFER_AD_SPEND_NOTE,
+    link: {
+      href: CALCULATOR_HREF,
+      text: "Not sure what your numbers mean? Try the profit calculator",
+    },
     fields: [
       {
         kind: "text",

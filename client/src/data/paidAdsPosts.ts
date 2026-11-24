@@ -57,6 +57,7 @@ export const paidAdsPosts: BlogPost[] = [
 <h2>Step 5: Work out your break-even ROAS</h2>
 <p>Return on ad spend (ROAS) is the sales value your ads bring in divided by what they cost. A ROAS of 4 means £4 of sales for every £1 spent. Whether that is good depends entirely on your margins.</p>
 <p>Your <strong>break-even ROAS</strong> is 1 divided by your margin. If you keep 40% of each sale after product, shipping and payment costs, your break-even ROAS is 1 ÷ 0.40 = 2.5. Below that, every sale from the ads loses money; above it, the ads make a profit. Knowing this number tells you what target to set and when to scale.</p>
+<p>To include my commission and see your profit at different budgets, try the free <a href="/roas-calculator/">e-commerce ads profit calculator</a>.</p>
 
 <h2>Step 6: Set bidding and budget sensibly</h2>
 <p>Once purchases are tracked with values, start with <strong>Maximise conversion value</strong>. When a campaign has a steady flow of sales, add a <strong>target ROAS</strong> comfortably above your break-even figure.</p>
@@ -135,7 +136,7 @@ export const paidAdsPosts: BlogPost[] = [
 <p>Meta counts purchases using its own attribution rules, by default within 7 days of a click or 1 day of viewing an ad. Shopify will show different numbers, because each platform counts in its own way. Rather than chasing an exact match:</p>
 <ul>
 <li>check that Meta's purchase trend broadly agrees with Shopify;</li>
-<li>track <strong>return on ad spend</strong> against your break-even figure (1 divided by your margin);</li>
+<li>track <strong>return on ad spend</strong> against your break-even figure (1 divided by your margin, or use the <a href="/roas-calculator/">profit calculator</a>);</li>
 <li>watch your overall <strong>marketing efficiency</strong>: total store revenue divided by total ad spend across all channels.</li>
 </ul>
 
@@ -369,6 +370,7 @@ export const paidAdsPosts: BlogPost[] = [
 
 <h2>Check the numbers work for your margins</h2>
 <p>Before launch, it's worth knowing the return on ad spend (ROAS) you need to break even. Suppose you keep 40% of each sale after product, shipping and payment costs, and the agreed fee is 5%. That leaves 35% of each sale to cover the ad spend, so your break-even ROAS is 1 ÷ 0.35, or about 2.9: £2.90 of sales for every £1 spent on ads. Anything above that is profit, and it's the number we plan the campaigns around.</p>
+<p>You can try this with your own figures in the <a href="/roas-calculator/">e-commerce ads profit calculator</a>.</p>
 
 <h2>How the percentage is set</h2>
 <p>The rate depends on your store's current monthly online revenue, averaged over the three months before we start:</p>

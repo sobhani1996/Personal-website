@@ -1,0 +1,28 @@
+# Temporary: checks the HTTP status Google gets for the URLs in Search Console's 404 report. Delete after use.
+name: Live status check
+on:
+  push:
+    branches: [claude/website-github-hosting-4b4e4s]
+    paths: [.github/workflows/live-status-check.yml]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Status codes (first response, then after redirects)
+        run: |
+          for u in \
+            /blog/maximising-local-impact-hyper-targeted-ads \
+            /blog/importance-of-mobile-optimisation-for-local-search \
+            /blog/crisis-management-protecting-online-reputation \
+            /blog/how-to-optimize-google-business-profile \
+            /blog/role-ai-marketing-human-expert \
+            /cv \
+            /blog/how-to-use-analytics-to-improve-marketing-roi \
+            /blog/how-to-use-analytics-to-improve-marketing-roi/ \
+            /sitemap.xml \
+            /robots.txt \
+            /this-page-does-not-exist; do
+            first=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" -A "Mozilla/5.0 (compatible; Googlebot/2.1)" "https://mrsobhani.uk$u")
+            final=$(curl -s -L -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (compatible; Googlebot/2.1)" "https://mrsobhani.uk$u")
+            echo "$u -> first: $first | final: $final"
+          done
